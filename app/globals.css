@@ -201,8 +201,43 @@
   }
 
   .series-grid {
-    @apply grid gap-4;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    @apply grid gap-3 md:gap-4;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+
+  /* Vitrine produit — boîte centrée, fond radial premium */
+  .product-cover-stage {
+    @apply relative flex items-center justify-center overflow-hidden rounded-xl;
+    @apply border border-white/[0.05];
+    background: #0c0c14;
+  }
+
+  .product-cover-stage--gold {
+    background:
+      radial-gradient(ellipse 80% 70% at 50% 35%, rgba(201, 168, 76, 0.12) 0%, transparent 65%),
+      #0c0c14;
+  }
+
+  .product-cover-stage--chrome {
+    background:
+      radial-gradient(ellipse 80% 70% at 50% 35%, rgba(6, 182, 212, 0.1) 0%, transparent 65%),
+      #0c0c14;
+  }
+
+  .product-cover-stage__glow {
+    @apply absolute inset-0 opacity-0 transition-opacity duration-500 pointer-events-none;
+    background: linear-gradient(
+      105deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.04) 45%,
+      rgba(201, 168, 76, 0.08) 50%,
+      rgba(255, 255, 255, 0.04) 55%,
+      transparent 80%
+    );
+  }
+
+  .group:hover .product-cover-stage__glow {
+    @apply opacity-100;
   }
 
   .text-gradient-gold {

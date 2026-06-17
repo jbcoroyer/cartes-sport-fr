@@ -38,7 +38,7 @@ export default async function HomePage() {
           <h2 className="section-title mb-6">Choisis ta collection</h2>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
           {(products ?? []).map((product, i) => (
             <Reveal key={product.id} delay={0.08 + i * 0.05}>
               <ProductPoster product={product} />

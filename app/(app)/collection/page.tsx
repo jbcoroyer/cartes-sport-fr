@@ -30,6 +30,19 @@ export default async function CollectionPage() {
     .eq('user_id', user.id)
     .order('completion_pct', { ascending: false })
 
+  const { data: productCovers } = await supabase
+    .from('products')
+    .select('id, cover_image_url')
+
+  const coverByProduct = new Map(
+    (productCovers ?? []).map((p) => [p.id, p.cover_image_url])
+  )
+
+  const seriesWithCovers = (completion ?? []).map((s) => ({
+    ...s,
+    cover_image_url: s.product_id ? coverByProduct.get(s.product_id) ?? null : null,
+  }))
+
   const { data: owned } = await supabase
     .from('user_collections')
     .select(`
@@ -111,7 +124,7 @@ export default async function CollectionPage() {
 
             {(completion?.length ?? 0) > 0 && (
               <Section title="Mes séries">
-                <SeriesGrid series={completion ?? []} />
+                <SeriesGrid series={seriesWithCovers} />
               </Section>
             )}
 
