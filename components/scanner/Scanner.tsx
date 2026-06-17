@@ -118,7 +118,7 @@ export default function Scanner({ userId }: Props) {
               ))}
               <div className="absolute inset-x-4 top-0 h-0.5 bg-gold/70 animate-scan-line shadow-glow-sm" />
             </div>
-            <p className="absolute bottom-8 left-0 right-0 text-center text-xs text-white/50">
+            <p className="absolute bottom-8 left-0 right-0 text-center text-xs text-muted">
               Centre la carte dans le cadre
             </p>
           </>
@@ -126,10 +126,10 @@ export default function Scanner({ userId }: Props) {
 
         {state === 'idle' && !cameraActive && (
           <div className="flex flex-col items-center gap-4 text-center px-8">
-            <div className="w-20 h-20 rounded-full glass-panel flex items-center justify-center">
+            <div className="w-20 h-20 rounded-full bg-surface border-b border-border flex items-center justify-center">
               <Camera size={32} className="text-gold/60" />
             </div>
-            <p className="text-sm text-white/50 max-w-xs">
+            <p className="text-sm text-muted max-w-xs">
               Scanne une carte pour l&apos;identifier instantanément dans le catalogue
             </p>
           </div>
@@ -138,7 +138,7 @@ export default function Scanner({ userId }: Props) {
         {state === 'scanning' && (
           <div className="flex flex-col items-center gap-4">
             <Loader2 size={40} className="text-gold animate-spin" />
-            <p className="text-sm text-white/50">Identification en cours…</p>
+            <p className="text-sm text-muted">Identification en cours…</p>
           </div>
         )}
 
@@ -147,11 +147,11 @@ export default function Scanner({ userId }: Props) {
             <div className="w-14 h-14 rounded-full bg-owned/15 border border-owned/40 flex items-center justify-center mb-5">
               <Check size={28} className="text-owned" />
             </div>
-            <p className="text-2xs text-white/40 mb-2 uppercase tracking-wider">Carte identifiée</p>
+            <p className="text-2xs text-muted mb-2 uppercase tracking-wider">Carte identifiée</p>
             <h2 className="text-2xl font-bold text-center mb-1">
               {result.card.player_name}
             </h2>
-            <p className="text-sm text-white/45 mb-8">
+            <p className="text-sm text-muted mb-8">
               #{result.card.card_number}
             </p>
             <div className="flex flex-col gap-3 w-full max-w-xs">
@@ -163,7 +163,7 @@ export default function Scanner({ userId }: Props) {
               </button>
               <button
                 onClick={reset}
-                className="text-sm text-white/40 hover:text-white/60 transition-colors py-2"
+                className="text-sm text-muted hover:text-muted transition-colors py-2"
               >
                 Scanner une autre carte
               </button>
@@ -176,11 +176,11 @@ export default function Scanner({ userId }: Props) {
             <div className="w-14 h-14 rounded-full bg-missing/15 border border-missing/40 flex items-center justify-center mb-5">
               <HelpCircle size={28} className="text-missing" />
             </div>
-            <p className="text-sm text-white/55 text-center mb-2">
+            <p className="text-sm text-ink/55 text-center mb-2">
               Carte non reconnue
             </p>
             {result?.suggestion && (
-              <p className="text-xs text-white/30 mb-6">
+              <p className="text-xs text-muted/80 mb-6">
                 Texte détecté : «{result.suggestion}»
               </p>
             )}
@@ -193,7 +193,7 @@ export default function Scanner({ userId }: Props) {
               </button>
               <button
                 onClick={reset}
-                className="text-sm text-white/40 hover:text-white/60 py-2"
+                className="text-sm text-muted hover:text-muted py-2"
               >
                 Réessayer
               </button>
@@ -204,7 +204,7 @@ export default function Scanner({ userId }: Props) {
         {state === 'error' && (
           <div className="flex flex-col items-center gap-4 px-6 text-center">
             <AlertTriangle size={32} className="text-missing/70" />
-            <p className="text-sm text-white/50">
+            <p className="text-sm text-muted">
               Impossible d&apos;accéder à la caméra ou erreur de reconnaissance.
             </p>
             <button onClick={reset} className="text-sm text-gold hover:text-gold-light">
@@ -237,7 +237,7 @@ export default function Scanner({ userId }: Props) {
             </button>
             <button
               onClick={() => { stopCamera(); setState('idle') }}
-              className="text-sm text-white/40 hover:text-white/60 py-2"
+              className="text-sm text-muted hover:text-muted py-2"
             >
               Annuler
             </button>

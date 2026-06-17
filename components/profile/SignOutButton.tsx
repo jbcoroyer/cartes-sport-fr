@@ -15,7 +15,7 @@ export default function SignOutButton() {
         router.push('/catalogue')
         router.refresh()
       }}
-      className="text-sm text-white/40 hover:text-missing transition-colors"
+      className="text-sm text-muted hover:text-missing transition-colors"
     >
       Se déconnecter
     </button>

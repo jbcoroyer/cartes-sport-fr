@@ -32,7 +32,7 @@ export default function CollectionToggle({
   if (!isLoggedIn) {
     return (
       <div className="text-center">
-        <p className="text-sm text-white/50 mb-3">
+        <p className="text-sm text-muted mb-3">
           Connecte-toi pour gérer ta collection
         </p>
         <button
@@ -121,7 +121,7 @@ export default function CollectionToggle({
             className={`flex flex-col items-center gap-1.5 py-3 rounded-xl2 border transition-all duration-200
               ${status === s
                 ? `${activeClass} font-medium shadow-sm`
-                : 'bg-panel/40 border-border/60 text-white/40 hover:border-white/20 hover:text-white/60'
+                : 'bg-surface border-border text-muted hover:border-ink/15 hover:text-ink'
               }
               ${isPending ? 'opacity-50 cursor-not-allowed' : 'active:scale-95'}
             `}
@@ -138,13 +138,13 @@ export default function CollectionToggle({
 
       {status === 'owned' && (
         <div className="flex items-center justify-between bg-owned/5 border border-owned/20 rounded-xl2 px-4 py-3">
-          <span className="text-sm text-white/60">Exemplaires</span>
+          <span className="text-sm text-muted">Exemplaires</span>
           <div className="flex items-center gap-3">
             <button
               onClick={() => handleQuantity(-1)}
               disabled={quantity <= 1 || isPending}
               className="w-8 h-8 rounded-full bg-panel border border-border/80 flex items-center justify-center
-                         text-white/60 hover:text-white disabled:opacity-30 transition-colors"
+                         text-muted hover:text-ink disabled:opacity-30 transition-colors"
             >
               <Minus size={14} />
             </button>
@@ -153,7 +153,7 @@ export default function CollectionToggle({
               onClick={() => handleQuantity(1)}
               disabled={isPending}
               className="w-8 h-8 rounded-full bg-panel border border-border/80 flex items-center justify-center
-                         text-white/60 hover:text-white transition-colors"
+                         text-muted hover:text-ink transition-colors"
             >
               <Plus size={14} />
             </button>

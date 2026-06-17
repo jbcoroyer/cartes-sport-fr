@@ -51,14 +51,14 @@ export default function CircularProgress({
         />
         <defs>
           <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#9A7A2E" />
-            <stop offset="50%" stopColor="#E8C96A" />
-            <stop offset="100%" stopColor="#C9A84C" />
+            <stop offset="0%" stopColor="#7A5A30" />
+            <stop offset="50%" stopColor="#B8924F" />
+            <stop offset="100%" stopColor="#9A7340" />
           </linearGradient>
         </defs>
       </svg>
       {showLabel && (
-        <span className={`absolute text-xs font-bold text-gold ${labelClassName}`}>
+        <span className={`absolute text-xs font-semibold text-ink ${labelClassName}`}>
           {Math.round(clamped)}%
         </span>
       )}

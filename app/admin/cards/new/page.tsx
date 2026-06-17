@@ -30,7 +30,7 @@ export default async function NewCardPage() {
     <main className="min-h-screen pb-12">
       <header className="sticky top-0 z-40 bg-canvas/95 backdrop-blur-md border-b border-border px-4 pt-safe-top pb-3">
         <h1 className="text-lg font-semibold">Ajouter une carte manquante</h1>
-        <p className="text-xs text-white/40 mt-1">
+        <p className="text-xs text-muted mt-1">
           Pour les cartes absentes du catalogue (parallèles, variantes non répertoriées…)
         </p>
       </header>

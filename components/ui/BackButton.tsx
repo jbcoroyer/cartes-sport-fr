@@ -11,7 +11,7 @@ interface Props {
 export default function BackButton({ href, className = '' }: Props) {
   const baseClass = `flex items-center justify-center w-9 h-9 rounded-full
     bg-panel/80 backdrop-blur-sm border border-border/80
-    text-white/70 hover:text-white hover:border-gold/30 transition-all ${className}`
+    text-ink/70 hover:text-ink hover:border-gold/30 transition-all ${className}`
 
   if (href) {
     return (

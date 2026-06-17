@@ -104,7 +104,7 @@ export default function AlbumGrid({ cards }: Props) {
       </div>
 
       {filtered.length === 0 && (
-        <p className="text-center text-sm text-white/40 py-12">
+        <p className="text-center text-sm text-muted py-12">
           Aucune carte dans ce filtre
         </p>
       )}

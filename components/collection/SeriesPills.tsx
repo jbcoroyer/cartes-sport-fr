@@ -35,7 +35,7 @@ export default function SeriesPills({ series, activeProductId }: Props) {
             <span className="truncate max-w-[140px]">
               {shortName(s.product_name ?? 'Série')}
             </span>
-            <span className={`text-2xs ${isActive ? 'text-gold' : 'text-white/30'}`}>
+            <span className={`text-2xs ${isActive ? 'text-gold' : 'text-muted/80'}`}>
               {Math.round(s.completion_pct ?? 0)}%
             </span>
           </Link>

@@ -20,7 +20,7 @@ export default function CollectionEmpty({ displayName, avatarUrl }: Props) {
       </div>
 
       <h3 className="text-lg font-semibold mb-2">Ta collection t&apos;attend</h3>
-      <p className="text-sm text-white/45 mb-8 max-w-xs">
+      <p className="text-sm text-muted mb-8 max-w-xs">
         Salut {displayName} ! Scanne ta première carte ou parcours le catalogue pour commencer.
       </p>
 

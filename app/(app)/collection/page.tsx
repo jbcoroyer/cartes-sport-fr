@@ -99,15 +99,15 @@ export default async function CollectionPage() {
         {hasContent ? (
           <>
             <Reveal>
-              <div className="glass-panel rounded-xl3 p-6 bg-hero-radial">
-                <div className="flex items-center gap-5">
-                  <CircularProgress value={globalPct} size={80} strokeWidth={5} />
+              <div className="bg-surface border border-border rounded-2xl p-6 md:p-8">
+                <div className="flex items-center gap-6">
+                  <CircularProgress value={globalPct} size={80} strokeWidth={4} />
                   <div className="flex-1 min-w-0">
-                    <p className="text-2xs text-white/40 uppercase tracking-wider mb-1">Progression globale</p>
-                    <p className="text-2xl font-bold text-gradient-gold">
-                      {globalOwned} <span className="text-white/40 text-lg font-normal">/ {globalTotal}</span>
+                    <p className="text-2xs text-muted uppercase tracking-wider mb-2">Progression</p>
+                    <p className="text-3xl font-semibold tracking-tight text-ink">
+                      {globalOwned} <span className="text-muted text-xl font-normal">/ {globalTotal}</span>
                     </p>
-                    <p className="text-xs text-white/40 mt-1">cartes dans toutes tes séries</p>
+                    <p className="text-sm text-muted mt-1">cartes au total</p>
                   </div>
                 </div>
               </div>

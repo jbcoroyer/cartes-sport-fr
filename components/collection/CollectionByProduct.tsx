@@ -42,7 +42,7 @@ export default function CollectionByProduct({ items }: Props) {
       {Object.entries(byProduct).map(([productId, { name, cards }], sectionIdx) => (
         <Reveal key={productId} delay={sectionIdx * 0.08}>
           <div className="flex items-center justify-between mb-3">
-            <p className="text-xs text-white/50 font-medium truncate">{name}</p>
+            <p className="text-xs text-muted font-medium truncate">{name}</p>
             <Link
               href={`/collection/${productId}`}
               className="text-2xs text-gold/70 hover:text-gold transition-colors shrink-0 ml-2"

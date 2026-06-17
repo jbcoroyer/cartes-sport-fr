@@ -33,7 +33,7 @@ export default function SeriesGrid({ series }: Props) {
           <Reveal key={s.product_id} delay={i * 0.05}>
             <Link
               href={`/collection/${s.product_id}`}
-              className="group glass-panel rounded-xl2 p-3.5 flex gap-3.5 transition-all duration-300 hover:border-gold/25 hover:shadow-glow-sm"
+              className="group bg-surface border border-border rounded-2xl p-4 flex gap-4 transition-all duration-300 hover:border-ink/15 hover:shadow-card"
             >
               <ProductCoverStage
                 src={s.cover_image_url ?? null}
@@ -46,10 +46,10 @@ export default function SeriesGrid({ series }: Props) {
               <div className="flex-1 min-w-0 flex flex-col justify-between">
                 <div className="flex items-start justify-between gap-2">
                   <div className="min-w-0">
-                    <p className="text-sm font-semibold leading-tight line-clamp-2 group-hover:text-gold transition-colors">
+                    <p className="text-sm font-medium leading-tight line-clamp-2 text-ink">
                       {productDisplayName(name)}
                     </p>
-                    <p className="text-2xs text-white/40 mt-1">
+                    <p className="text-2xs text-muted mt-1">
                       {s.owned_count ?? 0} / {s.total_cards ?? 0} cartes
                     </p>
                   </div>
@@ -58,7 +58,7 @@ export default function SeriesGrid({ series }: Props) {
 
                 <div className="h-1 bg-panel rounded-full overflow-hidden mt-2.5">
                   <div
-                    className="h-full bg-gold-gradient rounded-full transition-all duration-700"
+                    className="h-full bg-ink rounded-full transition-all duration-700"
                     style={{ width: `${s.completion_pct ?? 0}%` }}
                   />
                 </div>
@@ -71,7 +71,7 @@ export default function SeriesGrid({ series }: Props) {
                   ) : (
                     <span className="text-2xs text-owned/80">Complète !</span>
                   )}
-                  <ChevronRight size={14} className="text-white/25 group-hover:text-gold transition-colors" />
+                  <ChevronRight size={14} className="text-muted/50 group-hover:text-ink transition-colors" />
                 </div>
               </div>
             </Link>

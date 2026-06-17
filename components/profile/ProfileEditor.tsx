@@ -61,12 +61,12 @@ export default function ProfileEditor({ profile, email }: Props) {
         </div>
         <div className="min-w-0">
           <p className="text-sm font-medium truncate">{username || 'Sans pseudo'}</p>
-          <p className="text-xs text-white/40 truncate">{email}</p>
+          <p className="text-xs text-muted truncate">{email}</p>
         </div>
       </div>
 
       <div>
-        <label className="block text-xs text-white/40 mb-1.5">Pseudo (affiché sur ta collection)</label>
+        <label className="block text-xs text-muted mb-1.5">Pseudo (affiché sur ta collection)</label>
         <input
           type="text"
           value={username}

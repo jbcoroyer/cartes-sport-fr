@@ -4,6 +4,8 @@ import { Check, TrendingDown, TrendingUp, Minus } from 'lucide-react'
 import type { CardWithDetails } from '@/lib/types/database'
 import PremiumCard from './PremiumCard'
 import RarityBadge from './RarityBadge'
+import CardMonogramArt from './CardMonogramArt'
+import { hasRealCardImage } from '@/lib/cardVisual'
 
 interface Props {
   card: CardWithDetails
@@ -21,7 +23,7 @@ function TrendIcon({ trend }: { trend: string | null }) {
   if (!trend) return null
   if (trend === 'up') return <TrendingUp size={10} className="text-owned" />
   if (trend === 'down') return <TrendingDown size={10} className="text-missing" />
-  return <Minus size={10} className="text-white/30" />
+  return <Minus size={10} className="text-muted/80" />
 }
 
 export default function CardItem({ card, compact = false, showPrice = true }: Props) {
@@ -40,18 +42,20 @@ export default function CardItem({ card, compact = false, showPrice = true }: Pr
         glowIntensity={compact ? 'low' : 'medium'}
       >
         <div className="relative aspect-[3/4] bg-panel/80 overflow-hidden">
-          {card.image_url ? (
+          {hasRealCardImage(card.image_url, card.id) ? (
             <Image
-              src={card.image_url}
+              src={card.image_url!}
               alt={card.player_name}
               fill
               sizes={compact ? '100px' : '(max-width: 640px) 45vw, 180px'}
               className="object-contain p-2"
             />
           ) : (
-            <div className="absolute inset-0 flex items-center justify-center text-white/10 text-3xl">
-              🃏
-            </div>
+            <CardMonogramArt
+              playerName={card.player_name}
+              rarityColorHex={rarity?.color_hex}
+              size={compact ? 'sm' : 'md'}
+            />
           )}
 
           {rarity && (
@@ -67,7 +71,7 @@ export default function CardItem({ card, compact = false, showPrice = true }: Pr
           )}
 
           {card.print_run && (
-            <div className="absolute bottom-2 left-2 text-[9px] text-cyan-400 font-mono bg-canvas/80 backdrop-blur-sm px-1.5 py-0.5 rounded">
+            <div className="absolute bottom-2 left-2 text-[9px] text-muted font-mono bg-surface/90 border border-border px-1.5 py-0.5 rounded">
               /{card.print_run}
             </div>
           )}
@@ -78,7 +82,7 @@ export default function CardItem({ card, compact = false, showPrice = true }: Pr
             <p className="text-xs font-semibold leading-tight truncate">
               {card.player_name}
             </p>
-            <p className="text-2xs text-white/40 truncate">
+            <p className="text-2xs text-muted truncate">
               {team?.short_name ?? team?.name ?? '—'}
             </p>
 

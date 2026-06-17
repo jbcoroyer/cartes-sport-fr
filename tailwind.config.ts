@@ -8,40 +8,44 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        canvas:  '#08080E',
-        surface: '#12121C',
-        panel:   '#1A1A28',
-        border:  '#252535',
+        canvas:  '#F7F6F3',
+        surface: '#FFFFFF',
+        panel:   '#F0EFEB',
+        border:  '#E4E3DE',
+        ink:     '#111110',
+        muted:   '#6E6E68',
 
         gold: {
-          DEFAULT: '#C9A84C',
-          light:   '#E8C96A',
-          dark:    '#9A7A2E',
-          muted:   '#3D3018',
+          DEFAULT: '#9A7340',
+          light:   '#B8924F',
+          dark:    '#7A5A30',
+          muted:   '#F3EDE3',
         },
 
-        owned:   '#22C55E',
-        missing: '#EF4444',
-        wanted:  '#3B82F6',
+        owned:   '#15803D',
+        missing: '#DC2626',
+        wanted:  '#2563EB',
 
         rarity: {
           base:      '#6B7280',
-          crack:     '#A855F7',
-          megacrack: '#EC4899',
-          invincible:'#F59E0B',
-          momentum:  '#06B6D4',
-          gold:      '#C9A84C',
-          superfractor: '#ffffff',
+          crack:     '#9333EA',
+          megacrack: '#DB2777',
+          invincible:'#D97706',
+          momentum:  '#0891B2',
+          gold:      '#9A7340',
+          superfractor: '#111110',
         },
       },
 
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
-        mono: ['var(--font-geist-mono)', 'monospace'],
+        mono: ['var(--font-geist-mono)', 'ui-monospace', 'monospace'],
       },
 
       fontSize: {
-        '2xs': ['0.625rem', { lineHeight: '0.875rem' }],
+        '2xs': ['0.6875rem', { lineHeight: '1rem' }],
+        'display': ['3.5rem', { lineHeight: '1.05', letterSpacing: '-0.03em' }],
+        'display-sm': ['2.5rem', { lineHeight: '1.1', letterSpacing: '-0.025em' }],
       },
 
       spacing: {
@@ -50,30 +54,30 @@ const config: Config = {
       },
 
       backgroundImage: {
-        'card-shine': 'linear-gradient(135deg, transparent 0%, rgba(201,168,76,0.08) 50%, transparent 100%)',
-        'gold-gradient': 'linear-gradient(135deg, #9A7A2E 0%, #E8C96A 50%, #9A7A2E 100%)',
-        'gold-gradient-soft': 'linear-gradient(135deg, rgba(154,122,46,0.15) 0%, rgba(232,201,106,0.08) 50%, rgba(154,122,46,0.15) 100%)',
-        'holo-sweep': 'linear-gradient(105deg, transparent 20%, rgba(255,255,255,0.12) 45%, rgba(201,168,76,0.2) 50%, rgba(255,255,255,0.12) 55%, transparent 80%)',
-        'glass-border': 'linear-gradient(135deg, rgba(201,168,76,0.3) 0%, rgba(255,255,255,0.05) 50%, rgba(201,168,76,0.15) 100%)',
-        'hero-radial': 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,0.12) 0%, transparent 70%)',
+        'card-shine': 'linear-gradient(135deg, transparent 0%, rgba(154,115,64,0.06) 50%, transparent 100%)',
+        'gold-gradient': 'linear-gradient(135deg, #7A5A30 0%, #B8924F 50%, #7A5A30 100%)',
+        'gold-gradient-soft': 'linear-gradient(135deg, rgba(154,115,64,0.08) 0%, rgba(184,146,79,0.04) 50%, rgba(154,115,64,0.08) 100%)',
+        'holo-sweep': 'linear-gradient(105deg, transparent 20%, rgba(255,255,255,0.5) 45%, rgba(184,146,79,0.12) 50%, rgba(255,255,255,0.5) 55%, transparent 80%)',
+        'hero-radial': 'radial-gradient(ellipse 70% 50% at 50% 0%, rgba(154,115,64,0.06) 0%, transparent 70%)',
       },
 
       borderRadius: {
-        card: '12px',
+        card: '16px',
         xl2: '1.25rem',
-        xl3: '1.5rem',
+        xl3: '1.75rem',
       },
 
       boxShadow: {
-        card:      '0 2px 8px rgba(0,0,0,0.4)',
-        'card-hover': '0 8px 24px rgba(0,0,0,0.6), 0 0 0 1px rgba(201,168,76,0.2)',
-        glow:      '0 0 20px rgba(201,168,76,0.3)',
-        'glow-sm': '0 0 12px rgba(201,168,76,0.2)',
-        'glow-owned': '0 0 16px rgba(34,197,94,0.25)',
-        'glow-missing': '0 0 16px rgba(239,68,68,0.2)',
-        'glow-wanted': '0 0 16px rgba(59,130,246,0.25)',
-        'inner-glow': 'inset 0 1px 0 rgba(255,255,255,0.06)',
-        'premium': '0 4px 24px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04), inset 0 1px 0 rgba(255,255,255,0.05)',
+        card:      '0 1px 3px rgba(17,17,16,0.04), 0 4px 16px rgba(17,17,16,0.06)',
+        'card-hover': '0 4px 24px rgba(17,17,16,0.1), 0 0 0 1px rgba(17,17,16,0.04)',
+        glow:      '0 0 24px rgba(154,115,64,0.15)',
+        'glow-sm': '0 0 12px rgba(154,115,64,0.1)',
+        'glow-owned': '0 0 12px rgba(21,128,61,0.12)',
+        'glow-missing': '0 0 12px rgba(220,38,38,0.1)',
+        'glow-wanted': '0 0 12px rgba(37,99,235,0.1)',
+        'inner-glow': 'inset 0 1px 0 rgba(255,255,255,0.8)',
+        premium: '0 2px 8px rgba(17,17,16,0.04), 0 8px 32px rgba(17,17,16,0.06)',
+        soft: '0 1px 2px rgba(17,17,16,0.04)',
       },
 
       animation: {

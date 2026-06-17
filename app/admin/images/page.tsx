@@ -69,7 +69,7 @@ export default async function AdminImagesPage({ searchParams }: Props) {
             ＋ Carte manquante
           </a>
         </div>
-        <p className="text-xs text-white/40">
+        <p className="text-xs text-muted">
           {withImage ?? 0} / {totalCards ?? 0} cartes avec image
         </p>
 
@@ -93,7 +93,7 @@ export default async function AdminImagesPage({ searchParams }: Props) {
 
       <section className="px-4 pt-4">
         {(cards?.length ?? 0) === 0 ? (
-          <div className="text-center py-16 text-white/40 text-sm">
+          <div className="text-center py-16 text-muted text-sm">
             🎉 Toutes les cartes de ce filtre ont une image.
           </div>
         ) : (

@@ -100,27 +100,25 @@ export default async function AlbumPage({ params }: Props) {
   const totalCards = completion?.total_cards ?? product.total_cards ?? albumCards.length
 
   return (
-    <main className="min-h-screen">
-      <div className="relative">
-        <div className="absolute inset-0 bg-hero-radial pointer-events-none" />
-        <header className="sticky top-16 z-40 glass-panel border-b border-border/60">
-          <div className="page-container pb-5 pt-4">
-            <div className="flex items-start gap-3 mb-4">
+    <main className="min-h-screen bg-canvas">
+        <header className="sticky top-14 md:top-16 z-40 bg-canvas border-b border-border">
+          <div className="page-container py-6">
+            <div className="flex items-start gap-4 mb-5">
               <BackButton href="/collection" />
               <div className="flex-1 min-w-0">
-                <p className="text-2xs text-white/40 uppercase tracking-wider">{product.season}</p>
-                <h1 className="text-lg font-semibold leading-tight truncate">{product.name}</h1>
+                <p className="text-2xs text-muted uppercase tracking-wider">{product.season}</p>
+                <h1 className="text-xl md:text-2xl font-semibold leading-tight tracking-tight truncate mt-1">{product.name}</h1>
               </div>
               <CircularProgress value={pct} size={56} strokeWidth={3} />
             </div>
 
-            <div className="flex items-center gap-4 text-xs text-white/45 mb-4">
+            <div className="flex items-center gap-4 text-sm text-muted mb-5">
               <span>
-                <span className="text-gold font-semibold">{ownedCount}</span> / {totalCards} cartes
+                <span className="text-ink font-medium">{ownedCount}</span> / {totalCards} cartes
               </span>
               {ownedValue > 0 && (
                 <span>
-                  Valeur : <span className="text-gold font-semibold">{ownedValue.toFixed(0)} €</span>
+                  Valeur : <span className="text-ink font-medium">{ownedValue.toFixed(0)} €</span>
                 </span>
               )}
               {(completion?.missing_count ?? 0) > 0 && (
@@ -131,7 +129,6 @@ export default async function AlbumPage({ params }: Props) {
             <SeriesPills series={allSeries ?? []} activeProductId={productId} />
           </div>
         </header>
-      </div>
 
       <div className="page-container pt-8 md:pt-10 pb-10">
         <Reveal>

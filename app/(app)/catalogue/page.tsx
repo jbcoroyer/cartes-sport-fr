@@ -97,10 +97,10 @@ export default async function CataloguePage({ searchParams }: Props) {
   return (
     <main className="min-h-screen">
       <PageHeader
-        title={<>Cartes Sport <span className="text-gold">FR</span></>}
-        subtitle="Catalogue & cotes de marché"
+        title="Catalogue"
+        subtitle="Cotes de marché"
         right={
-          <span className="text-2xs text-white/35 font-medium bg-panel/50 px-3 py-1.5 rounded-full border border-border/60">
+          <span className="text-sm text-muted font-medium">
             {countLabel}
           </span>
         }

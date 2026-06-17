@@ -19,19 +19,19 @@ export default function PageHeader({
 }: Props) {
   return (
     <header
-      className={`${sticky ? 'sticky top-16 z-40' : ''} glass-panel border-b border-border/60 ${className}`}
+      className={`${sticky ? 'sticky top-14 md:top-16 z-40' : ''} bg-canvas border-b border-border ${className}`}
     >
-      <div className="page-container pb-4 pt-4">
-        <div className="flex items-center justify-between gap-4 mb-1">
+      <div className="page-container py-8 md:py-10">
+        <div className="flex items-start justify-between gap-6">
           <div className="min-w-0">
-            <h1 className="text-2xl md:text-3xl font-bold tracking-tight truncate">{title}</h1>
+            <h1 className="text-display-sm md:text-display font-semibold tracking-tight">{title}</h1>
             {subtitle && (
-              <p className="text-sm text-white/50 mt-1 truncate">{subtitle}</p>
+              <p className="text-sm md:text-base text-muted mt-2 max-w-xl">{subtitle}</p>
             )}
           </div>
-          {right && <div className="shrink-0">{right}</div>}
+          {right && <div className="shrink-0 pt-1">{right}</div>}
         </div>
-        {children}
+        {children && <div className="mt-6">{children}</div>}
       </div>
     </header>
   )

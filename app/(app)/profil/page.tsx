@@ -38,7 +38,7 @@ export default async function ProfilePage() {
 
       <div className="page-container pt-8 md:pt-10 pb-10 space-y-8">
         <Reveal>
-          <section className="glass-panel rounded-xl2 p-5">
+          <section className="bg-surface border-b border-border rounded-xl2 p-5">
             <ProfileEditor profile={profile} email={user.email ?? ''} />
           </section>
         </Reveal>
@@ -46,7 +46,7 @@ export default async function ProfilePage() {
         <Reveal delay={0.1}>
           <Link
             href="/collection"
-            className="glass-panel rounded-xl2 p-5 block group transition-all hover:border-gold/25"
+            className="bg-surface border-b border-border rounded-xl2 p-5 block group transition-all hover:border-gold/25"
           >
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
@@ -57,11 +57,11 @@ export default async function ProfilePage() {
                   <h2 className="text-sm font-semibold">Ma collection</h2>
                   <p className="text-2xl font-bold text-gold mt-0.5">
                     <AnimatedCounter value={ownedCount ?? 0} />
-                    <span className="text-sm font-normal text-white/40 ml-1">cartes</span>
+                    <span className="text-sm font-normal text-muted ml-1">cartes</span>
                   </p>
                 </div>
               </div>
-              <ChevronRight size={18} className="text-white/25 group-hover:text-gold transition-colors" />
+              <ChevronRight size={18} className="text-muted/70 group-hover:text-gold transition-colors" />
             </div>
           </Link>
         </Reveal>

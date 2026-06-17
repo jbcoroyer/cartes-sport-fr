@@ -87,7 +87,7 @@ export default function ImageUploader({ cards }: Props) {
                   className="object-contain p-2"
                 />
               ) : (
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-1 text-white/30">
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-1 text-muted/80">
                   <span className="text-2xl">＋</span>
                   <span className="text-[10px]">Ajouter une image</span>
                 </div>
@@ -100,7 +100,7 @@ export default function ImageUploader({ cards }: Props) {
               )}
               {state === 'done' && (
                 <div className="absolute top-1.5 right-1.5 w-5 h-5 rounded-full bg-owned flex items-center justify-center">
-                  <span className="text-[10px] text-white">✓</span>
+                  <span className="text-[10px] text-ink">✓</span>
                 </div>
               )}
               {state === 'error' && (
@@ -125,7 +125,7 @@ export default function ImageUploader({ cards }: Props) {
               <p className="text-[11px] font-medium leading-tight truncate">
                 #{card.card_number} · {card.player_name}
               </p>
-              <p className="text-[10px] text-white/40 truncate">
+              <p className="text-[10px] text-muted truncate">
                 {card.teams?.short_name ?? card.teams?.name ?? '—'}
                 {card.rarities?.name && card.rarities.name !== 'Base' && (
                   <span className="text-gold ml-1">{card.rarities.name}</span>
@@ -138,7 +138,7 @@ export default function ImageUploader({ cards }: Props) {
 
       <button
         onClick={() => router.refresh()}
-        className="col-span-full mt-4 py-3 rounded-xl border border-border text-sm text-white/60
+        className="col-span-full mt-4 py-3 rounded-xl border border-border text-sm text-muted
                    hover:border-gold/50 transition-colors"
       >
         Rafraîchir la liste

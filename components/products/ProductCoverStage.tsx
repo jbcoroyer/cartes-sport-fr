@@ -41,7 +41,7 @@ export default function ProductCoverStage({
           alt={alt}
           width={size === 'sm' ? 80 : 120}
           height={size === 'sm' ? 100 : 140}
-          className={`relative z-10 ${imgMax} w-auto object-contain mix-blend-lighten drop-shadow-[0_8px_24px_rgba(0,0,0,0.55)] transition-transform duration-500 group-hover:scale-[1.04] group-hover:-translate-y-0.5`}
+          className={`relative z-10 ${imgMax} w-auto object-contain drop-shadow-sm transition-transform duration-500 group-hover:scale-[1.03]`}
           sizes={size === 'sm' ? '80px' : '120px'}
         />
       ) : (

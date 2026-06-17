@@ -61,12 +61,11 @@ function LoginForm() {
       transition={{ duration: 0.5 }}
     >
       <div className="text-center">
-        <p className="text-2xs text-gold/60 uppercase tracking-[0.15em] mb-3">Bienvenue</p>
-        <h1 className="text-3xl font-bold tracking-tight">
-          Cartes Sport <span className="text-gradient-gold">FR</span>
+        <h1 className="text-display-sm font-semibold tracking-tight">
+          Connexion
         </h1>
-        <p className="text-sm text-white/40 mt-2">
-          Connecte-toi pour gérer ta collection
+        <p className="text-base text-muted mt-3">
+          Gère ta collection
         </p>
       </div>
 
@@ -85,13 +84,13 @@ function LoginForm() {
 
       <div className="flex items-center gap-3">
         <div className="flex-1 h-px bg-border/60" />
-        <span className="text-2xs text-white/25">ou</span>
+        <span className="text-2xs text-muted/70">ou</span>
         <div className="flex-1 h-px bg-border/60" />
       </div>
 
       {sent ? (
-        <p className="text-sm text-owned text-center glass-panel rounded-xl2 p-4">
-          Lien envoyé à <span className="text-white font-medium">{email}</span>.
+        <p className="text-sm text-owned text-center bg-surface border-b border-border rounded-xl2 p-4">
+          Lien envoyé à <span className="text-ink font-medium">{email}</span>.
           Vérifie ta boîte mail.
         </p>
       ) : (
@@ -119,7 +118,7 @@ function LoginForm() {
       )}
 
       <p className="text-center">
-        <Link href="/catalogue" className="text-2xs text-white/30 hover:text-white/50 transition-colors">
+        <Link href="/catalogue" className="text-2xs text-muted/80 hover:text-muted transition-colors">
           Explorer sans compte →
         </Link>
       </p>
@@ -130,7 +129,7 @@ function LoginForm() {
 export default function LoginPage() {
   return (
     <main className="min-h-screen flex items-center justify-center bg-canvas px-6 relative overflow-hidden">
-      <div className="absolute inset-0 bg-hero-radial pointer-events-none" />
+      <div className="absolute inset-0  pointer-events-none" />
       <Suspense fallback={null}>
         <LoginForm />
       </Suspense>

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   manifest: '/manifest.json',
   appleWebApp: {
     capable: true,
-    statusBarStyle: 'black-translucent',
+    statusBarStyle: 'default',
     title: 'CartesSport',
   },
   formatDetection: { telephone: false },
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#08080E',
+  themeColor: '#F7F6F3',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 1,
@@ -47,7 +47,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/icons/icon-192.png" />
         <meta name="mobile-web-app-capable" content="yes" />
       </head>
-      <body className="bg-canvas text-white antialiased">
+      <body className="bg-canvas text-ink antialiased text-[15px] md:text-base">
         {children}
         <script
           dangerouslySetInnerHTML={{

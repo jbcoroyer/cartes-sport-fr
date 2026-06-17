@@ -11,6 +11,7 @@ interface Props {
   className?: string
   enableTilt?: boolean
   glowIntensity?: 'low' | 'medium' | 'high'
+  relief?: boolean
 }
 
 export default function PremiumCard({
@@ -20,6 +21,7 @@ export default function PremiumCard({
   className = '',
   enableTilt = true,
   glowIntensity = 'medium',
+  relief = false,
 }: Props) {
   const ref = useRef<HTMLDivElement>(null)
   const [isHovered, setIsHovered] = useState(false)
@@ -27,11 +29,11 @@ export default function PremiumCard({
   const x = useMotionValue(0)
   const y = useMotionValue(0)
 
-  const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [8, -8]), { stiffness: 300, damping: 30 })
-  const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-8, 8]), { stiffness: 300, damping: 30 })
+  const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [6, -6]), { stiffness: 300, damping: 30 })
+  const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-6, 6]), { stiffness: 300, damping: 30 })
 
   const rarityStyle = rarityName ? getRarityStyle(rarityName, rarityColorHex) : null
-  const glowOpacity = glowIntensity === 'low' ? 0.15 : glowIntensity === 'high' ? 0.45 : 0.3
+  const glowOpacity = glowIntensity === 'low' ? 0.08 : glowIntensity === 'high' ? 0.2 : 0.12
 
   const handleMouseMove = (e: MouseEvent) => {
     if (!enableTilt || !ref.current) return
@@ -56,9 +58,15 @@ export default function PremiumCard({
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
-      whileTap={enableTilt ? { scale: 0.97 } : undefined}
+      whileTap={enableTilt ? { scale: 0.98 } : undefined}
     >
-      {/* Rarity glow */}
+      {relief && (
+        <div
+          className="absolute inset-0 rounded-card -z-10 pointer-events-none bg-ink/5"
+          style={{ transform: 'translate(3px, 4px)' }}
+        />
+      )}
+
       {rarityStyle && isHovered && (
         <div
           className="absolute -inset-1 rounded-card blur-xl transition-opacity duration-300 pointer-events-none"
@@ -67,16 +75,12 @@ export default function PremiumCard({
       )}
 
       <div className="card-premium relative overflow-hidden">
-        {/* Holo sweep */}
         <div className="holo-overlay motion-reduce:opacity-0" />
-
-        {/* Gold shine on hover */}
         <div
           className={`absolute inset-0 bg-card-shine pointer-events-none transition-opacity duration-300 ${
             isHovered ? 'opacity-100' : 'opacity-0'
           }`}
         />
-
         {children}
       </div>
     </motion.div>

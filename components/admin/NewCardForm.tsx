@@ -95,7 +95,7 @@ export default function NewCardForm({ products, teams, rarities }: Props) {
   return (
     <form onSubmit={handleSubmit} className="space-y-4 max-w-md">
       <div>
-        <label className="block text-xs text-white/40 mb-1.5">Produit / Saison</label>
+        <label className="block text-xs text-muted mb-1.5">Produit / Saison</label>
         <select
           required
           value={productId}
@@ -110,7 +110,7 @@ export default function NewCardForm({ products, teams, rarities }: Props) {
       </div>
 
       <div>
-        <label className="block text-xs text-white/40 mb-1.5">Numéro de carte</label>
+        <label className="block text-xs text-muted mb-1.5">Numéro de carte</label>
         <input
           required
           type="text"
@@ -122,7 +122,7 @@ export default function NewCardForm({ products, teams, rarities }: Props) {
       </div>
 
       <div>
-        <label className="block text-xs text-white/40 mb-1.5">Nom du joueur</label>
+        <label className="block text-xs text-muted mb-1.5">Nom du joueur</label>
         <input
           required
           type="text"
@@ -134,7 +134,7 @@ export default function NewCardForm({ products, teams, rarities }: Props) {
       </div>
 
       <div>
-        <label className="block text-xs text-white/40 mb-1.5">Club</label>
+        <label className="block text-xs text-muted mb-1.5">Club</label>
         <input
           required
           type="text"
@@ -150,10 +150,10 @@ export default function NewCardForm({ products, teams, rarities }: Props) {
       </div>
 
       <div>
-        <label className="block text-xs text-white/40 mb-1.5">
+        <label className="block text-xs text-muted mb-1.5">
           Rareté / Variante
           {existingRarities.length > 0 && (
-            <span className="text-white/25 ml-1">
+            <span className="text-muted/70 ml-1">
               ({existingRarities.length} déjà utilisées pour ce produit)
             </span>
           )}
@@ -179,7 +179,7 @@ export default function NewCardForm({ products, teams, rarities }: Props) {
 
       <div className="grid grid-cols-2 gap-3">
         <div>
-          <label className="block text-xs text-white/40 mb-1.5">Type</label>
+          <label className="block text-xs text-muted mb-1.5">Type</label>
           <select
             value={variantType}
             onChange={(e) => setVariantType(e.target.value)}
@@ -191,7 +191,7 @@ export default function NewCardForm({ products, teams, rarities }: Props) {
           </select>
         </div>
         <div>
-          <label className="block text-xs text-white/40 mb-1.5">Tirage (/X)</label>
+          <label className="block text-xs text-muted mb-1.5">Tirage (/X)</label>
           <input
             type="number"
             placeholder="ex: 250"
@@ -203,7 +203,7 @@ export default function NewCardForm({ products, teams, rarities }: Props) {
       </div>
 
       <div>
-        <label className="block text-xs text-white/40 mb-1.5">Position (optionnel)</label>
+        <label className="block text-xs text-muted mb-1.5">Position (optionnel)</label>
         <input
           type="text"
           placeholder="ex: attaquant"
@@ -214,7 +214,7 @@ export default function NewCardForm({ products, teams, rarities }: Props) {
       </div>
 
       <div className="flex gap-4">
-        <label className="flex items-center gap-2 text-sm text-white/60">
+        <label className="flex items-center gap-2 text-sm text-muted">
           <input
             type="checkbox"
             checked={isAutograph}
@@ -223,7 +223,7 @@ export default function NewCardForm({ products, teams, rarities }: Props) {
           />
           Autographe
         </label>
-        <label className="flex items-center gap-2 text-sm text-white/60">
+        <label className="flex items-center gap-2 text-sm text-muted">
           <input
             type="checkbox"
             checked={isRookie}

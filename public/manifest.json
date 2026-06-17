@@ -4,8 +4,8 @@
   "description": "Catalogue, collection et cote de marché des cartes de sport françaises",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#08080E",
-  "theme_color": "#08080E",
+  "background_color": "#F7F6F3",
+  "theme_color": "#F7F6F3",
   "orientation": "portrait",
   "categories": ["sports", "lifestyle"],
   "icons": [

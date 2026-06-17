@@ -17,9 +17,9 @@ export default function SlotCard({ cardId, cardNumber, playerName, status }: Pro
       <div className={`slot-empty transition-all duration-200 group-hover:border-gold/30 group-active:scale-95 ${
         isWanted ? 'border-wanted/40 bg-wanted/5' : ''
       }`}>
-        <span className="text-2xs font-mono text-white/20">#{cardNumber ?? '—'}</span>
-        <HelpCircle size={20} className="text-white/10 group-hover:text-white/20 transition-colors" />
-        <p className="text-[9px] text-white/25 text-center px-1 truncate w-full leading-tight">
+        <span className="text-2xs font-mono text-muted/60">#{cardNumber ?? '—'}</span>
+        <HelpCircle size={20} className="text-muted/40 group-hover:text-muted/60 transition-colors" />
+        <p className="text-[9px] text-muted/70 text-center px-1 truncate w-full leading-tight">
           {playerName}
         </p>
         {isWanted && (

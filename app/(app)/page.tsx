@@ -18,27 +18,23 @@ export default async function HomePage() {
 
   return (
     <main className="min-h-screen">
-      {/* Hero compact */}
-      <section className="relative bg-hero-radial border-b border-border/40">
-        <div className="page-container py-10 md:py-14">
-          <Reveal>
-            <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
-              Cartes Sport <span className="text-gradient-gold">FR</span>
-            </h1>
-            <p className="text-sm md:text-base text-white/50 mt-3 max-w-2xl leading-relaxed">
-              Catalogue, collection et cote de marché des cartes Panini Adrenalyn XL et Topps Chrome UEFA
-            </p>
-          </Reveal>
-        </div>
+      <section className="page-container pt-16 md:pt-24 pb-12 md:pb-16">
+        <Reveal>
+          <h1 className="text-display-sm md:text-display font-semibold tracking-tight max-w-3xl">
+            Catalogue & collection
+          </h1>
+          <p className="text-base md:text-lg text-muted mt-4 max-w-xl leading-relaxed">
+            Panini Adrenalyn XL et Topps Chrome UEFA — cotes et suivi de collection.
+          </p>
+        </Reveal>
       </section>
 
-      {/* Grille des collections */}
-      <section className="page-container py-10 md:py-14">
+      <section className="page-container pb-16 md:pb-24">
         <Reveal delay={0.05}>
-          <h2 className="section-title mb-6">Choisis ta collection</h2>
+          <h2 className="section-title">Collections</h2>
         </Reveal>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {(products ?? []).map((product, i) => (
             <Reveal key={product.id} delay={0.08 + i * 0.05}>
               <ProductPoster product={product} />
@@ -47,7 +43,7 @@ export default async function HomePage() {
         </div>
 
         {(products?.length ?? 0) === 0 && (
-          <p className="text-center text-white/40 text-sm py-16">
+          <p className="text-center text-muted text-sm py-16">
             Aucune collection disponible pour le moment.
           </p>
         )}

@@ -50,7 +50,7 @@ export default function RarityBadge({ name, colorHex, compact = false }: Props) 
   if (compact) {
     return (
       <span
-        className="block w-2.5 h-2.5 rounded-full ring-1 ring-black/30"
+        className="block w-2.5 h-2.5 rounded-full ring-1 ring-ink/10"
         style={{ backgroundColor: style.text, boxShadow: `0 0 6px ${style.glow}` }}
         title={name}
       />

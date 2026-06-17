@@ -34,7 +34,7 @@ export default function SearchBar({ defaultValue }: { defaultValue?: string }) {
 
   return (
     <div className="relative">
-      <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/25" />
+      <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted/70" />
       <input
         type="search"
         placeholder="Joueur, club, numéro de carte…"
