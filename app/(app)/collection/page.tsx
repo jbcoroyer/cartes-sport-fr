@@ -82,7 +82,7 @@ export default async function CollectionPage() {
         }
       />
 
-      <div className="px-5 pt-6 space-y-8">
+      <div className="page-container pt-8 md:pt-10 pb-10 space-y-10">
         {hasContent ? (
           <>
             <Reveal>

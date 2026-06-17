@@ -50,7 +50,7 @@ export default function CollectionByProduct({ items }: Props) {
               Voir l&apos;album →
             </Link>
           </div>
-          <div className="scroll-x -mx-5 px-5">
+          <div className="scroll-x -mx-5 md:-mx-8 lg:-mx-12 px-5 md:px-8 lg:px-12">
             {cards.slice(0, 12).map((uc) => {
               const card = uc.cards
               const normalized = {

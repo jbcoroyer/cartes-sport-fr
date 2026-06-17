@@ -103,35 +103,37 @@ export default async function AlbumPage({ params }: Props) {
     <main className="min-h-screen">
       <div className="relative">
         <div className="absolute inset-0 bg-hero-radial pointer-events-none" />
-        <header className="sticky top-16 z-40 glass-panel border-b border-border/60 px-5 pb-5">
-          <div className="flex items-start gap-3 mb-4 pt-4">
-            <BackButton href="/collection" />
-            <div className="flex-1 min-w-0">
-              <p className="text-2xs text-white/40 uppercase tracking-wider">{product.season}</p>
-              <h1 className="text-lg font-semibold leading-tight truncate">{product.name}</h1>
+        <header className="sticky top-16 z-40 glass-panel border-b border-border/60">
+          <div className="page-container pb-5 pt-4">
+            <div className="flex items-start gap-3 mb-4">
+              <BackButton href="/collection" />
+              <div className="flex-1 min-w-0">
+                <p className="text-2xs text-white/40 uppercase tracking-wider">{product.season}</p>
+                <h1 className="text-lg font-semibold leading-tight truncate">{product.name}</h1>
+              </div>
+              <CircularProgress value={pct} size={56} strokeWidth={3} />
             </div>
-            <CircularProgress value={pct} size={56} strokeWidth={3} />
-          </div>
 
-          <div className="flex items-center gap-4 text-xs text-white/45 mb-4">
-            <span>
-              <span className="text-gold font-semibold">{ownedCount}</span> / {totalCards} cartes
-            </span>
-            {ownedValue > 0 && (
+            <div className="flex items-center gap-4 text-xs text-white/45 mb-4">
               <span>
-                Valeur : <span className="text-gold font-semibold">{ownedValue.toFixed(0)} €</span>
+                <span className="text-gold font-semibold">{ownedCount}</span> / {totalCards} cartes
               </span>
-            )}
-            {(completion?.missing_count ?? 0) > 0 && (
-              <span className="text-missing/80">{completion?.missing_count} manquantes</span>
-            )}
-          </div>
+              {ownedValue > 0 && (
+                <span>
+                  Valeur : <span className="text-gold font-semibold">{ownedValue.toFixed(0)} €</span>
+                </span>
+              )}
+              {(completion?.missing_count ?? 0) > 0 && (
+                <span className="text-missing/80">{completion?.missing_count} manquantes</span>
+              )}
+            </div>
 
-          <SeriesPills series={allSeries ?? []} activeProductId={productId} />
+            <SeriesPills series={allSeries ?? []} activeProductId={productId} />
+          </div>
         </header>
       </div>
 
-      <div className="px-5 pt-6">
+      <div className="page-container pt-8 md:pt-10 pb-10">
         <Reveal>
           <AlbumGrid cards={albumCards} />
         </Reveal>

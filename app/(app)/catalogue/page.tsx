@@ -115,7 +115,7 @@ export default async function CataloguePage({ searchParams }: Props) {
       </PageHeader>
 
       <Reveal>
-        <section className="px-5 pt-6">
+        <section className="page-container pt-8 md:pt-10 pb-10">
           <CardGrid cards={normalizedCards} />
         </section>
       </Reveal>

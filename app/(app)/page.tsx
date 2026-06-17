@@ -20,7 +20,7 @@ export default async function HomePage() {
     <main className="min-h-screen">
       {/* Hero compact */}
       <section className="relative bg-hero-radial border-b border-border/40">
-        <div className="max-w-[1500px] mx-auto px-5 md:px-8 lg:px-12 py-10 md:py-14">
+        <div className="page-container py-10 md:py-14">
           <Reveal>
             <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
               Cartes Sport <span className="text-gradient-gold">FR</span>
@@ -33,7 +33,7 @@ export default async function HomePage() {
       </section>
 
       {/* Grille des collections */}
-      <section className="max-w-[1500px] mx-auto px-5 md:px-8 lg:px-12 py-10 md:py-14">
+      <section className="page-container py-10 md:py-14">
         <Reveal delay={0.05}>
           <h2 className="section-title mb-6">Choisis ta collection</h2>
         </Reveal>

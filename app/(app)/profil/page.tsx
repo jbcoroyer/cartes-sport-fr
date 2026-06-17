@@ -36,7 +36,7 @@ export default async function ProfilePage() {
         subtitle="Ta collection est liée à ce compte"
       />
 
-      <div className="px-5 pt-6 space-y-5">
+      <div className="page-container pt-8 md:pt-10 pb-10 space-y-8">
         <Reveal>
           <section className="glass-panel rounded-xl2 p-5">
             <ProfileEditor profile={profile} email={user.email ?? ''} />

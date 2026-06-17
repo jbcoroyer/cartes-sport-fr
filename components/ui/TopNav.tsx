@@ -38,7 +38,7 @@ export default function TopNav({ user }: Props) {
 
   return (
     <header className="sticky top-0 z-50 glass-panel border-b border-border/60 safe-top">
-      <div className="h-16 max-w-[1500px] mx-auto px-4 md:px-8 lg:px-12 flex items-center gap-4">
+      <div className="h-16 page-container flex items-center gap-4">
         {/* Logo */}
         <Link href="/" className="shrink-0 font-semibold tracking-tight text-sm md:text-base">
           Cartes Sport <span className="text-gold">FR</span>

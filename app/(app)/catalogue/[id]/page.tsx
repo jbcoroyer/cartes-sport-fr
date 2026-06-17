@@ -69,7 +69,7 @@ export default async function CardPage({ params }: Props) {
         rarityColorHex={rarity?.color_hex}
       />
 
-      <div className="px-5 pt-6 space-y-6">
+      <div className="page-container pt-8 md:pt-10 pb-32 space-y-6">
         <Reveal>
           <div>
             <p className="text-2xs text-white/40 uppercase tracking-wider mb-1.5">

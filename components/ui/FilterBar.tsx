@@ -49,7 +49,7 @@ export default function FilterBar({ products, activeProduct }: Props) {
   }
 
   return (
-    <div className="scroll-x mt-3 -mx-5 px-5">
+    <div className="scroll-x mt-3 -mx-5 md:-mx-8 lg:-mx-12 px-5 md:px-8 lg:px-12">
       <button
         onClick={() => setProduct(null)}
         className={`filter-tag ${!activeProduct ? 'active' : ''}`}

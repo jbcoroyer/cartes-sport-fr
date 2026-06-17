@@ -185,8 +185,14 @@
   .scroll-x::-webkit-scrollbar { display: none; }
 
   .card-grid {
-    @apply grid gap-4;
-    grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+    @apply grid gap-5 lg:gap-6;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+
+  @media (min-width: 1280px) {
+    .card-grid {
+      grid-template-columns: repeat(auto-fill, minmax(172px, 1fr));
+    }
   }
 
   .album-grid {
@@ -201,5 +207,9 @@
 
   .text-gradient-gold {
     @apply bg-clip-text text-transparent bg-gold-gradient;
+  }
+
+  .page-container {
+    @apply max-w-[1500px] mx-auto px-5 md:px-8 lg:px-12;
   }
 }

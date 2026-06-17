@@ -22,7 +22,7 @@ function shortName(name: string) {
 
 export default function SeriesPills({ series, activeProductId }: Props) {
   return (
-    <div className="scroll-x -mx-5 px-5">
+    <div className="scroll-x -mx-5 md:-mx-8 lg:-mx-12 px-5 md:px-8 lg:px-12">
       {series.map((s) => {
         if (!s.product_id) return null
         const isActive = s.product_id === activeProductId
