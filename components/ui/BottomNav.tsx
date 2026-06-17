@@ -1,11 +1,12 @@
 import Link from 'next/link'
 
-type Tab = 'catalogue' | 'scan' | 'collection'
+type Tab = 'catalogue' | 'scan' | 'collection' | 'profil'
 
 const TABS = [
   { id: 'catalogue' as Tab, label: 'Catalogue', href: '/catalogue', icon: '◫' },
   { id: 'scan'      as Tab, label: 'Scanner',   href: '/scan',      icon: '⊡' },
   { id: 'collection'as Tab, label: 'Collection',href: '/collection', icon: '♣' },
+  { id: 'profil'    as Tab, label: 'Profil',    href: '/profil',    icon: '◎' },
 ]
 
 export default function BottomNav({ active }: { active: Tab }) {

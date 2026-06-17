@@ -1,6 +1,9 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
+import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
+import { ensureProfile, profileDisplayName } from '@/lib/profile'
 import BottomNav from '@/components/ui/BottomNav'
 import CollectionStats from '@/components/collection/CollectionStats'
 import CollectionByProduct from '@/components/collection/CollectionByProduct'
@@ -12,6 +15,9 @@ export default async function CollectionPage() {
 
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) redirect('/login?redirect=/collection')
+
+  const profile = await ensureProfile(supabase, user)
+  const displayName = profileDisplayName(profile, user)
 
   // Complétion par produit
   const { data: completion } = await supabase
@@ -51,7 +57,23 @@ export default async function CollectionPage() {
     <main className="min-h-screen pb-24">
       {/* Header */}
       <header className="sticky top-0 z-40 bg-canvas/95 backdrop-blur-md border-b border-border px-4 pt-safe-top pb-4">
-        <h1 className="text-lg font-semibold">Ma collection</h1>
+        <div className="flex items-center justify-between gap-3">
+          <div className="min-w-0">
+            <h1 className="text-lg font-semibold truncate">Ma collection</h1>
+            <p className="text-xs text-white/40 truncate">{displayName}</p>
+          </div>
+          <Link href="/profil" className="shrink-0 flex items-center gap-2">
+            <div className="relative w-9 h-9 rounded-full overflow-hidden bg-panel border border-border">
+              {profile?.avatar_url ? (
+                <Image src={profile.avatar_url} alt="" fill className="object-cover" />
+              ) : (
+                <span className="w-full h-full flex items-center justify-center text-sm text-gold">
+                  {displayName[0]?.toUpperCase()}
+                </span>
+              )}
+            </div>
+          </Link>
+        </div>
       </header>
 
       <div className="px-4 pt-5 space-y-6">

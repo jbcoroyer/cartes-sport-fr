@@ -157,6 +157,7 @@ export default async function CardPage({ params }: Props) {
         {/* Statut collection */}
         <CollectionToggle
           cardId={card.id}
+          userId={user?.id ?? ''}
           initialStatus={userStatus?.status ?? null}
           initialQuantity={userStatus?.quantity ?? 1}
           isLoggedIn={!!user}

@@ -7,6 +7,7 @@ import type { CollectionStatus } from '@/lib/types/database'
 
 interface Props {
   cardId: string
+  userId: string
   initialStatus: CollectionStatus
   initialQuantity: number
   isLoggedIn: boolean
@@ -19,14 +20,13 @@ const BUTTONS = [
 ]
 
 export default function CollectionToggle({
-  cardId, initialStatus, initialQuantity, isLoggedIn,
+  cardId, userId, initialStatus, initialQuantity, isLoggedIn,
 }: Props) {
   const router = useRouter()
-  const [status,   setStatus]   = useState<CollectionStatus>(initialStatus)
+  const [status, setStatus] = useState<CollectionStatus>(initialStatus)
   const [quantity, setQuantity] = useState(initialQuantity)
+  const [error, setError] = useState<string | null>(null)
   const [isPending, startTransition] = useTransition()
-
-  const supabase = createClient()
 
   if (!isLoggedIn) {
     return (
@@ -46,31 +46,44 @@ export default function CollectionToggle({
 
   const handleToggle = (newStatus: CollectionStatus) => {
     if (isPending) return
+    setError(null)
 
-    // Si on clique sur le statut actif → on supprime
     const targetStatus = newStatus === status ? null : newStatus
 
     startTransition(async () => {
-      setStatus(targetStatus)
+      const supabase = createClient()
 
       if (!targetStatus) {
-        // Supprime l'entrée
-        await supabase
+        const { error: delErr } = await supabase
           .from('user_collections')
           .delete()
+          .eq('user_id', userId)
           .eq('card_id', cardId)
+
+        if (delErr) {
+          setError(delErr.message)
+          return
+        }
+        setStatus(null)
+        router.refresh()
         return
       }
 
-      // Upsert
-      await supabase
+      const { error: upsertErr } = await supabase
         .from('user_collections')
         .upsert({
+          user_id: userId,
           card_id: cardId,
           status: targetStatus,
           quantity: targetStatus === 'owned' ? quantity : 1,
         }, { onConflict: 'user_id,card_id' })
 
+      if (upsertErr) {
+        setError(upsertErr.message)
+        return
+      }
+
+      setStatus(targetStatus)
       router.refresh()
     })
   }
@@ -78,14 +91,21 @@ export default function CollectionToggle({
   const handleQuantity = (delta: number) => {
     const next = Math.max(1, quantity + delta)
     setQuantity(next)
+    setError(null)
+
     startTransition(async () => {
-      await supabase
+      const supabase = createClient()
+      const { error: upsertErr } = await supabase
         .from('user_collections')
         .upsert({
+          user_id: userId,
           card_id: cardId,
           status: 'owned',
           quantity: next,
         }, { onConflict: 'user_id,card_id' })
+
+      if (upsertErr) setError(upsertErr.message)
+      else router.refresh()
     })
   }
 
@@ -93,7 +113,6 @@ export default function CollectionToggle({
     <div className="space-y-3">
       <p className="text-xs text-white/40 uppercase tracking-wider">Ma collection</p>
 
-      {/* Boutons statut */}
       <div className="grid grid-cols-3 gap-2">
         {BUTTONS.map(({ status: s, label, icon, activeClass }) => (
           <button
@@ -114,7 +133,10 @@ export default function CollectionToggle({
         ))}
       </div>
 
-      {/* Compteur de doublons (affiché uniquement si possédée) */}
+      {error && (
+        <p className="text-sm text-missing">⚠ {error}</p>
+      )}
+
       {status === 'owned' && (
         <div className="flex items-center justify-between bg-surface border border-owned/30 rounded-card px-4 py-3">
           <span className="text-sm text-white/60">Exemplaires</span>
