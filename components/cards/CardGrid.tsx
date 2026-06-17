@@ -1,4 +1,5 @@
 import CardItem from './CardItem'
+import { SearchX } from 'lucide-react'
 import type { CardWithDetails } from '@/lib/types/database'
 
 interface Props {
@@ -8,9 +9,11 @@ interface Props {
 export default function CardGrid({ cards }: Props) {
   if (cards.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center py-20 text-center">
-        <span className="text-4xl mb-3">🔍</span>
-        <p className="text-white/50 text-sm">Aucune carte trouvée</p>
+      <div className="flex flex-col items-center justify-center py-24 text-center">
+        <div className="w-16 h-16 rounded-full bg-panel/60 border border-border/60 flex items-center justify-center mb-4">
+          <SearchX size={24} className="text-white/25" />
+        </div>
+        <p className="text-white/50 text-sm font-medium">Aucune carte trouvée</p>
         <p className="text-white/30 text-xs mt-1">Essaie un autre filtre ou nom de joueur</p>
       </div>
     )

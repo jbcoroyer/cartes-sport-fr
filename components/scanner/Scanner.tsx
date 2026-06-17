@@ -2,6 +2,7 @@
 
 import { useState, useRef, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
+import { Camera, Check, HelpCircle, AlertTriangle, Loader2 } from 'lucide-react'
 import type { CardWithDetails } from '@/lib/types/database'
 
 type ScanState = 'idle' | 'scanning' | 'success' | 'no_match' | 'error'
@@ -27,12 +28,13 @@ export default function Scanner({ userId }: Props) {
   const [result, setResult] = useState<ScanResult | null>(null)
   const [cameraActive, setCameraActive] = useState(false)
 
-  // Démarre la caméra
+  void userId
+
   const startCamera = useCallback(async () => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
         video: {
-          facingMode: 'environment', // caméra arrière sur mobile
+          facingMode: 'environment',
           width:  { ideal: 1280 },
           height: { ideal: 720 },
         },
@@ -48,26 +50,22 @@ export default function Scanner({ userId }: Props) {
     }
   }, [])
 
-  // Arrête la caméra
   const stopCamera = useCallback(() => {
     streamRef.current?.getTracks().forEach(t => t.stop())
     streamRef.current = null
     setCameraActive(false)
   }, [])
 
-  // Capture une frame et l'envoie à l'API
   const captureAndScan = useCallback(async () => {
     if (!videoRef.current || !canvasRef.current) return
     setState('scanning')
 
-    // Capture sur canvas
     const video  = videoRef.current
     const canvas = canvasRef.current
     canvas.width  = video.videoWidth
     canvas.height = video.videoHeight
     canvas.getContext('2d')?.drawImage(video, 0, 0)
 
-    // Compresse en base64 (qualité 0.85)
     const base64 = canvas.toDataURL('image/jpeg', 0.85).split(',')[1]
 
     try {
@@ -100,10 +98,8 @@ export default function Scanner({ userId }: Props) {
 
   return (
     <div className="flex-1 flex flex-col">
-      {/* Viewfinder / Résultat */}
-      <div className="relative flex-1 bg-canvas flex items-center justify-center overflow-hidden">
+      <div className="relative flex-1 bg-canvas flex items-center justify-center overflow-hidden min-h-[400px]">
 
-        {/* Caméra active */}
         {cameraActive && (
           <>
             <video
@@ -112,61 +108,56 @@ export default function Scanner({ userId }: Props) {
               playsInline
               muted
             />
-            {/* Viseur */}
-            <div className="relative z-10 w-64 h-80 border-2 border-gold rounded-card shadow-glow">
-              {/* Coins */}
+            <div className="absolute inset-0 bg-canvas/30" />
+            <div className="relative z-10 w-64 h-80 border border-gold/40 rounded-xl3 shadow-glow">
               {['top-0 left-0', 'top-0 right-0', 'bottom-0 left-0', 'bottom-0 right-0'].map((pos, i) => (
-                <div key={i} className={`absolute ${pos} w-6 h-6 border-gold
+                <div key={i} className={`absolute ${pos} w-8 h-8 border-gold
                   ${i < 2 ? 'border-t-2' : 'border-b-2'}
                   ${i % 2 === 0 ? 'border-l-2' : 'border-r-2'}
                 `} />
               ))}
-              {/* Ligne de scan animée */}
-              <div className="absolute inset-x-0 top-0 h-0.5 bg-gold/60 animate-scan-line" />
+              <div className="absolute inset-x-4 top-0 h-0.5 bg-gold/70 animate-scan-line shadow-glow-sm" />
             </div>
-            <p className="absolute bottom-6 left-0 right-0 text-center text-xs text-white/50">
+            <p className="absolute bottom-8 left-0 right-0 text-center text-xs text-white/50">
               Centre la carte dans le cadre
             </p>
           </>
         )}
 
-        {/* État idle */}
         {state === 'idle' && !cameraActive && (
-          <div className="flex flex-col items-center gap-3 text-center px-8">
-            <div className="w-20 h-20 rounded-full bg-surface border border-border flex items-center justify-center text-3xl">
-              📷
+          <div className="flex flex-col items-center gap-4 text-center px-8">
+            <div className="w-20 h-20 rounded-full glass-panel flex items-center justify-center">
+              <Camera size={32} className="text-gold/60" />
             </div>
-            <p className="text-sm text-white/60">
-              Scanne une carte pour l'identifier instantanément
+            <p className="text-sm text-white/50 max-w-xs">
+              Scanne une carte pour l&apos;identifier instantanément dans le catalogue
             </p>
           </div>
         )}
 
-        {/* Scanning */}
         {state === 'scanning' && (
-          <div className="flex flex-col items-center gap-3">
-            <div className="w-12 h-12 border-2 border-gold border-t-transparent rounded-full animate-spin" />
-            <p className="text-sm text-white/60">Identification en cours…</p>
+          <div className="flex flex-col items-center gap-4">
+            <Loader2 size={40} className="text-gold animate-spin" />
+            <p className="text-sm text-white/50">Identification en cours…</p>
           </div>
         )}
 
-        {/* Succès */}
         {state === 'success' && result?.card && (
-          <div className="absolute inset-0 bg-canvas/95 flex flex-col items-center justify-center px-6">
-            <div className="w-10 h-10 rounded-full bg-owned/20 border border-owned/50 flex items-center justify-center mb-4">
-              <span className="text-owned text-lg">✓</span>
+          <div className="absolute inset-0 bg-canvas/95 backdrop-blur-sm flex flex-col items-center justify-center px-6">
+            <div className="w-14 h-14 rounded-full bg-owned/15 border border-owned/40 flex items-center justify-center mb-5">
+              <Check size={28} className="text-owned" />
             </div>
-            <p className="text-xs text-white/40 mb-1 uppercase tracking-wider">Carte identifiée</p>
-            <h2 className="text-xl font-semibold text-center mb-1">
+            <p className="text-2xs text-white/40 mb-2 uppercase tracking-wider">Carte identifiée</p>
+            <h2 className="text-2xl font-bold text-center mb-1">
               {result.card.player_name}
             </h2>
-            <p className="text-sm text-white/50 mb-6">
+            <p className="text-sm text-white/45 mb-8">
               #{result.card.card_number}
             </p>
             <div className="flex flex-col gap-3 w-full max-w-xs">
               <button
                 onClick={() => router.push(`/catalogue/${result.card!.id}`)}
-                className="btn-gold w-full text-center py-3 rounded-xl"
+                className="btn-gold w-full text-center py-3.5 rounded-xl2"
               >
                 Voir la fiche carte
               </button>
@@ -180,13 +171,12 @@ export default function Scanner({ userId }: Props) {
           </div>
         )}
 
-        {/* Aucun résultat */}
         {state === 'no_match' && (
-          <div className="absolute inset-0 bg-canvas/95 flex flex-col items-center justify-center px-6">
-            <div className="w-10 h-10 rounded-full bg-missing/20 border border-missing/50 flex items-center justify-center mb-4">
-              <span className="text-missing text-lg">?</span>
+          <div className="absolute inset-0 bg-canvas/95 backdrop-blur-sm flex flex-col items-center justify-center px-6">
+            <div className="w-14 h-14 rounded-full bg-missing/15 border border-missing/40 flex items-center justify-center mb-5">
+              <HelpCircle size={28} className="text-missing" />
             </div>
-            <p className="text-sm text-white/60 text-center mb-2">
+            <p className="text-sm text-white/55 text-center mb-2">
               Carte non reconnue
             </p>
             {result?.suggestion && (
@@ -197,7 +187,7 @@ export default function Scanner({ userId }: Props) {
             <div className="flex flex-col gap-3 w-full max-w-xs">
               <button
                 onClick={() => router.push(`/catalogue?q=${encodeURIComponent(result?.suggestion ?? '')}`)}
-                className="btn-gold w-full text-center py-3 rounded-xl"
+                className="btn-gold w-full text-center py-3.5 rounded-xl2"
               >
                 Rechercher manuellement
               </button>
@@ -211,12 +201,11 @@ export default function Scanner({ userId }: Props) {
           </div>
         )}
 
-        {/* Erreur */}
         {state === 'error' && (
-          <div className="flex flex-col items-center gap-3 px-6 text-center">
-            <span className="text-2xl">⚠️</span>
-            <p className="text-sm text-white/60">
-              Impossible d'accéder à la caméra ou erreur de reconnaissance.
+          <div className="flex flex-col items-center gap-4 px-6 text-center">
+            <AlertTriangle size={32} className="text-missing/70" />
+            <p className="text-sm text-white/50">
+              Impossible d&apos;accéder à la caméra ou erreur de reconnaissance.
             </p>
             <button onClick={reset} className="text-sm text-gold hover:text-gold-light">
               Réessayer
@@ -225,16 +214,15 @@ export default function Scanner({ userId }: Props) {
         )}
       </div>
 
-      {/* Canvas caché pour la capture */}
       <canvas ref={canvasRef} className="hidden" />
 
-      {/* Boutons d'action */}
-      <div className="px-6 py-5 border-t border-border flex flex-col gap-3">
+      <div className="px-5 py-5 border-t border-border/60 flex flex-col gap-3">
         {!cameraActive && state === 'idle' && (
           <button
             onClick={startCamera}
-            className="btn-gold w-full py-4 rounded-xl text-base font-semibold"
+            className="btn-gold w-full py-4 rounded-xl2 text-base font-semibold flex items-center justify-center gap-2"
           >
+            <Camera size={20} />
             Ouvrir la caméra
           </button>
         )}
@@ -243,9 +231,9 @@ export default function Scanner({ userId }: Props) {
           <>
             <button
               onClick={captureAndScan}
-              className="btn-gold w-full py-4 rounded-xl text-base font-semibold"
+              className="btn-gold w-full py-4 rounded-xl2 text-base font-semibold"
             >
-              📸 Identifier la carte
+              Identifier la carte
             </button>
             <button
               onClick={() => { stopCamera(); setState('idle') }}

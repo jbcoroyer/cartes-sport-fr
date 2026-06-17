@@ -2,6 +2,7 @@
 
 import { useState, useTransition } from 'react'
 import { useRouter } from 'next/navigation'
+import { Check, X, Star, Minus, Plus } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
 import type { CollectionStatus } from '@/lib/types/database'
 
@@ -14,9 +15,9 @@ interface Props {
 }
 
 const BUTTONS = [
-  { status: 'owned'   as const, label: 'Possédée', icon: '✓', activeClass: 'status-owned'   },
-  { status: 'missing' as const, label: 'Manquante', icon: '✕', activeClass: 'status-missing' },
-  { status: 'wanted'  as const, label: 'Souhaitée', icon: '★', activeClass: 'status-wanted'  },
+  { status: 'owned'   as const, label: 'Possédée', Icon: Check, activeClass: 'status-owned'   },
+  { status: 'missing' as const, label: 'Manquante', Icon: X, activeClass: 'status-missing' },
+  { status: 'wanted'  as const, label: 'Souhaitée', Icon: Star, activeClass: 'status-wanted'  },
 ]
 
 export default function CollectionToggle({
@@ -30,13 +31,13 @@ export default function CollectionToggle({
 
   if (!isLoggedIn) {
     return (
-      <div className="bg-surface border border-border rounded-card p-4 text-center">
+      <div className="text-center">
         <p className="text-sm text-white/50 mb-3">
           Connecte-toi pour gérer ta collection
         </p>
         <button
           onClick={() => router.push('/login')}
-          className="btn-gold px-6 py-2 rounded-lg text-sm"
+          className="btn-gold px-8 py-2.5 rounded-xl text-sm"
         >
           Se connecter
         </button>
@@ -111,57 +112,52 @@ export default function CollectionToggle({
 
   return (
     <div className="space-y-3">
-      <p className="text-xs text-white/40 uppercase tracking-wider">Ma collection</p>
-
       <div className="grid grid-cols-3 gap-2">
-        {BUTTONS.map(({ status: s, label, icon, activeClass }) => (
+        {BUTTONS.map(({ status: s, label, Icon, activeClass }) => (
           <button
             key={s}
             onClick={() => handleToggle(s)}
             disabled={isPending}
-            className={`flex flex-col items-center gap-1 py-3 rounded-card border transition-all duration-150
+            className={`flex flex-col items-center gap-1.5 py-3 rounded-xl2 border transition-all duration-200
               ${status === s
-                ? `${activeClass} font-medium`
-                : 'bg-surface border-border text-white/40 hover:border-white/20'
+                ? `${activeClass} font-medium shadow-sm`
+                : 'bg-panel/40 border-border/60 text-white/40 hover:border-white/20 hover:text-white/60'
               }
               ${isPending ? 'opacity-50 cursor-not-allowed' : 'active:scale-95'}
             `}
           >
-            <span className="text-lg">{icon}</span>
-            <span className="text-xs">{label}</span>
+            <Icon size={18} strokeWidth={status === s ? 2.5 : 2} />
+            <span className="text-2xs font-medium">{label}</span>
           </button>
         ))}
       </div>
 
       {error && (
-        <p className="text-sm text-missing">⚠ {error}</p>
+        <p className="text-sm text-missing text-center">{error}</p>
       )}
 
       {status === 'owned' && (
-        <div className="flex items-center justify-between bg-surface border border-owned/30 rounded-card px-4 py-3">
+        <div className="flex items-center justify-between bg-owned/5 border border-owned/20 rounded-xl2 px-4 py-3">
           <span className="text-sm text-white/60">Exemplaires</span>
           <div className="flex items-center gap-3">
             <button
               onClick={() => handleQuantity(-1)}
               disabled={quantity <= 1 || isPending}
-              className="w-8 h-8 rounded-full bg-panel border border-border flex items-center justify-center
+              className="w-8 h-8 rounded-full bg-panel border border-border/80 flex items-center justify-center
                          text-white/60 hover:text-white disabled:opacity-30 transition-colors"
             >
-              −
+              <Minus size={14} />
             </button>
-            <span className="text-lg font-semibold w-6 text-center">{quantity}</span>
+            <span className="text-lg font-bold w-6 text-center">{quantity}</span>
             <button
               onClick={() => handleQuantity(1)}
               disabled={isPending}
-              className="w-8 h-8 rounded-full bg-panel border border-border flex items-center justify-center
+              className="w-8 h-8 rounded-full bg-panel border border-border/80 flex items-center justify-center
                          text-white/60 hover:text-white transition-colors"
             >
-              +
+              <Plus size={14} />
             </button>
           </div>
-          {quantity > 1 && (
-            <span className="text-xs text-white/30">{quantity - 1} doublon{quantity > 2 ? 's' : ''}</span>
-          )}
         </div>
       )}
     </div>

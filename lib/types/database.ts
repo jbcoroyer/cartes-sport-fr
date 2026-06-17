@@ -31,6 +31,7 @@ export type Database = {
           logo_url?: string | null
           created_at?: string
         }
+        Relationships: []
       }
 
       series_types: {
@@ -55,6 +56,7 @@ export type Database = {
           description?: string | null
           created_at?: string
         }
+        Relationships: []
       }
 
       products: {
@@ -91,6 +93,7 @@ export type Database = {
           is_active?: boolean
           created_at?: string
         }
+        Relationships: []
       }
 
       teams: {
@@ -121,6 +124,7 @@ export type Database = {
           country?: string
           created_at?: string
         }
+        Relationships: []
       }
 
       rarities: {
@@ -151,6 +155,7 @@ export type Database = {
           description?: string | null
           created_at?: string
         }
+        Relationships: []
       }
 
       cards: {
@@ -202,6 +207,43 @@ export type Database = {
           image_url?: string | null
           created_at?: string
         }
+        Relationships: [
+          {
+            foreignKeyName: 'cards_product_id_fkey'
+            columns: ['product_id']
+            isOneToOne: false
+            referencedRelation: 'products'
+            referencedColumns: ['id']
+          },
+          {
+            foreignKeyName: 'cards_team_id_fkey'
+            columns: ['team_id']
+            isOneToOne: false
+            referencedRelation: 'teams'
+            referencedColumns: ['id']
+          },
+          {
+            foreignKeyName: 'cards_rarity_id_fkey'
+            columns: ['rarity_id']
+            isOneToOne: false
+            referencedRelation: 'rarities'
+            referencedColumns: ['id']
+          },
+          {
+            foreignKeyName: 'price_snapshots_card_id_fkey'
+            columns: ['id']
+            isOneToOne: true
+            referencedRelation: 'price_snapshots'
+            referencedColumns: ['card_id']
+          },
+          {
+            foreignKeyName: 'user_collections_card_id_fkey'
+            columns: ['id']
+            isOneToOne: false
+            referencedRelation: 'user_collections'
+            referencedColumns: ['card_id']
+          },
+        ]
       }
 
       user_profiles: {
@@ -226,6 +268,7 @@ export type Database = {
           created_at?: string
           updated_at?: string
         }
+        Relationships: []
       }
 
       user_collections: {
@@ -265,6 +308,15 @@ export type Database = {
           created_at?: string
           updated_at?: string
         }
+        Relationships: [
+          {
+            foreignKeyName: 'user_collections_card_id_fkey'
+            columns: ['card_id']
+            isOneToOne: false
+            referencedRelation: 'cards'
+            referencedColumns: ['id']
+          },
+        ]
       }
 
       price_history: {
@@ -295,6 +347,7 @@ export type Database = {
           recorded_at?: string
           listing_url?: string | null
         }
+        Relationships: []
       }
 
       price_snapshots: {
@@ -331,6 +384,15 @@ export type Database = {
           trend?: 'up' | 'down' | 'stable' | null
           refreshed_at?: string
         }
+        Relationships: [
+          {
+            foreignKeyName: 'price_snapshots_card_id_fkey'
+            columns: ['card_id']
+            isOneToOne: true
+            referencedRelation: 'cards'
+            referencedColumns: ['id']
+          },
+        ]
       }
     }
 
@@ -345,11 +407,13 @@ export type Database = {
           total_cards: number | null
           completion_pct: number | null
         }
+        Relationships: []
       }
     }
 
-    Functions: Record<string, never>
-    Enums: Record<string, never>
+    Functions: {}
+    Enums: {}
+    CompositeTypes: {}
   }
 }
 

@@ -20,19 +20,49 @@
     overscroll-behavior: none;
   }
 
-  /* Safe area pour les iPhones avec encoche */
   .safe-top    { padding-top: env(safe-area-inset-top); }
   .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
 }
 
 @layer components {
-  /* Carte collection */
-  .card-item {
+  /* Glass panel */
+  .glass-panel {
+    @apply bg-surface/80 backdrop-blur-xl border border-white/[0.06];
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 4px 24px rgba(0,0,0,0.3);
+  }
+
+  /* Premium card container */
+  .card-premium {
     @apply relative bg-surface rounded-card overflow-hidden;
-    @apply border border-border;
+    @apply border border-border/80;
+    @apply transition-all duration-300 ease-out;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04);
+  }
+
+  .card-premium:hover {
+    @apply border-gold/25;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,76,0.15), inset 0 1px 0 rgba(255,255,255,0.06);
+  }
+
+  /* Legacy card-item (compat) */
+  .card-item {
+    @apply card-premium;
+    @apply active:scale-[0.97];
+  }
+
+  /* Stat tile */
+  .stat-tile {
+    @apply glass-panel rounded-xl2 p-4 text-center;
     @apply transition-all duration-200;
-    @apply hover:shadow-card-hover hover:border-gold/30;
-    @apply active:scale-95;
+  }
+
+  .stat-tile:hover {
+    @apply border-gold/20;
+  }
+
+  /* Section title */
+  .section-title {
+    @apply text-xs font-semibold text-white/45 uppercase tracking-[0.15em] mb-4;
   }
 
   /* Badge de rareté */
@@ -43,49 +73,99 @@
   }
 
   /* Statut de collection */
-  .status-owned   { @apply bg-owned/20 text-owned border border-owned/30; }
-  .status-missing { @apply bg-missing/20 text-missing border border-missing/30; }
-  .status-wanted  { @apply bg-wanted/20 text-wanted border border-wanted/30; }
+  .status-owned   { @apply bg-owned/15 text-owned border border-owned/30; }
+  .status-missing { @apply bg-missing/15 text-missing border border-missing/30; }
+  .status-wanted  { @apply bg-wanted/15 text-wanted border border-wanted/30; }
 
   /* Bouton principal doré */
   .btn-gold {
-    @apply bg-gold text-canvas font-semibold px-4 py-2 rounded-lg;
-    @apply hover:bg-gold-light active:bg-gold-dark;
-    @apply transition-colors duration-150;
+    @apply relative overflow-hidden font-semibold px-5 py-2.5 rounded-xl;
+    @apply bg-gold-gradient text-canvas;
+    @apply hover:brightness-110 active:brightness-95;
+    @apply transition-all duration-200;
+    box-shadow: 0 2px 12px rgba(201,168,76,0.3), inset 0 1px 0 rgba(255,255,255,0.2);
+  }
+
+  .btn-ghost {
+    @apply px-5 py-2.5 rounded-xl font-medium text-sm;
+    @apply border border-border bg-panel/50 text-white/70;
+    @apply hover:border-gold/40 hover:text-white;
+    @apply transition-all duration-200;
   }
 
   /* Barre de navigation du bas */
   .bottom-nav {
     @apply fixed bottom-0 left-0 right-0 z-50;
-    @apply bg-surface/95 backdrop-blur-md;
-    @apply border-t border-border;
+    @apply bg-surface/90 backdrop-blur-xl;
+    @apply border-t border-white/[0.06];
     @apply safe-bottom;
+    box-shadow: 0 -4px 24px rgba(0,0,0,0.4);
   }
 
   /* Input de recherche */
   .search-input {
-    @apply w-full bg-panel border border-border rounded-xl;
-    @apply px-4 py-3 text-sm text-white placeholder-white/30;
-    @apply focus:outline-none focus:border-gold/50;
-    @apply transition-colors duration-150;
+    @apply w-full bg-panel/60 border border-border/80 rounded-xl2;
+    @apply px-4 py-3.5 text-sm text-white placeholder-white/25;
+    @apply focus:outline-none focus:border-gold/40 focus:bg-panel/80;
+    @apply transition-all duration-200;
   }
 
   /* Tag de filtre */
   .filter-tag {
-    @apply px-3 py-1.5 rounded-full text-xs font-medium;
-    @apply border border-border bg-panel text-white/60;
-    @apply hover:border-gold/50 hover:text-white;
-    @apply transition-all duration-150 cursor-pointer;
+    @apply px-4 py-2 rounded-full text-xs font-medium;
+    @apply border border-border/80 bg-panel/40 text-white/50;
+    @apply hover:border-gold/40 hover:text-white/80;
+    @apply transition-all duration-200 cursor-pointer;
     @apply whitespace-nowrap;
   }
 
   .filter-tag.active {
-    @apply bg-gold/10 border-gold/50 text-gold;
+    @apply bg-gold/15 border-gold/50 text-gold;
+    box-shadow: 0 0 12px rgba(201,168,76,0.15);
+  }
+
+  /* Segment control */
+  .segment-control {
+    @apply flex p-1 rounded-xl2 bg-panel/60 border border-border/60;
+  }
+
+  .segment-item {
+    @apply flex-1 py-2 px-3 rounded-lg text-xs font-medium text-center;
+    @apply text-white/45 transition-all duration-200 cursor-pointer;
+  }
+
+  .segment-item.active {
+    @apply bg-surface text-white shadow-premium;
+  }
+
+  /* Album slot (empty) */
+  .slot-empty {
+    @apply relative aspect-[3/4] rounded-card overflow-hidden;
+    @apply border border-dashed border-border/60 bg-panel/30;
+    @apply flex flex-col items-center justify-center gap-1;
+  }
+
+  /* Holo overlay */
+  .holo-overlay {
+    @apply absolute inset-0 pointer-events-none opacity-0;
+    background: linear-gradient(
+      105deg,
+      transparent 20%,
+      rgba(255,255,255,0.08) 45%,
+      rgba(201,168,76,0.15) 50%,
+      rgba(255,255,255,0.08) 55%,
+      transparent 80%
+    );
+    background-size: 200% 100%;
+  }
+
+  .card-premium:hover .holo-overlay,
+  .group:hover .holo-overlay {
+    @apply opacity-100 motion-safe:animate-holo-sweep;
   }
 }
 
 @layer utilities {
-  /* Shimmer pour cartes en chargement */
   .shimmer {
     background: linear-gradient(
       90deg,
@@ -97,17 +177,29 @@
     animation: shimmer 1.5s ease-in-out infinite;
   }
 
-  /* Scroll horizontal sans scrollbar visible */
   .scroll-x {
-    @apply flex overflow-x-auto gap-2 pb-1;
+    @apply flex overflow-x-auto gap-3 pb-1;
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
   .scroll-x::-webkit-scrollbar { display: none; }
 
-  /* Grille de cartes responsive */
   .card-grid {
+    @apply grid gap-4;
+    grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+  }
+
+  .album-grid {
     @apply grid gap-3;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+
+  .series-grid {
+    @apply grid gap-4;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent bg-gold-gradient;
   }
 }

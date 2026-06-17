@@ -1,10 +1,34 @@
 import Link from 'next/link'
-import Image from 'next/image'
+import CardItem from '@/components/cards/CardItem'
+import type { CardWithDetails } from '@/lib/types/database'
+import Reveal from '@/components/motion/Reveal'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default function CollectionByProduct({ items }: { items: any[] }) {
-  // Groupe par produit
-  const byProduct = items.reduce<Record<string, { name: string; cards: typeof items }>>((acc, uc) => {
+interface OwnedCard {
+  id: string
+  card_number: string | null
+  player_name: string
+  image_url: string | null
+  print_run: number | null
+  products?: { id: string; name: string; season: string } | null
+  teams?: { name: string; short_name: string | null } | null
+  rarities?: { name: string; color_hex: string | null } | null
+  price_snapshots?: { last_price: number | null; trend: string | null } | null
+}
+
+interface OwnedItem {
+  id: string
+  quantity: number
+  cards: OwnedCard & {
+    products?: { id: string; name: string; season: string } | null
+  }
+}
+
+interface Props {
+  items: OwnedItem[]
+}
+
+export default function CollectionByProduct({ items }: Props) {
+  const byProduct = items.reduce<Record<string, { name: string; cards: OwnedItem[] }>>((acc, uc) => {
     const product = uc.cards?.products
     if (!product) return acc
     const key = product.id
@@ -14,53 +38,43 @@ export default function CollectionByProduct({ items }: { items: any[] }) {
   }, {})
 
   return (
-    <section>
-      <h2 className="text-sm font-medium text-white/50 uppercase tracking-wider mb-3">
-        Dernières cartes ajoutées
-      </h2>
-      <div className="space-y-5">
-        {Object.entries(byProduct).map(([productId, { name, cards }]) => (
-          <div key={productId}>
-            <p className="text-xs text-white/40 mb-2 truncate">{name}</p>
-            <div className="flex gap-2 overflow-x-auto pb-1 -mx-4 px-4 scroll-x">
-              {cards.slice(0, 12).map((uc) => {
-                const card = uc.cards
-                return (
-                  <Link
-                    key={uc.id}
-                    href={`/catalogue/${card.id}`}
-                    className="flex-none w-20 bg-surface border border-border rounded-lg overflow-hidden
-                               hover:border-gold/30 transition-colors active:scale-95"
-                  >
-                    <div className="relative aspect-[3/4] bg-panel">
-                      {card.image_url ? (
-                        <Image
-                          src={card.image_url}
-                          alt={card.player_name}
-                          fill
-                          sizes="80px"
-                          className="object-contain p-1"
-                        />
-                      ) : (
-                        <div className="absolute inset-0 flex items-center justify-center text-xl text-white/10">
-                          🃏
-                        </div>
-                      )}
-                      {uc.quantity > 1 && (
-                        <div className="absolute bottom-1 right-1 w-4 h-4 bg-gold rounded-full
-                                        flex items-center justify-center text-[9px] text-canvas font-bold">
-                          {uc.quantity}
-                        </div>
-                      )}
-                    </div>
-                    <p className="text-[9px] text-white/50 p-1 truncate">{card.player_name}</p>
-                  </Link>
-                )
-              })}
-            </div>
+    <div className="space-y-6">
+      {Object.entries(byProduct).map(([productId, { name, cards }], sectionIdx) => (
+        <Reveal key={productId} delay={sectionIdx * 0.08}>
+          <div className="flex items-center justify-between mb-3">
+            <p className="text-xs text-white/50 font-medium truncate">{name}</p>
+            <Link
+              href={`/collection/${productId}`}
+              className="text-2xs text-gold/70 hover:text-gold transition-colors shrink-0 ml-2"
+            >
+              Voir l&apos;album →
+            </Link>
           </div>
-        ))}
-      </div>
-    </section>
+          <div className="scroll-x -mx-5 px-5">
+            {cards.slice(0, 12).map((uc) => {
+              const card = uc.cards
+              const normalized = {
+                ...card,
+                product_id: '',
+                rarity_id: null,
+                team_id: null,
+                position: null,
+                variant_type: '',
+                is_autograph: false,
+                is_rookie: false,
+                parent_card_id: null,
+                created_at: '',
+                user_collections: { status: 'owned' as const, quantity: uc.quantity, condition: null },
+              } as CardWithDetails
+              return (
+                <div key={uc.id} className="flex-none w-[120px]">
+                  <CardItem card={normalized} compact showPrice={false} />
+                </div>
+              )
+            })}
+          </div>
+        </Reveal>
+      ))}
+    </div>
   )
 }

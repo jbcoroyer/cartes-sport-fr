@@ -1,5 +1,7 @@
 import type { SupabaseClient, User } from '@supabase/supabase-js'
-import type { UserProfile } from '@/lib/types/database'
+import type { Database, UserProfile } from '@/lib/types/database'
+
+type AppSupabase = SupabaseClient<Database>
 
 export function profileDisplayName(
   profile: Pick<UserProfile, 'username'> | null,
@@ -16,7 +18,7 @@ export function profileDisplayName(
 }
 
 export async function getProfile(
-  supabase: SupabaseClient,
+  supabase: AppSupabase,
   userId: string
 ): Promise<UserProfile | null> {
   const { data } = await supabase
@@ -29,7 +31,7 @@ export async function getProfile(
 
 /** Garantit un profil pour l'utilisateur connecté (lien collection ↔ profil). */
 export async function ensureProfile(
-  supabase: SupabaseClient,
+  supabase: AppSupabase,
   user: User
 ): Promise<UserProfile | null> {
   const existing = await getProfile(supabase, user.id)

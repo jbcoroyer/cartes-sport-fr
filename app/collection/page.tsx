@@ -5,8 +5,14 @@ import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import { ensureProfile, profileDisplayName } from '@/lib/profile'
 import BottomNav from '@/components/ui/BottomNav'
+import PageHeader from '@/components/ui/PageHeader'
+import Section from '@/components/ui/Section'
 import CollectionStats from '@/components/collection/CollectionStats'
+import SeriesGrid from '@/components/collection/SeriesGrid'
 import CollectionByProduct from '@/components/collection/CollectionByProduct'
+import CollectionEmpty from '@/components/collection/CollectionEmpty'
+import CircularProgress from '@/components/ui/CircularProgress'
+import Reveal from '@/components/motion/Reveal'
 
 export const metadata: Metadata = { title: 'Ma collection' }
 
@@ -19,14 +25,12 @@ export default async function CollectionPage() {
   const profile = await ensureProfile(supabase, user)
   const displayName = profileDisplayName(profile, user)
 
-  // Complétion par produit
   const { data: completion } = await supabase
     .from('user_completion')
     .select('*')
     .eq('user_id', user.id)
     .order('completion_pct', { ascending: false })
 
-  // Cartes possédées avec infos
   const { data: owned } = await supabase
     .from('user_collections')
     .select(`
@@ -44,7 +48,6 @@ export default async function CollectionPage() {
     .order('updated_at', { ascending: false })
     .limit(100)
 
-  // Valeur totale estimée
   const totalValue = owned?.reduce((sum, uc) => {
     const snap = (uc.cards as { price_snapshots: { last_price: number | null } | null } | null)?.price_snapshots
     return sum + (snap?.last_price ?? 0) * (uc.quantity ?? 1)
@@ -52,88 +55,76 @@ export default async function CollectionPage() {
 
   const totalOwned   = owned?.reduce((s, uc) => s + (uc.quantity ?? 1), 0) ?? 0
   const totalMissing = completion?.reduce((s, c) => s + (c.missing_count ?? 0), 0) ?? 0
+  const seriesCount  = completion?.length ?? 0
+
+  const globalTotal = completion?.reduce((s, c) => s + (c.total_cards ?? 0), 0) ?? 0
+  const globalOwned = completion?.reduce((s, c) => s + (c.owned_count ?? 0), 0) ?? 0
+  const globalPct   = globalTotal > 0 ? Math.round((globalOwned / globalTotal) * 100) : 0
+
+  const hasContent = (owned?.length ?? 0) > 0 || (completion?.length ?? 0) > 0
 
   return (
-    <main className="min-h-screen pb-24">
-      {/* Header */}
-      <header className="sticky top-0 z-40 bg-canvas/95 backdrop-blur-md border-b border-border px-4 pt-safe-top pb-4">
-        <div className="flex items-center justify-between gap-3">
-          <div className="min-w-0">
-            <h1 className="text-lg font-semibold truncate">Ma collection</h1>
-            <p className="text-xs text-white/40 truncate">{displayName}</p>
-          </div>
-          <Link href="/profil" className="shrink-0 flex items-center gap-2">
-            <div className="relative w-9 h-9 rounded-full overflow-hidden bg-panel border border-border">
+    <main className="min-h-screen pb-28">
+      <PageHeader
+        title="Ma collection"
+        subtitle={displayName}
+        right={
+          <Link href="/profil" className="shrink-0">
+            <div className="relative w-10 h-10 rounded-full overflow-hidden bg-panel border border-border/80 ring-2 ring-gold/10">
               {profile?.avatar_url ? (
                 <Image src={profile.avatar_url} alt="" fill className="object-cover" />
               ) : (
-                <span className="w-full h-full flex items-center justify-center text-sm text-gold">
+                <span className="w-full h-full flex items-center justify-center text-sm font-semibold text-gold">
                   {displayName[0]?.toUpperCase()}
                 </span>
               )}
             </div>
           </Link>
-        </div>
-      </header>
+        }
+      />
 
-      <div className="px-4 pt-5 space-y-6">
-        {/* Stats globales */}
-        <CollectionStats
-          totalOwned={totalOwned}
-          totalMissing={totalMissing}
-          totalValue={totalValue}
-        />
-
-        {/* Progression par produit */}
-        {(completion?.length ?? 0) > 0 && (
-          <section>
-            <h2 className="text-sm font-medium text-white/50 uppercase tracking-wider mb-3">
-              Progression par série
-            </h2>
-            <div className="space-y-3">
-              {completion!.map((c) => (
-                <div key={c.product_id} className="bg-surface border border-border rounded-card p-4">
-                  <div className="flex justify-between items-start mb-2">
-                    <p className="text-sm font-medium leading-tight">{c.product_name}</p>
-                    <span className="text-xs text-gold font-semibold ml-2 shrink-0">
-                      {c.completion_pct ?? 0}%
-                    </span>
+      <div className="px-5 pt-6 space-y-8">
+        {hasContent ? (
+          <>
+            {/* Hero progression globale */}
+            <Reveal>
+              <div className="glass-panel rounded-xl3 p-6 bg-hero-radial">
+                <div className="flex items-center gap-5">
+                  <CircularProgress value={globalPct} size={80} strokeWidth={5} />
+                  <div className="flex-1 min-w-0">
+                    <p className="text-2xs text-white/40 uppercase tracking-wider mb-1">Progression globale</p>
+                    <p className="text-2xl font-bold text-gradient-gold">
+                      {globalOwned} <span className="text-white/40 text-lg font-normal">/ {globalTotal}</span>
+                    </p>
+                    <p className="text-xs text-white/40 mt-1">cartes dans toutes tes séries</p>
                   </div>
-                  {/* Barre de progression */}
-                  <div className="h-1.5 bg-panel rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-gold rounded-full transition-all duration-500"
-                      style={{ width: `${c.completion_pct ?? 0}%` }}
-                    />
-                  </div>
-                  <p className="text-xs text-white/40 mt-2">
-                    {c.owned_count} / {c.total_cards} cartes
-                    {(c.missing_count ?? 0) > 0 && (
-                      <span className="text-missing ml-1">
-                        · {c.missing_count} manquantes
-                      </span>
-                    )}
-                  </p>
                 </div>
-              ))}
-            </div>
-          </section>
-        )}
+              </div>
+            </Reveal>
 
-        {/* Dernières cartes ajoutées */}
-        {(owned?.length ?? 0) > 0 && (
-          <CollectionByProduct items={owned ?? []} />
-        )}
+            <Reveal delay={0.1}>
+              <CollectionStats
+                totalOwned={totalOwned}
+                totalMissing={totalMissing}
+                totalValue={totalValue}
+                seriesCount={seriesCount}
+              />
+            </Reveal>
 
-        {/* État vide */}
-        {(owned?.length ?? 0) === 0 && (
-          <div className="flex flex-col items-center justify-center py-16 text-center">
-            <span className="text-5xl mb-4">🃏</span>
-            <p className="text-white/60 text-sm mb-1">Aucune carte dans ta collection</p>
-            <p className="text-white/30 text-xs">
-              Scanne une carte ou parcours le catalogue pour commencer
-            </p>
-          </div>
+            {(completion?.length ?? 0) > 0 && (
+              <Section title="Mes séries">
+                <SeriesGrid series={completion ?? []} />
+              </Section>
+            )}
+
+            {(owned?.length ?? 0) > 0 && (
+              <Section title="Dernières cartes ajoutées">
+                <CollectionByProduct items={owned ?? []} />
+              </Section>
+            )}
+          </>
+        ) : (
+          <CollectionEmpty displayName={displayName} avatarUrl={profile?.avatar_url} />
         )}
       </div>
 

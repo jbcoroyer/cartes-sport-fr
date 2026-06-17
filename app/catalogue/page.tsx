@@ -3,8 +3,11 @@ import { createClient } from '@/lib/supabase/server'
 import { ensureProfile } from '@/lib/profile'
 import CardGrid from '@/components/cards/CardGrid'
 import BottomNav from '@/components/ui/BottomNav'
+import PageHeader from '@/components/ui/PageHeader'
 import SearchBar from '@/components/ui/SearchBar'
 import FilterBar from '@/components/ui/FilterBar'
+import Reveal from '@/components/motion/Reveal'
+import type { CardWithDetails, CollectionStatus } from '@/lib/types/database'
 
 export const metadata: Metadata = { title: 'Catalogue' }
 
@@ -24,13 +27,11 @@ export default async function CataloguePage({ searchParams }: Props) {
   const { data: { user } } = await supabase.auth.getUser()
   if (user) await ensureProfile(supabase, user)
 
-  // Chargement des produits pour le filtre
   const { data: products } = await supabase
     .from('products')
     .select('id, name, season')
     .order('season', { ascending: false })
 
-  // Requête des cartes avec filtres (+ comptage total pour le header)
   const buildFilters = <T extends { ilike: Function; eq: Function }>(q: T) => {
     let filtered = q
     if (params.q) {
@@ -83,35 +84,42 @@ export default async function CataloguePage({ searchParams }: Props) {
       ? `${shown.toLocaleString('fr-FR')} / ${total.toLocaleString('fr-FR')} cartes`
       : `${total.toLocaleString('fr-FR')} carte${total !== 1 ? 's' : ''}`
 
-  const normalizedCards = (cards ?? []).map((card) => {
+  const normalizedCards: CardWithDetails[] = (cards ?? []).map((card) => {
     const uc = card.user_collections as { status: string; quantity: number } | { status: string; quantity: number }[] | null
     const entry = Array.isArray(uc) ? uc[0] ?? null : uc
-    return { ...card, user_collections: entry }
+    return {
+      ...card,
+      user_collections: entry
+        ? { status: entry.status as NonNullable<CollectionStatus>, quantity: entry.quantity, condition: null }
+        : null,
+    } as CardWithDetails
   })
 
   return (
-    <main className="min-h-screen pb-24">
-      {/* Header */}
-      <header className="sticky top-0 z-40 bg-canvas/95 backdrop-blur-md border-b border-border px-4 pt-safe-top pb-3">
-        <div className="flex items-center justify-between mb-3">
-          <h1 className="text-lg font-semibold tracking-tight">
-            Cartes Sport <span className="text-gold">FR</span>
-          </h1>
-          <span className="text-xs text-white/40">
+    <main className="min-h-screen pb-28">
+      <PageHeader
+        title={<>Cartes Sport <span className="text-gold">FR</span></>}
+        subtitle="Catalogue & cotes de marché"
+        right={
+          <span className="text-2xs text-white/35 font-medium bg-panel/50 px-3 py-1.5 rounded-full border border-border/60">
             {countLabel}
           </span>
+        }
+      >
+        <div className="mt-4 space-y-0">
+          <SearchBar defaultValue={params.q} />
+          <FilterBar
+            products={products ?? []}
+            activeProduct={params.product}
+          />
         </div>
-        <SearchBar defaultValue={params.q} />
-        <FilterBar
-          products={products ?? []}
-          activeProduct={params.product}
-        />
-      </header>
+      </PageHeader>
 
-      {/* Grille */}
-      <section className="px-4 pt-4">
-        <CardGrid cards={normalizedCards} />
-      </section>
+      <Reveal>
+        <section className="px-5 pt-6">
+          <CardGrid cards={normalizedCards} />
+        </section>
+      </Reveal>
 
       <BottomNav active="catalogue" />
     </main>

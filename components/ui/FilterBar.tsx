@@ -1,7 +1,7 @@
 'use client'
 
 import { useRouter, useSearchParams, usePathname } from 'next/navigation'
-import { useTransition } from 'next/navigation'
+import { useTransition as useReactTransition } from 'react'
 
 interface Product {
   id: string
@@ -13,9 +13,6 @@ interface Props {
   products: Product[]
   activeProduct?: string
 }
-
-// Next.js note: useTransition from 'react', not 'next/navigation'
-import { useTransition as useReactTransition } from 'react'
 
 export default function FilterBar({ products, activeProduct }: Props) {
   const router     = useRouter()
@@ -35,7 +32,6 @@ export default function FilterBar({ products, activeProduct }: Props) {
     })
   }
 
-  // Regroupe les produits par série pour l'affichage
   const grouped = products.reduce<Record<string, Product[]>>((acc, p) => {
     const series = p.name.includes('Adrenalyn') ? 'Adrenalyn XL'
       : p.name.includes('Score') ? 'Score'
@@ -46,9 +42,14 @@ export default function FilterBar({ products, activeProduct }: Props) {
     return acc
   }, {})
 
+  function shortLabel(name: string) {
+    return name
+      .replace('Adrenalyn XL Ligue 1 ', 'AXL ')
+      .replace('Topps Chrome UEFA Club Competitions ', 'TC ')
+  }
+
   return (
-    <div className="scroll-x mt-2 -mx-4 px-4">
-      {/* Tout */}
+    <div className="scroll-x mt-3 -mx-5 px-5">
       <button
         onClick={() => setProduct(null)}
         className={`filter-tag ${!activeProduct ? 'active' : ''}`}
@@ -56,17 +57,14 @@ export default function FilterBar({ products, activeProduct }: Props) {
         Tout
       </button>
 
-      {/* Par série */}
-      {Object.entries(grouped).map(([series, prods]) =>
+      {Object.entries(grouped).map(([, prods]) =>
         prods.map((p) => (
           <button
             key={p.id}
             onClick={() => setProduct(activeProduct === p.id ? null : p.id)}
             className={`filter-tag ${activeProduct === p.id ? 'active' : ''}`}
           >
-            {/* Label court */}
-            {p.name.replace('Adrenalyn XL Ligue 1 ', 'AXL ')
-                    .replace('Topps Chrome UEFA Club Competitions ', 'TC ')}
+            {shortLabel(p.name)}
           </button>
         ))
       )}
