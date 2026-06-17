@@ -1,9 +1,9 @@
 // Service Worker — Cartes Sport FR
 // Cache statique pour l'expérience offline de base
 
-const CACHE_NAME = 'cartes-sport-v3'
+const CACHE_NAME = 'cartes-sport-v4'
 const STATIC_ASSETS = [
-  '/catalogue',
+  '/',
   '/manifest.json',
   '/icons/icon-192.png',
   '/icons/icon-512.png',
@@ -52,7 +52,7 @@ self.addEventListener('fetch', (event) => {
           }
           return res
         })
-        .catch(() => caches.match(request).then((r) => r ?? caches.match('/catalogue')))
+        .catch(() => caches.match(request).then((r) => r ?? caches.match('/')))
     )
   } else if (request.destination === 'image' || request.destination === 'font') {
     event.respondWith(

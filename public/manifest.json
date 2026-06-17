@@ -2,7 +2,7 @@
   "name": "Cartes Sport FR",
   "short_name": "CartesSport",
   "description": "Catalogue, collection et cote de marché des cartes de sport françaises",
-  "start_url": "/catalogue",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#08080E",
   "theme_color": "#08080E",
