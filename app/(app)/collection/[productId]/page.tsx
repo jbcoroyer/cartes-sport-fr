@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound, redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
-import BottomNav from '@/components/ui/BottomNav'
 import BackButton from '@/components/ui/BackButton'
 import CircularProgress from '@/components/ui/CircularProgress'
 import AlbumGrid, { type AlbumCard } from '@/components/collection/AlbumGrid'
@@ -101,12 +100,11 @@ export default async function AlbumPage({ params }: Props) {
   const totalCards = completion?.total_cards ?? product.total_cards ?? albumCards.length
 
   return (
-    <main className="min-h-screen pb-28">
-      {/* Header album */}
+    <main className="min-h-screen">
       <div className="relative">
         <div className="absolute inset-0 bg-hero-radial pointer-events-none" />
-        <header className="sticky top-0 z-40 glass-panel border-b border-border/60 px-5 pt-safe-top pb-5">
-          <div className="flex items-start gap-3 mb-4">
+        <header className="sticky top-16 z-40 glass-panel border-b border-border/60 px-5 pb-5">
+          <div className="flex items-start gap-3 mb-4 pt-4">
             <BackButton href="/collection" />
             <div className="flex-1 min-w-0">
               <p className="text-2xs text-white/40 uppercase tracking-wider">{product.season}</p>
@@ -138,8 +136,6 @@ export default async function AlbumPage({ params }: Props) {
           <AlbumGrid cards={albumCards} />
         </Reveal>
       </div>
-
-      <BottomNav active="collection" />
     </main>
   )
 }

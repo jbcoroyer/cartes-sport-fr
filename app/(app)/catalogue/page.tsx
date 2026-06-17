@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { createClient } from '@/lib/supabase/server'
 import { ensureProfile } from '@/lib/profile'
 import CardGrid from '@/components/cards/CardGrid'
-import BottomNav from '@/components/ui/BottomNav'
 import PageHeader from '@/components/ui/PageHeader'
 import SearchBar from '@/components/ui/SearchBar'
 import FilterBar from '@/components/ui/FilterBar'
@@ -96,7 +95,7 @@ export default async function CataloguePage({ searchParams }: Props) {
   })
 
   return (
-    <main className="min-h-screen pb-28">
+    <main className="min-h-screen">
       <PageHeader
         title={<>Cartes Sport <span className="text-gold">FR</span></>}
         subtitle="Catalogue & cotes de marché"
@@ -120,8 +119,6 @@ export default async function CataloguePage({ searchParams }: Props) {
           <CardGrid cards={normalizedCards} />
         </section>
       </Reveal>
-
-      <BottomNav active="catalogue" />
     </main>
   )
 }

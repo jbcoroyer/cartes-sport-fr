@@ -6,7 +6,6 @@ import { createClient } from '@/lib/supabase/server'
 import { ensureProfile, profileDisplayName } from '@/lib/profile'
 import ProfileEditor from '@/components/profile/ProfileEditor'
 import SignOutButton from '@/components/profile/SignOutButton'
-import BottomNav from '@/components/ui/BottomNav'
 import PageHeader from '@/components/ui/PageHeader'
 import AnimatedCounter from '@/components/ui/AnimatedCounter'
 import Reveal from '@/components/motion/Reveal'
@@ -31,7 +30,7 @@ export default async function ProfilePage() {
   const displayName = profileDisplayName(profile, user)
 
   return (
-    <main className="min-h-screen pb-28">
+    <main className="min-h-screen">
       <PageHeader
         title="Mon profil"
         subtitle="Ta collection est liée à ce compte"
@@ -73,8 +72,6 @@ export default async function ProfilePage() {
           </section>
         </Reveal>
       </div>
-
-      <BottomNav active="profil" />
     </main>
   )
 }

@@ -137,7 +137,6 @@ export default async function CardPage({ params }: Props) {
         )}
       </div>
 
-      {/* Sticky action bar */}
       <div className="fixed bottom-0 left-0 right-0 z-40 glass-panel border-t border-border/60 px-5 py-4 safe-bottom">
         <CollectionToggle
           cardId={card.id}

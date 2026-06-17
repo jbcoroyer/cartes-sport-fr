@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import { ensureProfile, profileDisplayName } from '@/lib/profile'
-import BottomNav from '@/components/ui/BottomNav'
 import PageHeader from '@/components/ui/PageHeader'
 import Section from '@/components/ui/Section'
 import CollectionStats from '@/components/collection/CollectionStats'
@@ -64,7 +63,7 @@ export default async function CollectionPage() {
   const hasContent = (owned?.length ?? 0) > 0 || (completion?.length ?? 0) > 0
 
   return (
-    <main className="min-h-screen pb-28">
+    <main className="min-h-screen">
       <PageHeader
         title="Ma collection"
         subtitle={displayName}
@@ -86,7 +85,6 @@ export default async function CollectionPage() {
       <div className="px-5 pt-6 space-y-8">
         {hasContent ? (
           <>
-            {/* Hero progression globale */}
             <Reveal>
               <div className="glass-panel rounded-xl3 p-6 bg-hero-radial">
                 <div className="flex items-center gap-5">
@@ -127,8 +125,6 @@ export default async function CollectionPage() {
           <CollectionEmpty displayName={displayName} avatarUrl={profile?.avatar_url} />
         )}
       </div>
-
-      <BottomNav active="collection" />
     </main>
   )
 }

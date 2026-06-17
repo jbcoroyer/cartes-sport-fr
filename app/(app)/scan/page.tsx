@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import Scanner from '@/components/scanner/Scanner'
-import BottomNav from '@/components/ui/BottomNav'
 import PageHeader from '@/components/ui/PageHeader'
 
 export const metadata: Metadata = { title: 'Scanner' }
@@ -13,7 +12,7 @@ export default async function ScanPage() {
   if (!user) redirect('/login?redirect=/scan')
 
   return (
-    <main className="min-h-screen bg-canvas flex flex-col pb-28">
+    <main className="min-h-screen bg-canvas flex flex-col">
       <PageHeader
         title="Scanner une carte"
         subtitle="Identification instantanée par OCR"
@@ -23,8 +22,6 @@ export default async function ScanPage() {
       <div className="flex-1 flex flex-col">
         <Scanner userId={user.id} />
       </div>
-
-      <BottomNav active="scan" />
     </main>
   )
 }
