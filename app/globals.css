@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-inter: 'Inter', system-ui, sans-serif;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-canvas text-white;
+    overscroll-behavior: none;
+  }
+
+  /* Safe area pour les iPhones avec encoche */
+  .safe-top    { padding-top: env(safe-area-inset-top); }
+  .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+}
+
+@layer components {
+  /* Carte collection */
+  .card-item {
+    @apply relative bg-surface rounded-card overflow-hidden;
+    @apply border border-border;
+    @apply transition-all duration-200;
+    @apply hover:shadow-card-hover hover:border-gold/30;
+    @apply active:scale-95;
+  }
+
+  /* Badge de rareté */
+  .rarity-badge {
+    @apply absolute top-2 right-2 z-10;
+    @apply text-[10px] font-semibold tracking-wide uppercase;
+    @apply px-1.5 py-0.5 rounded-full;
+  }
+
+  /* Statut de collection */
+  .status-owned   { @apply bg-owned/20 text-owned border border-owned/30; }
+  .status-missing { @apply bg-missing/20 text-missing border border-missing/30; }
+  .status-wanted  { @apply bg-wanted/20 text-wanted border border-wanted/30; }
+
+  /* Bouton principal doré */
+  .btn-gold {
+    @apply bg-gold text-canvas font-semibold px-4 py-2 rounded-lg;
+    @apply hover:bg-gold-light active:bg-gold-dark;
+    @apply transition-colors duration-150;
+  }
+
+  /* Barre de navigation du bas */
+  .bottom-nav {
+    @apply fixed bottom-0 left-0 right-0 z-50;
+    @apply bg-surface/95 backdrop-blur-md;
+    @apply border-t border-border;
+    @apply safe-bottom;
+  }
+
+  /* Input de recherche */
+  .search-input {
+    @apply w-full bg-panel border border-border rounded-xl;
+    @apply px-4 py-3 text-sm text-white placeholder-white/30;
+    @apply focus:outline-none focus:border-gold/50;
+    @apply transition-colors duration-150;
+  }
+
+  /* Tag de filtre */
+  .filter-tag {
+    @apply px-3 py-1.5 rounded-full text-xs font-medium;
+    @apply border border-border bg-panel text-white/60;
+    @apply hover:border-gold/50 hover:text-white;
+    @apply transition-all duration-150 cursor-pointer;
+    @apply whitespace-nowrap;
+  }
+
+  .filter-tag.active {
+    @apply bg-gold/10 border-gold/50 text-gold;
+  }
+}
+
+@layer utilities {
+  /* Shimmer pour cartes en chargement */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      theme('colors.surface') 0%,
+      theme('colors.panel') 50%,
+      theme('colors.surface') 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+  }
+
+  /* Scroll horizontal sans scrollbar visible */
+  .scroll-x {
+    @apply flex overflow-x-auto gap-2 pb-1;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .scroll-x::-webkit-scrollbar { display: none; }
+
+  /* Grille de cartes responsive */
+  .card-grid {
+    @apply grid gap-3;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+}

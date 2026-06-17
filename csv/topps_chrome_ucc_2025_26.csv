@@ -1,0 +1,333 @@
+card_number,player_name,team_name,rarity_name,position,variant_type,is_autograph,is_numbered,print_run,product_name,season,source_verified
+1,Kylian Mbappé,Real Madrid C.F.,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+2,Jude Bellingham,Real Madrid C.F.,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+3,Vinicius Jr.,Real Madrid C.F.,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+4,Mohamed Salah,Liverpool FC,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+5,Florian Wirtz,Liverpool FC,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+6,Virgil van Dijk,Liverpool FC,Base,défenseur,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+7,Erling Haaland,Manchester City,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+8,Lamine Yamal,FC Barcelona,Base-FS,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+9,Bukayo Saka,Arsenal FC,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+10,Declan Rice,Arsenal FC,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+11,Ousmane Dembélé,Paris Saint-Germain,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+12,Bradley Barcola,Paris Saint-Germain,Base-FS,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+13,Désiré Doué,Paris Saint-Germain,Base-FS,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+14,João Neves,Paris Saint-Germain,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+15,Khvicha Kvaratskhelia,Paris Saint-Germain,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+16,Marquinhos,Paris Saint-Germain,Base,défenseur,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+17,Nuno Mendes,Paris Saint-Germain,Base,défenseur,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+18,Vitinha,Paris Saint-Germain,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+19,Warren Zaïre-Emery,Paris Saint-Germain,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+20,Franco Mastantuono,Real Madrid C.F.,Base-RC,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+21,Harry Kane,FC Bayern München,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+22,Michael Olise,FC Bayern München,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+23,Lennart Karl,FC Bayern München,Base-RC,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+24,Jamal Musiala,FC Bayern München,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+25,Estêvão Willian,Chelsea FC,Base-RC,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+26,Cole Palmer,Chelsea FC,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+27,Folarin Balogun,AS Monaco,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+28,Eliesse Ben Seghir,AS Monaco,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+29,Lamine Camara,AS Monaco,Base-FS,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+30,Martin Ødegaard,Arsenal FC,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+31,Rodrygo,Real Madrid C.F.,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+32,Eduardo Camavinga,Real Madrid C.F.,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+33,Endrick,Real Madrid C.F.,Base-RC,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+34,Pedri,FC Barcelona,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+35,Raphinha,FC Barcelona,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+36,Robert Lewandowski,FC Barcelona,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+37,Gavi,FC Bayern München,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+38,Fermín López,FC Barcelona,Base-FS,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+39,Antoine Griezmann,Atlético de Madrid,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+40,Julián Álvarez,Atlético de Madrid,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+41,Phil Foden,Manchester City,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+42,Kevin De Bruyne,Manchester City,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+43,Virgil van Dijk,Liverpool FC,Base,défenseur,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+44,Alexis Mac Allister,Liverpool FC,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+45,Alexander Isak,Newcastle United,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+46,Bukayo Saka,Arsenal FC,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+47,William Saliba,Arsenal FC,Base,défenseur,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+48,Gabriel Martinelli,Arsenal FC,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+49,Myles Lewis-Skelly,Arsenal FC,Base-RC,défenseur,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+50,Viktor Gyökeres,Arsenal FC,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+51,Kai Havertz,Arsenal FC,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+52,Ethan Nwaneri,Arsenal FC,Base-RC,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+53,Eberechi Eze,Arsenal FC,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+54,Heung-min Son,Tottenham Hotspur,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+55,Richarlison,Tottenham Hotspur,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+56,Trent Alexander-Arnold,Liverpool FC,Base,défenseur,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+57,Jeremie Frimpong,Liverpool FC,Base,défenseur,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+58,Rio Ngumoha,Liverpool FC,Base-RC,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+59,Hugo Ekitike,Liverpool FC,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+60,Federico Valverde,Real Madrid C.F.,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+61,Arda Güler,Real Madrid C.F.,Base-FS,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+62,Dean Huijsen,Real Madrid C.F.,Base,défenseur,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+63,Rafael Leão,AC Milan,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+64,Theo Hernández,AC Milan,Base,défenseur,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+65,Mike Maignan,AC Milan,Base,gardien,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+66,Lautaro Martínez,FC Internazionale Milano,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+67,Nicolò Barella,FC Internazionale Milano,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+68,Alessandro Bastoni,FC Internazionale Milano,Base,défenseur,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+69,Florian Wirtz,Liverpool FC,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+70,Alexis Mac Allister,Liverpool FC,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+71,Darwin Núñez,Liverpool FC,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+72,Bernardo Silva,Manchester City,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+73,Joško Gvardiol,Manchester City,Base,défenseur,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+74,Savinho,Manchester City,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+75,Kobbie Mainoo,Manchester United,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+76,Jobe Bellingham,Borussia Dortmund,Base-RC,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+77,Jamie Gittens,Borussia Dortmund,Base-RC,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+78,Karim Adeyemi,Borussia Dortmund,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+79,Jonathan David,LOSC Lille,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+80,Lucas Chevalier,LOSC Lille,Base,gardien,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+81,Ayyoub Bouaddi,LOSC Lille,Base-FS,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+82,Xavi Simons,RB Leipzig,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+83,Florian Wirtz,Liverpool FC,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+84,Pedri,FC Barcelona,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+85,Dani Olmo,FC Barcelona,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+86,Wojciech Szczęsny,FC Barcelona,Base,gardien,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+87,Erling Haaland,Manchester City,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+88,Cole Palmer,Chelsea FC,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+89,Pedro Neto,Chelsea FC,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+90,Enzo Fernández,Chelsea FC,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+91,Reece James,Chelsea FC,Base,défenseur,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+92,Malo Gusto,Chelsea FC,Base-RC,défenseur,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+93,Noni Madueke,Chelsea FC,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+94,Marc Guiu,Chelsea FC,Base-FS,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+95,Nicolas Jackson,Chelsea FC,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+96,Lamine Yamal,FC Barcelona,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+97,Viktor Gyökeres,Arsenal FC,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+98,Max Dowman,Arsenal FC,Base-RC,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+99,Gianluigi Donnarumma,Paris Saint-Germain,Base,gardien,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+100,Achraf Hakimi,Paris Saint-Germain,Base,défenseur,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+101,Gonçalo Ramos,Paris Saint-Germain,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+102,Lucas Hernandez,Paris Saint-Germain,Base,défenseur,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+103,Warren Zaïre-Emery,Paris Saint-Germain,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+104,Senny Mayulu,Paris Saint-Germain,Base-RC,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+105,Quentin Ndjantou,Paris Saint-Germain,Base-RC,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+106,Kang-in Lee,Paris Saint-Germain,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+107,Willian Pacho,Paris Saint-Germain,Base,défenseur,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+108,Fabián Ruiz,Paris Saint-Germain,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+109,Robert Lewandowski,FC Barcelona,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+110,Ronald Araújo,FC Barcelona,Base,défenseur,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+111,Alejandro Garnacho,Manchester United,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+112,Rasmus Højlund,Manchester United,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+113,Alphonso Davies,FC Bayern München,Base,défenseur,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+114,Joshua Kimmich,FC Bayern München,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+115,Thomas Müller,FC Bayern München,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+116,Gyökeres Viktor,Sporting Clube de Portugal,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+117,Pedro Gonçalves,Sporting Clube de Portugal,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+118,Geovany Quenda,Sporting Clube de Portugal,Base-RC,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+119,Florentino Luís,Benfica,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+120,Di María,Benfica,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+121,Cody Gakpo,Liverpool FC,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+122,Dominik Szoboszlai,Liverpool FC,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+123,Ryan Gravenberch,Liverpool FC,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+124,Diogo Jota,Liverpool FC,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+125,Konstantinos Karetsas,KRC Genk,Base-RC,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+126,Florian Wirtz,Liverpool FC,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+127,Ademola Lookman,Atalanta BC,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+128,Gianluca Scamacca,Atalanta BC,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+129,Federico Valverde,Real Madrid C.F.,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+130,Dani Carvajal,Real Madrid C.F.,Base,défenseur,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+131,Aurélien Tchouaméni,Real Madrid C.F.,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+132,Lucas Vázquez,Real Madrid C.F.,Base,défenseur,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+133,Thibaut Courtois,Real Madrid C.F.,Base,gardien,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+134,Luka Modrić,Real Madrid C.F.,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+135,Jan Oblak,Atlético de Madrid,Base,gardien,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+136,Conor Gallagher,Atlético de Madrid,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+137,Antoine Griezmann,Atlético de Madrid,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+138,Marcus Thuram,FC Internazionale Milano,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+139,Hakan Çalhanoğlu,FC Internazionale Milano,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+140,Yann Sommer,FC Internazionale Milano,Base,gardien,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+141,Benjamin Pavard,FC Internazionale Milano,Base,défenseur,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+142,Alexis Saelemaekers,AC Milan,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+143,Strahinja Pavlović,AC Milan,Base,défenseur,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+144,Santiago Giménez,AC Milan,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+145,Phil Foden,Manchester City,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+146,İlkay Gündoğan,Manchester City,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+147,Rodri,Manchester City,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+148,Jack Grealish,Manchester City,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+149,Granit Xhaka,Bayer 04 Leverkusen,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+150,Florian Wirtz,Liverpool FC,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+151,Victor Boniface,Bayer 04 Leverkusen,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+152,Alejandro Garnacho,Manchester United,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+153,Marcus Rashford,Manchester United,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+154,Bruno Fernandes,Manchester United,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+155,Nico Schlotterbeck,Borussia Dortmund,Base,défenseur,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+156,Marcel Sabitzer,Borussia Dortmund,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+157,Felix Nmecha,Borussia Dortmund,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+158,Alexander Isak,Newcastle United,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+159,Anthony Gordon,Newcastle United,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+160,Anthony Elanga,Newcastle United,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+161,Armel Bella-Kotchap,PSV Eindhoven,Base,défenseur,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+162,Noa Lang,PSV Eindhoven,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+163,Georgiy Sudakov,FC Shakhtar Donetsk,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+164,Alistair Johnston,Celtic FC,Base,défenseur,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+165,Callum McGregor,Celtic FC,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+166,Daizen Maeda,Celtic FC,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+167,Emiliano Martínez,Aston Villa,Base,gardien,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+168,Ollie Watkins,Aston Villa,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+169,Morgan Rogers,Aston Villa,Base-FS,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+170,Youri Tielemans,Aston Villa,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+171,Moussa Diaby,Aston Villa,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+172,Sam Omorodion,Atletico de Madrid,Base-RC,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+173,Pablo Barrios,Atlético de Madrid,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+174,Rodrigo Riquelme,Atlético de Madrid,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+175,Thomas Lemar,Atlético de Madrid,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+176,Cody Gakpo,Liverpool FC,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+177,Fabio Vieira,Arsenal FC,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+178,Leandro Trossard,Arsenal FC,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+179,Ben White,Arsenal FC,Base,défenseur,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+180,Gabriel Magalhães,Arsenal FC,Base,défenseur,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+181,Mikel Merino,Arsenal FC,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+182,Abdallah Sima,Rangers F.C.,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+183,Vaclav Cerny,FC Porto,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+184,Cory Loftus-Cheek,AC Milan,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+185,Armando Broja,Fiorentina,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+186,Albert Gudmundsson,ACF Fiorentina,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+187,Kelvin Yeboah,KRC Genk,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+188,Weston McKennie,Juventus,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+189,Teun Koopmeiners,Juventus,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+190,Dusan Vlahovic,Juventus,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+191,Andrea Cambiaso,Juventus,Base,défenseur,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+192,Francisco Conceição,Juventus,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+193,Roberto De Zerbi,Marseille / coaching,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+194,Xabi Alonso,Bayer 04 Leverkusen,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+195,Lucas Hernandez,Paris Saint-Germain,Base,défenseur,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+196,Matvey Safonov,Paris Saint-Germain,Base,gardien,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+197,Lucas Beraldo,Paris Saint-Germain,Base,défenseur,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+198,Willian Pacho,Paris Saint-Germain,Base,défenseur,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+199,Neymar Jr,Paris Saint-Germain,Base,attaquant,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+200,Ronaldinho,FC Barcelona,Base,milieu,base,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+1-GoldRefractor,Kylian Mbappé,Real Madrid C.F.,Gold Refractor,attaquant,numbered,false,true,50,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+1-OrangeRefractor,Kylian Mbappé,Real Madrid C.F.,Orange Refractor,attaquant,numbered,false,true,25,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+1-RedRefractor,Kylian Mbappé,Real Madrid C.F.,Red Refractor,attaquant,numbered,false,true,5,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+1-Superfractor,Kylian Mbappé,Real Madrid C.F.,Superfractor,attaquant,numbered,false,true,1,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+2-GoldRefractor,Jude Bellingham,Real Madrid C.F.,Gold Refractor,milieu,numbered,false,true,50,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+2-OrangeRefractor,Jude Bellingham,Real Madrid C.F.,Orange Refractor,milieu,numbered,false,true,25,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+2-RedRefractor,Jude Bellingham,Real Madrid C.F.,Red Refractor,milieu,numbered,false,true,5,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+2-Superfractor,Jude Bellingham,Real Madrid C.F.,Superfractor,milieu,numbered,false,true,1,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+4-GoldRefractor,Mohamed Salah,Liverpool FC,Gold Refractor,attaquant,numbered,false,true,50,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+4-OrangeRefractor,Mohamed Salah,Liverpool FC,Orange Refractor,attaquant,numbered,false,true,25,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+4-RedRefractor,Mohamed Salah,Liverpool FC,Red Refractor,attaquant,numbered,false,true,5,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+4-Superfractor,Mohamed Salah,Liverpool FC,Superfractor,attaquant,numbered,false,true,1,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+8-GoldRefractor,Lamine Yamal,FC Barcelona,Gold Refractor,attaquant,numbered,false,true,50,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+8-OrangeRefractor,Lamine Yamal,FC Barcelona,Orange Refractor,attaquant,numbered,false,true,25,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+8-RedRefractor,Lamine Yamal,FC Barcelona,Red Refractor,attaquant,numbered,false,true,5,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+8-Superfractor,Lamine Yamal,FC Barcelona,Superfractor,attaquant,numbered,false,true,1,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+11-GoldRefractor,Ousmane Dembélé,Paris Saint-Germain,Gold Refractor,attaquant,numbered,false,true,50,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+11-OrangeRefractor,Ousmane Dembélé,Paris Saint-Germain,Orange Refractor,attaquant,numbered,false,true,25,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+11-RedRefractor,Ousmane Dembélé,Paris Saint-Germain,Red Refractor,attaquant,numbered,false,true,5,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+11-Superfractor,Ousmane Dembélé,Paris Saint-Germain,Superfractor,attaquant,numbered,false,true,1,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+12-GoldRefractor,Bradley Barcola,Paris Saint-Germain,Gold Refractor,attaquant,numbered,false,true,50,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+12-OrangeRefractor,Bradley Barcola,Paris Saint-Germain,Orange Refractor,attaquant,numbered,false,true,25,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+12-RedRefractor,Bradley Barcola,Paris Saint-Germain,Red Refractor,attaquant,numbered,false,true,5,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+12-Superfractor,Bradley Barcola,Paris Saint-Germain,Superfractor,attaquant,numbered,false,true,1,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+13-GoldRefractor,Désiré Doué,Paris Saint-Germain,Gold Refractor,attaquant,numbered,false,true,50,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+13-OrangeRefractor,Désiré Doué,Paris Saint-Germain,Orange Refractor,attaquant,numbered,false,true,25,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+13-RedRefractor,Désiré Doué,Paris Saint-Germain,Red Refractor,attaquant,numbered,false,true,5,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+13-Superfractor,Désiré Doué,Paris Saint-Germain,Superfractor,attaquant,numbered,false,true,1,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+14-GoldRefractor,João Neves,Paris Saint-Germain,Gold Refractor,milieu,numbered,false,true,50,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+14-OrangeRefractor,João Neves,Paris Saint-Germain,Orange Refractor,milieu,numbered,false,true,25,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+14-RedRefractor,João Neves,Paris Saint-Germain,Red Refractor,milieu,numbered,false,true,5,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+14-Superfractor,João Neves,Paris Saint-Germain,Superfractor,milieu,numbered,false,true,1,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+15-GoldRefractor,Khvicha Kvaratskhelia,Paris Saint-Germain,Gold Refractor,attaquant,numbered,false,true,50,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+15-OrangeRefractor,Khvicha Kvaratskhelia,Paris Saint-Germain,Orange Refractor,attaquant,numbered,false,true,25,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+15-RedRefractor,Khvicha Kvaratskhelia,Paris Saint-Germain,Red Refractor,attaquant,numbered,false,true,5,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+15-Superfractor,Khvicha Kvaratskhelia,Paris Saint-Germain,Superfractor,attaquant,numbered,false,true,1,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+16-GoldRefractor,Marquinhos,Paris Saint-Germain,Gold Refractor,défenseur,numbered,false,true,50,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+16-OrangeRefractor,Marquinhos,Paris Saint-Germain,Orange Refractor,défenseur,numbered,false,true,25,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+16-RedRefractor,Marquinhos,Paris Saint-Germain,Red Refractor,défenseur,numbered,false,true,5,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+16-Superfractor,Marquinhos,Paris Saint-Germain,Superfractor,défenseur,numbered,false,true,1,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+17-GoldRefractor,Nuno Mendes,Paris Saint-Germain,Gold Refractor,défenseur,numbered,false,true,50,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+17-OrangeRefractor,Nuno Mendes,Paris Saint-Germain,Orange Refractor,défenseur,numbered,false,true,25,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+17-RedRefractor,Nuno Mendes,Paris Saint-Germain,Red Refractor,défenseur,numbered,false,true,5,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+17-Superfractor,Nuno Mendes,Paris Saint-Germain,Superfractor,défenseur,numbered,false,true,1,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+18-GoldRefractor,Vitinha,Paris Saint-Germain,Gold Refractor,milieu,numbered,false,true,50,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+18-OrangeRefractor,Vitinha,Paris Saint-Germain,Orange Refractor,milieu,numbered,false,true,25,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+18-RedRefractor,Vitinha,Paris Saint-Germain,Red Refractor,milieu,numbered,false,true,5,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+18-Superfractor,Vitinha,Paris Saint-Germain,Superfractor,milieu,numbered,false,true,1,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+19-GoldRefractor,Warren Zaïre-Emery,Paris Saint-Germain,Gold Refractor,milieu,numbered,false,true,50,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+19-OrangeRefractor,Warren Zaïre-Emery,Paris Saint-Germain,Orange Refractor,milieu,numbered,false,true,25,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+19-RedRefractor,Warren Zaïre-Emery,Paris Saint-Germain,Red Refractor,milieu,numbered,false,true,5,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+19-Superfractor,Warren Zaïre-Emery,Paris Saint-Germain,Superfractor,milieu,numbered,false,true,1,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+20-GoldRefractor,Franco Mastantuono,Real Madrid C.F.,Gold Refractor,milieu,numbered,false,true,50,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+20-OrangeRefractor,Franco Mastantuono,Real Madrid C.F.,Orange Refractor,milieu,numbered,false,true,25,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+20-RedRefractor,Franco Mastantuono,Real Madrid C.F.,Red Refractor,milieu,numbered,false,true,5,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+20-Superfractor,Franco Mastantuono,Real Madrid C.F.,Superfractor,milieu,numbered,false,true,1,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+21-GoldRefractor,Harry Kane,FC Bayern München,Gold Refractor,attaquant,numbered,false,true,50,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+21-OrangeRefractor,Harry Kane,FC Bayern München,Orange Refractor,attaquant,numbered,false,true,25,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+21-RedRefractor,Harry Kane,FC Bayern München,Red Refractor,attaquant,numbered,false,true,5,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+21-Superfractor,Harry Kane,FC Bayern München,Superfractor,attaquant,numbered,false,true,1,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+25-GoldRefractor,Estêvão Willian,Chelsea FC,Gold Refractor,attaquant,numbered,false,true,50,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+25-OrangeRefractor,Estêvão Willian,Chelsea FC,Orange Refractor,attaquant,numbered,false,true,25,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+25-RedRefractor,Estêvão Willian,Chelsea FC,Red Refractor,attaquant,numbered,false,true,5,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+25-Superfractor,Estêvão Willian,Chelsea FC,Superfractor,attaquant,numbered,false,true,1,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+27-GoldRefractor,Folarin Balogun,AS Monaco,Gold Refractor,attaquant,numbered,false,true,50,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+27-OrangeRefractor,Folarin Balogun,AS Monaco,Orange Refractor,attaquant,numbered,false,true,25,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+27-RedRefractor,Folarin Balogun,AS Monaco,Red Refractor,attaquant,numbered,false,true,5,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+27-Superfractor,Folarin Balogun,AS Monaco,Superfractor,attaquant,numbered,false,true,1,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+50-GoldRefractor,Viktor Gyökeres,Arsenal FC,Gold Refractor,attaquant,numbered,false,true,50,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+50-OrangeRefractor,Viktor Gyökeres,Arsenal FC,Orange Refractor,attaquant,numbered,false,true,25,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+50-RedRefractor,Viktor Gyökeres,Arsenal FC,Red Refractor,attaquant,numbered,false,true,5,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+50-Superfractor,Viktor Gyökeres,Arsenal FC,Superfractor,attaquant,numbered,false,true,1,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+99-GoldRefractor,Gianluigi Donnarumma,Paris Saint-Germain,Gold Refractor,gardien,numbered,false,true,50,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+99-OrangeRefractor,Gianluigi Donnarumma,Paris Saint-Germain,Orange Refractor,gardien,numbered,false,true,25,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+99-RedRefractor,Gianluigi Donnarumma,Paris Saint-Germain,Red Refractor,gardien,numbered,false,true,5,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+99-Superfractor,Gianluigi Donnarumma,Paris Saint-Germain,Superfractor,gardien,numbered,false,true,1,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+100-GoldRefractor,Achraf Hakimi,Paris Saint-Germain,Gold Refractor,défenseur,numbered,false,true,50,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+100-OrangeRefractor,Achraf Hakimi,Paris Saint-Germain,Orange Refractor,défenseur,numbered,false,true,25,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+100-RedRefractor,Achraf Hakimi,Paris Saint-Germain,Red Refractor,défenseur,numbered,false,true,5,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+100-Superfractor,Achraf Hakimi,Paris Saint-Germain,Superfractor,défenseur,numbered,false,true,1,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,partial
+H-1,Diego Maradona,SSC Napoli,Helix,attaquant,insert,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+H-2,Estêvão Willian,Chelsea FC,Helix,attaquant,insert,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+H-3,Kylian Mbappé,Real Madrid C.F.,Helix,attaquant,insert,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+H-4,Franco Mastantuono,Real Madrid C.F.,Helix,milieu,insert,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+H-5,Lennart Karl,FC Bayern München,Helix,milieu,insert,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+H-6,Konstantinos Karetsas,KRC Genk,Helix,milieu,insert,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+H-7,Ronaldinho,FC Barcelona,Helix,milieu,insert,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+H-8,Neymar Jr,Paris Saint-Germain,Helix,attaquant,insert,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+H-9,Max Dowman,Arsenal FC,Helix,milieu,insert,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+H-10,Jobe Bellingham,Borussia Dortmund,Helix,milieu,insert,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+CC-1,Nuno Mendes,Paris Saint-Germain,Champion Clubs,défenseur,insert,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+CC-2,Willian Pacho,Paris Saint-Germain,Champion Clubs,défenseur,insert,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+CC-3,Marquinhos,Paris Saint-Germain,Champion Clubs,défenseur,insert,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+CC-4,Fabián Ruiz,Paris Saint-Germain,Champion Clubs,milieu,insert,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+CC-5,Vitinha,Paris Saint-Germain,Champion Clubs,milieu,insert,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+CC-6,João Neves,Paris Saint-Germain,Champion Clubs,milieu,insert,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+CC-7,Khvicha Kvaratskhelia,Paris Saint-Germain,Champion Clubs,attaquant,insert,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+CC-8,Ousmane Dembélé,Paris Saint-Germain,Champion Clubs,attaquant,insert,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+CC-9,Désiré Doué,Paris Saint-Germain,Champion Clubs,attaquant,insert,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+CC-10,Bradley Barcola,Paris Saint-Germain,Champion Clubs,attaquant,insert,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+CC-11,Kang-in Lee,Paris Saint-Germain,Champion Clubs,milieu,insert,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+CA-1,Michael Olise,FC Bayern München,Chrome Autograph,attaquant,autograph,true,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+CA-2,Kylian Mbappé,Real Madrid C.F.,Chrome Autograph,attaquant,autograph,true,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+CA-3,Lamine Yamal,FC Barcelona,Chrome Autograph,attaquant,autograph,true,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+CA-4,Estêvão Willian,Chelsea FC,Chrome Autograph,attaquant,autograph,true,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+CA-5,Désiré Doué,Paris Saint-Germain,Chrome Autograph,attaquant,autograph,true,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+CA-6,Rio Ngumoha,Liverpool FC,Chrome Autograph,attaquant,autograph,true,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+CA-7,Florian Wirtz,Liverpool FC,Chrome Autograph,milieu,autograph,true,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+CA-AG,Antoine Griezmann,Atlético de Madrid,Chrome Autograph,attaquant,autograph,true,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+CA-JB,Jude Bellingham,Real Madrid C.F.,Chrome Autograph,milieu,autograph,true,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+CA-EH,Erling Haaland,Manchester City,Chrome Autograph,attaquant,autograph,true,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+CA-FM,Franco Mastantuono,Real Madrid C.F.,Chrome Autograph,milieu,autograph,true,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+CA-BB,Bradley Barcola,Paris Saint-Germain,Chrome Autograph,attaquant,autograph,true,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+CA-MS,Mohamed Salah,Liverpool FC,Chrome Autograph,attaquant,autograph,true,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+CA-LK,Lennart Karl,FC Bayern München,Chrome Autograph,milieu,autograph,true,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+GA26-AD,Alphonso Davies,FC Bayern München,Global Attractions,défenseur,insert,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+GA26-CG,Cody Gakpo,Liverpool FC,Global Attractions,attaquant,insert,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+GA26-DM,Daizen Maeda,Celtic FC,Global Attractions,attaquant,insert,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+GA26-DR,Declan Rice,Arsenal FC,Global Attractions,milieu,insert,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+GA26-EH,Erling Haaland,Manchester City,Global Attractions,attaquant,insert,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+GA26-EW,Estêvão Willian,Chelsea FC,Global Attractions,attaquant,insert,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+GA26-FB,Folarin Balogun,AS Monaco,Global Attractions,attaquant,insert,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+GA26-FM,Franco Mastantuono,Real Madrid C.F.,Global Attractions,milieu,insert,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+GA26-HK,Harry Kane,FC Bayern München,Global Attractions,attaquant,insert,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+GA26-VVD,Virgil van Dijk,Liverpool FC,Global Attractions,défenseur,insert,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+GA26-WM,Weston McKennie,Juventus,Global Attractions,milieu,insert,false,false,,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+ME-BB1,Bradley Barcola,Paris Saint-Germain,Marks of Excellence,attaquant,memorabilia,false,true,99,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+ME-CP1,Cole Palmer,Chelsea FC,Marks of Excellence,milieu,memorabilia,false,true,99,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+ME-HK1,Harry Kane,FC Bayern München,Marks of Excellence,attaquant,memorabilia,false,true,99,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+ME-LM1,Lionel Messi,FC Barcelona,Marks of Excellence,attaquant,memorabilia,false,true,99,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+ME-MS1,Mohamed Salah,Liverpool FC,Marks of Excellence,attaquant,memorabilia,false,true,99,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
+ME-AG3,Arda Güler,Real Madrid C.F.,Marks of Excellence,milieu,memorabilia,false,true,99,Topps Chrome UEFA Club Competitions 2025-2026,2025-2026,UEFA Champions League / Europa League / Conference League,true
