@@ -6,9 +6,7 @@ import { usePathname } from 'next/navigation'
 import { User } from 'lucide-react'
 
 const TABS = [
-  { id: 'catalogue', label: 'Catalogue', href: '/catalogue' },
-  { id: 'scan', label: 'Scanner', href: '/scan' },
-  { id: 'collection', label: 'Collection', href: '/collection' },
+  { id: 'library', label: 'Bibliothèque', href: '/' },
   { id: 'profil', label: 'Profil', href: '/profil' },
 ] as const
 
@@ -23,24 +21,24 @@ interface Props {
 }
 
 function isTabActive(pathname: string, href: string, tabId: string) {
-  if (tabId === 'collection') {
-    return pathname === href || pathname.startsWith('/collection/')
+  if (tabId === 'library') {
+    return pathname === '/' || pathname.startsWith('/album') || pathname.startsWith('/carte')
   }
-  if (tabId === 'catalogue') {
-    return pathname === href || pathname.startsWith('/catalogue/')
+  if (tabId === 'profil') {
+    return pathname.startsWith('/profil')
   }
-  return pathname === href || pathname.startsWith(`${href}/`)
+  return pathname === href
 }
 
 export default function TopNav({ user }: Props) {
   const pathname = usePathname()
 
   return (
-    <header className="sticky top-0 z-50 bg-canvas/95 backdrop-blur-sm border-b border-border safe-top">
+    <header className="sticky top-0 z-50 bg-museum border-b border-border safe-top shadow-clay-sm">
       <div className="h-14 md:h-16 page-container flex items-center justify-between gap-6">
         <Link
           href="/"
-          className="shrink-0 text-sm md:text-[15px] font-medium tracking-tight text-ink"
+          className="shrink-0 font-serif text-sm md:text-base font-medium tracking-tight text-ink"
         >
           Cartes Sport FR
         </Link>
@@ -52,10 +50,8 @@ export default function TopNav({ user }: Props) {
               <Link
                 key={tab.id}
                 href={tab.href}
-                className={`px-3 py-2 text-xs sm:text-sm font-medium transition-colors ${
-                  active
-                    ? 'text-ink'
-                    : 'text-muted hover:text-ink'
+                className={`px-3 py-2 text-xs sm:text-sm font-medium transition-colors rounded-clay ${
+                  active ? 'text-ink bg-surface shadow-soft' : 'text-muted hover:text-ink'
                 }`}
               >
                 {tab.label}

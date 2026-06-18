@@ -5,18 +5,20 @@ import { ChevronLeft } from 'lucide-react'
 
 interface Props {
   href?: string
+  label?: string
   className?: string
 }
 
-export default function BackButton({ href, className = '' }: Props) {
-  const baseClass = `flex items-center justify-center w-9 h-9 rounded-full
-    bg-panel/80 backdrop-blur-sm border border-border/80
-    text-ink/70 hover:text-ink hover:border-gold/30 transition-all ${className}`
+export default function BackButton({ href, label, className = '' }: Props) {
+  const baseClass = `inline-flex items-center gap-2 text-sm text-muted hover:text-ink transition-colors ${className}`
 
   if (href) {
     return (
       <Link href={href} className={baseClass} aria-label="Retour">
-        <ChevronLeft size={18} />
+        <span className="flex items-center justify-center w-8 h-8 rounded-full bg-panel border border-border">
+          <ChevronLeft size={16} />
+        </span>
+        {label && <span className="font-sans">{label}</span>}
       </Link>
     )
   }
@@ -24,10 +26,13 @@ export default function BackButton({ href, className = '' }: Props) {
   return (
     <button
       onClick={() => history.back()}
-      className={`absolute top-3 left-3 z-20 ${baseClass}`}
+      className={baseClass}
       aria-label="Retour"
     >
-      <ChevronLeft size={18} />
+      <span className="flex items-center justify-center w-8 h-8 rounded-full bg-panel border border-border">
+        <ChevronLeft size={16} />
+      </span>
+      {label && <span className="font-sans">{label}</span>}
     </button>
   )
 }

@@ -54,7 +54,7 @@ export default function ProfileEditor({ profile, email }: Props) {
               className="object-cover"
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center text-2xl text-gold">
+            <div className="w-full h-full flex items-center justify-center text-2xl text-accent-ochre">
               {(username || email)[0]?.toUpperCase() ?? '?'}
             </div>
           )}
@@ -86,7 +86,7 @@ export default function ProfileEditor({ profile, email }: Props) {
       <button
         type="submit"
         disabled={isPending}
-        className="btn-gold w-full py-3 rounded-xl disabled:opacity-40"
+        className="btn-clay w-full py-3 rounded-clay-md disabled:opacity-40"
       >
         {isPending ? 'Enregistrement…' : 'Enregistrer'}
       </button>

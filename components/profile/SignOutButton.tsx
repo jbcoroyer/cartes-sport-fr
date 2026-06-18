@@ -12,7 +12,7 @@ export default function SignOutButton() {
       onClick={async () => {
         const supabase = createClient()
         await supabase.auth.signOut()
-        router.push('/catalogue')
+        router.push('/')
         router.refresh()
       }}
       className="text-sm text-muted hover:text-missing transition-colors"

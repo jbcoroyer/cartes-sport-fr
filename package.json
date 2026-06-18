@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "sync:crests": "tsx scripts/sync-team-crests.ts",
+    "apply:crests": "tsx scripts/apply-crest-overrides.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.5.2",

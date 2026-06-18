@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Playfair_Display } from 'next/font/google'
 import './globals.css'
 
 const inter = Inter({
@@ -8,12 +8,18 @@ const inter = Inter({
   display: 'swap',
 })
 
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-serif',
+  display: 'swap',
+})
+
 export const metadata: Metadata = {
   title: {
     default: 'Cartes Sport FR',
     template: '%s — Cartes Sport FR',
   },
-  description: 'Catalogue, collection et cote de marché des cartes Panini Adrenalyn XL et Topps Chrome UEFA',
+  description: 'Coffret numérique de collection — albums, vestiaires et progression de sets',
   manifest: '/manifest.json',
   appleWebApp: {
     capable: true,
@@ -29,7 +35,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#F7F6F3',
+  themeColor: '#F7F5F2',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 1,
@@ -42,12 +48,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="fr" className={inter.variable}>
+    <html lang="fr" className={`${inter.variable} ${playfair.variable}`}>
       <head>
         <link rel="apple-touch-icon" href="/icons/icon-192.png" />
         <meta name="mobile-web-app-capable" content="yes" />
       </head>
-      <body className="bg-canvas text-ink antialiased text-[15px] md:text-base">
+      <body className="bg-museum text-ink antialiased text-[15px] md:text-base">
         {children}
         <script
           dangerouslySetInnerHTML={{

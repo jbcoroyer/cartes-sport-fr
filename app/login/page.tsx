@@ -10,7 +10,7 @@ import { formatAuthError } from '@/lib/auth/errors'
 function LoginForm() {
   const supabase = createClient()
   const searchParams = useSearchParams()
-  const redirectTo = searchParams.get('redirect') ?? '/catalogue'
+  const redirectTo = searchParams.get('redirect') ?? '/'
 
   const [email, setEmail]     = useState('')
   const [sent, setSent]       = useState(false)
@@ -71,7 +71,7 @@ function LoginForm() {
 
       <button
         onClick={signInWithGoogle}
-        className="btn-gold w-full py-3.5 rounded-xl2 flex items-center justify-center gap-3"
+        className="btn-clay w-full py-3.5 rounded-clay-md flex items-center justify-center gap-3"
       >
         <svg width="18" height="18" viewBox="0 0 24 24">
           <path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -118,7 +118,7 @@ function LoginForm() {
       )}
 
       <p className="text-center">
-        <Link href="/catalogue" className="text-2xs text-muted/80 hover:text-muted transition-colors">
+        <Link href="/" className="text-2xs text-muted/80 hover:text-muted transition-colors">
           Explorer sans compte →
         </Link>
       </p>
@@ -128,7 +128,7 @@ function LoginForm() {
 
 export default function LoginPage() {
   return (
-    <main className="min-h-screen flex items-center justify-center bg-canvas px-6 relative overflow-hidden">
+    <main className="min-h-screen flex items-center justify-center bg-museum px-6 relative overflow-hidden">
       <div className="absolute inset-0  pointer-events-none" />
       <Suspense fallback={null}>
         <LoginForm />

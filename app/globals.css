@@ -5,6 +5,16 @@
 @layer base {
   :root {
     --font-inter: 'Inter', system-ui, sans-serif;
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --bg-museum: #F7F5F2;
+    --surface-card: #FFFFFF;
+    --shadow-clay: 0 8px 24px -6px rgba(60, 40, 30, 0.06), 0 2px 6px -2px rgba(60, 40, 30, 0.04);
+    --radius-sm: 12px;
+    --radius-md: 20px;
+    --radius-lg: 28px;
+    --text-primary: #1F1F1F;
+    --text-secondary: #8A8580;
+    --text-ghost: #D4CFC8;
   }
 
   * {
@@ -16,86 +26,65 @@
   }
 
   body {
-    @apply bg-canvas text-ink font-sans antialiased;
+    @apply bg-museum text-ink font-sans antialiased;
     font-feature-settings: 'cv11', 'ss01';
     overscroll-behavior: none;
   }
 
   h1, h2, h3 {
-    @apply font-semibold tracking-tight text-ink;
+    @apply font-serif font-medium tracking-tight text-ink;
   }
 
-  .safe-top    { padding-top: env(safe-area-inset-top); }
+  .safe-top { padding-top: env(safe-area-inset-top); }
   .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
 }
 
 @layer components {
-  .glass-panel {
-    @apply bg-surface/90 backdrop-blur-md border-b border-border;
+  .clay-surface {
+    @apply bg-surface rounded-clay-md;
+    box-shadow: var(--shadow-clay);
   }
 
-  .card-premium {
-    @apply relative bg-surface rounded-card overflow-hidden;
-    @apply border border-border;
-    @apply transition-all duration-300 ease-out;
-    box-shadow: 0 1px 3px rgba(17,17,16,0.04), 0 4px 16px rgba(17,17,16,0.05);
+  .clay-card {
+    @apply relative bg-surface rounded-clay overflow-hidden transition-all duration-300 ease-out;
+    box-shadow: var(--shadow-clay);
   }
 
-  .card-premium:hover {
-    @apply border-ink/10;
-    box-shadow: 0 4px 24px rgba(17,17,16,0.08);
-  }
-
-  .card-item {
-    @apply card-premium active:scale-[0.98];
-  }
-
-  .stat-tile {
-    @apply bg-surface rounded-xl2 p-5 border border-border;
-    @apply transition-all duration-200;
-  }
-
-  .stat-tile:hover {
-    @apply border-ink/10 shadow-card;
+  .clay-card:hover {
+    @apply shadow-clay-hover;
   }
 
   .section-title {
-    @apply text-[11px] font-medium text-muted uppercase tracking-[0.2em] mb-5;
+    @apply text-[11px] font-medium text-muted uppercase tracking-[0.2em] mb-5 font-sans;
   }
 
-  .rarity-badge {
-    @apply absolute top-2 right-2 z-10;
-    @apply text-[10px] font-semibold tracking-wide uppercase;
-    @apply px-1.5 py-0.5 rounded-full;
-  }
+  .status-owned { @apply bg-accent-forest/10 text-accent-forest border border-accent-forest/20; }
+  .status-missing { @apply bg-slot text-muted border border-dashed border-ghost; }
+  .status-wanted { @apply bg-accent-steel/10 text-accent-steel border border-accent-steel/20; }
 
-  .status-owned   { @apply bg-owned/10 text-owned border border-owned/20; }
-  .status-missing { @apply bg-missing/10 text-missing border border-missing/20; }
-  .status-wanted  { @apply bg-wanted/10 text-wanted border border-wanted/20; }
-
-  .btn-gold {
-    @apply relative overflow-hidden font-medium px-6 py-3 rounded-full;
+  .btn-clay {
+    @apply relative font-medium px-6 py-3 rounded-clay-md;
     @apply bg-ink text-surface;
     @apply hover:bg-ink/90 active:scale-[0.98];
     @apply transition-all duration-200;
   }
 
   .btn-ghost {
-    @apply px-6 py-3 rounded-full font-medium text-sm;
-    @apply border border-border bg-surface text-ink/70;
+    @apply px-6 py-3 rounded-clay-md font-medium text-sm;
+    @apply border border-border bg-surface text-muted;
     @apply hover:border-ink/20 hover:text-ink;
     @apply transition-all duration-200;
   }
 
   .search-input {
-    @apply w-full bg-surface border border-border rounded-full;
-    @apply px-5 py-3.5 text-sm text-ink placeholder:text-muted/60;
+    @apply w-full bg-surface border border-border rounded-clay-md;
+    @apply px-5 py-3.5 text-sm text-ink placeholder:text-muted/60 font-sans;
     @apply focus:outline-none focus:border-ink/20 focus:ring-2 focus:ring-ink/5;
     @apply transition-all duration-200;
   }
 
   .filter-tag {
-    @apply px-4 py-2 rounded-full text-xs font-medium;
+    @apply px-4 py-2 rounded-clay text-xs font-medium;
     @apply border border-border bg-surface text-muted;
     @apply hover:border-ink/15 hover:text-ink;
     @apply transition-all duration-200 cursor-pointer whitespace-nowrap;
@@ -106,11 +95,11 @@
   }
 
   .segment-control {
-    @apply flex p-1 rounded-full bg-panel border border-border;
+    @apply flex p-1 rounded-clay-md bg-panel border border-border;
   }
 
   .segment-item {
-    @apply flex-1 py-2.5 px-3 rounded-full text-xs font-medium text-center;
+    @apply flex-1 py-2.5 px-3 rounded-clay text-xs font-medium text-center;
     @apply text-muted transition-all duration-200 cursor-pointer;
   }
 
@@ -119,27 +108,18 @@
   }
 
   .slot-empty {
-    @apply relative aspect-[3/4] rounded-card overflow-hidden;
-    @apply border border-dashed border-border bg-panel/50;
+    @apply relative aspect-[5/7] rounded-clay overflow-hidden;
+    @apply border border-dashed border-ghost bg-slot;
     @apply flex flex-col items-center justify-center gap-1;
   }
 
-  .holo-overlay {
-    @apply absolute inset-0 pointer-events-none opacity-0;
-    background: linear-gradient(
-      105deg,
-      transparent 20%,
-      rgba(255,255,255,0.6) 45%,
-      rgba(184,146,79,0.08) 50%,
-      rgba(255,255,255,0.6) 55%,
-      transparent 80%
-    );
-    background-size: 200% 100%;
+  .binder-slot-owned {
+    @apply bg-surface border border-border rounded-clay;
+    box-shadow: var(--shadow-clay);
   }
 
-  .card-premium:hover .holo-overlay,
-  .group:hover .holo-overlay {
-    @apply opacity-100 motion-safe:animate-holo-sweep;
+  .binder-slot-missing {
+    @apply bg-slot border border-dashed border-ghost rounded-clay;
   }
 }
 
@@ -162,65 +142,26 @@
   }
   .scroll-x::-webkit-scrollbar { display: none; }
 
-  .card-grid {
-    @apply grid gap-4 lg:gap-5;
-    grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
-  }
-
-  @media (min-width: 1280px) {
-    .card-grid {
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    }
-  }
-
-  .album-grid {
+  .binder-grid {
     @apply grid gap-3;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  .series-grid {
-    @apply grid gap-4;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  .club-grid {
+    @apply grid gap-4 md:gap-6;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   }
 
-  .product-cover-stage {
-    @apply relative flex items-center justify-center overflow-hidden rounded-xl;
-    @apply border border-border bg-panel;
-  }
-
-  .product-cover-stage--gold {
-    background:
-      radial-gradient(ellipse 80% 70% at 50% 35%, rgba(154, 115, 64, 0.08) 0%, transparent 65%),
-      theme('colors.panel');
-  }
-
-  .product-cover-stage--chrome {
-    background:
-      radial-gradient(ellipse 80% 70% at 50% 35%, rgba(8, 145, 178, 0.06) 0%, transparent 65%),
-      theme('colors.panel');
-  }
-
-  .product-cover-stage__glow {
-    @apply absolute inset-0 opacity-0 transition-opacity duration-500 pointer-events-none;
-    background: linear-gradient(
-      105deg,
-      transparent 20%,
-      rgba(255, 255, 255, 0.5) 45%,
-      rgba(154, 115, 64, 0.06) 50%,
-      rgba(255, 255, 255, 0.5) 55%,
-      transparent 80%
-    );
-  }
-
-  .group:hover .product-cover-stage__glow {
-    @apply opacity-100;
-  }
-
-  .text-gradient-gold {
-    @apply text-ink;
+  .library-grid {
+    @apply grid gap-5 md:gap-6;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
 
   .page-container {
     @apply max-w-[1400px] mx-auto px-5 md:px-10 lg:px-14;
+  }
+
+  .font-data {
+    @apply font-sans tabular-nums;
   }
 }

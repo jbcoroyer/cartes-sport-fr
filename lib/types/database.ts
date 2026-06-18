@@ -66,6 +66,9 @@ export type Database = {
           name: string
           season: string
           total_cards: number | null
+          total_base: number | null
+          total_master: number | null
+          binder_slots_per_page: number
           release_date: string | null
           cover_image_url: string | null
           is_active: boolean
@@ -77,6 +80,9 @@ export type Database = {
           name: string
           season: string
           total_cards?: number | null
+          total_base?: number | null
+          total_master?: number | null
+          binder_slots_per_page?: number
           release_date?: string | null
           cover_image_url?: string | null
           is_active?: boolean
@@ -88,6 +94,9 @@ export type Database = {
           name?: string
           season?: string
           total_cards?: number | null
+          total_base?: number | null
+          total_master?: number | null
+          binder_slots_per_page?: number
           release_date?: string | null
           cover_image_url?: string | null
           is_active?: boolean
@@ -103,6 +112,10 @@ export type Database = {
           short_name: string | null
           league: string | null
           logo_url: string | null
+          crest_cached_url: string | null
+          external_id: string | null
+          color_primary: string | null
+          color_secondary: string | null
           country: string
           created_at: string
         }
@@ -112,6 +125,10 @@ export type Database = {
           short_name?: string | null
           league?: string | null
           logo_url?: string | null
+          crest_cached_url?: string | null
+          external_id?: string | null
+          color_primary?: string | null
+          color_secondary?: string | null
           country?: string
           created_at?: string
         }
@@ -121,8 +138,34 @@ export type Database = {
           short_name?: string | null
           league?: string | null
           logo_url?: string | null
+          crest_cached_url?: string | null
+          external_id?: string | null
+          color_primary?: string | null
+          color_secondary?: string | null
           country?: string
           created_at?: string
+        }
+        Relationships: []
+      }
+
+      product_teams: {
+        Row: {
+          product_id: string
+          team_id: string
+          sort_order: number
+          group_phase: string | null
+        }
+        Insert: {
+          product_id: string
+          team_id: string
+          sort_order?: number
+          group_phase?: string | null
+        }
+        Update: {
+          product_id?: string
+          team_id?: string
+          sort_order?: number
+          group_phase?: string | null
         }
         Relationships: []
       }
@@ -168,6 +211,7 @@ export type Database = {
           player_name: string
           position: string | null
           variant_type: string
+          card_type: 'base' | 'insert' | 'parallel'
           print_run: number | null
           is_autograph: boolean
           is_rookie: boolean
@@ -184,6 +228,7 @@ export type Database = {
           player_name: string
           position?: string | null
           variant_type?: string
+          card_type?: 'base' | 'insert' | 'parallel'
           print_run?: number | null
           is_autograph?: boolean
           is_rookie?: boolean
@@ -200,6 +245,7 @@ export type Database = {
           player_name?: string
           position?: string | null
           variant_type?: string
+          card_type?: 'base' | 'insert' | 'parallel'
           print_run?: number | null
           is_autograph?: boolean
           is_rookie?: boolean
@@ -251,6 +297,10 @@ export type Database = {
           id: string
           username: string | null
           avatar_url: string | null
+          favorite_team_id: string | null
+          is_public: boolean
+          showcase_public: boolean
+          notify_threshold: number
           created_at: string
           updated_at: string
         }
@@ -258,6 +308,10 @@ export type Database = {
           id: string
           username?: string | null
           avatar_url?: string | null
+          favorite_team_id?: string | null
+          is_public?: boolean
+          showcase_public?: boolean
+          notify_threshold?: number
           created_at?: string
           updated_at?: string
         }
@@ -265,8 +319,65 @@ export type Database = {
           id?: string
           username?: string | null
           avatar_url?: string | null
+          favorite_team_id?: string | null
+          is_public?: boolean
+          showcase_public?: boolean
+          notify_threshold?: number
           created_at?: string
           updated_at?: string
+        }
+        Relationships: []
+      }
+
+      user_showcase: {
+        Row: {
+          user_id: string
+          card_id: string
+          grid_position: number
+          created_at: string
+        }
+        Insert: {
+          user_id: string
+          card_id: string
+          grid_position: number
+          created_at?: string
+        }
+        Update: {
+          user_id?: string
+          card_id?: string
+          grid_position?: number
+          created_at?: string
+        }
+        Relationships: []
+      }
+
+      acquisition_events: {
+        Row: {
+          id: string
+          user_id: string
+          card_id: string
+          acquired_at: string
+          source: string | null
+          notes: string | null
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          user_id: string
+          card_id: string
+          acquired_at?: string
+          source?: string | null
+          notes?: string | null
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          user_id?: string
+          card_id?: string
+          acquired_at?: string
+          source?: string | null
+          notes?: string | null
+          created_at?: string
         }
         Relationships: []
       }
@@ -280,6 +391,8 @@ export type Database = {
           quantity: number
           condition: 'mint' | 'near_mint' | 'good' | 'fair' | 'poor' | null
           purchase_price: number | null
+          acquired_at: string | null
+          acquisition_source: string | null
           notes: string | null
           created_at: string
           updated_at: string
@@ -292,6 +405,8 @@ export type Database = {
           quantity?: number
           condition?: 'mint' | 'near_mint' | 'good' | 'fair' | 'poor' | null
           purchase_price?: number | null
+          acquired_at?: string | null
+          acquisition_source?: string | null
           notes?: string | null
           created_at?: string
           updated_at?: string
@@ -304,6 +419,8 @@ export type Database = {
           quantity?: number
           condition?: 'mint' | 'near_mint' | 'good' | 'fair' | 'poor' | null
           purchase_price?: number | null
+          acquired_at?: string | null
+          acquisition_source?: string | null
           notes?: string | null
           created_at?: string
           updated_at?: string
@@ -409,6 +526,48 @@ export type Database = {
         }
         Relationships: []
       }
+      user_set_progress: {
+        Row: {
+          user_id: string | null
+          product_id: string | null
+          product_name: string | null
+          season: string | null
+          base_total: number | null
+          master_total: number | null
+          base_owned: number | null
+          master_owned: number | null
+          pct_base: number | null
+          pct_master: number | null
+          last_acquired_at: string | null
+        }
+        Relationships: []
+      }
+      user_club_progress: {
+        Row: {
+          user_id: string | null
+          product_id: string | null
+          team_id: string | null
+          team_name: string | null
+          short_name: string | null
+          crest_cached_url: string | null
+          logo_url: string | null
+          color_primary: string | null
+          color_secondary: string | null
+          total_cards: number | null
+          owned_cards: number | null
+          pct_owned: number | null
+        }
+        Relationships: []
+      }
+      product_club_totals: {
+        Row: {
+          product_id: string | null
+          team_id: string | null
+          total_cards: number | null
+          base_cards: number | null
+        }
+        Relationships: []
+      }
     }
 
     Functions: {}
@@ -425,6 +584,10 @@ export type Rarity = Database['public']['Tables']['rarities']['Row']
 export type UserCollection = Database['public']['Tables']['user_collections']['Row']
 export type PriceSnapshot = Database['public']['Tables']['price_snapshots']['Row']
 export type UserProfile = Database['public']['Tables']['user_profiles']['Row']
+export type UserSetProgress = Database['public']['Views']['user_set_progress']['Row']
+export type UserClubProgress = Database['public']['Views']['user_club_progress']['Row']
+export type AcquisitionEvent = Database['public']['Tables']['acquisition_events']['Row']
+export type CardType = 'base' | 'insert' | 'parallel'
 
 // Types enrichis (avec joins)
 export type CardWithDetails = Card & {
