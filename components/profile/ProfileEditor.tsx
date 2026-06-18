@@ -60,8 +60,8 @@ export default function ProfileEditor({ profile, email }: Props) {
           )}
         </div>
         <div className="min-w-0">
-          <p className="text-sm font-medium truncate">{username || 'Sans pseudo'}</p>
-          <p className="text-xs text-muted truncate">{email}</p>
+          <p className="text-sm type-subtitle truncate">{username || 'Sans pseudo'}</p>
+          <p className="text-xs text-muted type-caption truncate">{email}</p>
         </div>
       </div>
 

@@ -11,6 +11,8 @@ export interface ShadowCard {
   cardNumber: string
   playerName: string
   position: string | null
+  variantType?: string | null
+  cardType?: string | null
   collectionStatus: CollectionStatus
 }
 
@@ -26,7 +28,7 @@ export default function ShadowWall({ cards, userId, isLoggedIn }: Props) {
 
   if (missing.length === 0) {
     return (
-      <p className="text-center text-muted py-12 font-sans">
+      <p className="text-center text-muted py-12 type-body">
         Aucune carte manquante — set complet !
       </p>
     )
@@ -46,13 +48,15 @@ export default function ShadowWall({ cards, userId, isLoggedIn }: Props) {
             }}
             exit={{ opacity: 0, scale: 1.1, filter: 'brightness(1.5)' }}
             transition={{ duration: 0.5 }}
-            className="space-y-2"
+            className="binder-slot-cell space-y-2"
           >
             <BinderSlot
               cardId={card.id}
               cardNumber={card.cardNumber}
               playerName={card.playerName}
               position={card.position}
+              variantType={card.variantType}
+              cardType={card.cardType}
               isOwned={false}
               collectionStatus={card.collectionStatus}
               userId={userId}

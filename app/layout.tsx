@@ -1,17 +1,14 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, Playfair_Display } from 'next/font/google'
+import localFont from 'next/font/local'
 import './globals.css'
 
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
+// Schibsted Grotesk n'est pas encore exposée dans next/font/google (Next 15) :
+// fichier variable wght 400→900, même contrat --font-schibsted.
+const schibstedGrotesk = localFont({
+  src: './fonts/SchibstedGrotesk-Variable.ttf',
+  variable: '--font-schibsted',
   display: 'swap',
-})
-
-const playfair = Playfair_Display({
-  subsets: ['latin'],
-  variable: '--font-serif',
-  display: 'swap',
+  weight: '400 900',
 })
 
 export const metadata: Metadata = {
@@ -48,12 +45,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="fr" className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="fr" className={schibstedGrotesk.variable}>
       <head>
         <link rel="apple-touch-icon" href="/icons/icon-192.png" />
         <meta name="mobile-web-app-capable" content="yes" />
       </head>
-      <body className="bg-museum text-ink antialiased text-[15px] md:text-base">
+      <body className={`${schibstedGrotesk.className} ${schibstedGrotesk.variable} bg-museum text-ink font-sans font-medium antialiased text-[15px] md:text-base`}>
         {children}
         <script
           dangerouslySetInnerHTML={{

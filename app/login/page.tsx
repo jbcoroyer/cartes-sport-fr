@@ -61,10 +61,10 @@ function LoginForm() {
       transition={{ duration: 0.5 }}
     >
       <div className="text-center">
-        <h1 className="text-display-sm font-semibold tracking-tight">
+        <h1 className="type-hero text-display-sm">
           Connexion
         </h1>
-        <p className="text-base text-muted mt-3">
+        <p className="type-body text-base text-muted mt-3">
           Gère ta collection
         </p>
       </div>
@@ -90,7 +90,7 @@ function LoginForm() {
 
       {sent ? (
         <p className="text-sm text-owned text-center bg-surface border-b border-border rounded-xl2 p-4">
-          Lien envoyé à <span className="text-ink font-medium">{email}</span>.
+          Lien envoyé à <span className="text-ink type-subtitle">{email}</span>.
           Vérifie ta boîte mail.
         </p>
       ) : (

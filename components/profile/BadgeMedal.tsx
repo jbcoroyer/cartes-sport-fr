@@ -13,7 +13,7 @@ export default function BadgeMedal({ badges }: Props) {
   const earned = badges.filter((b) => b.earned)
 
   if (earned.length === 0) {
-    return <p className="text-sm text-muted font-sans">Aucune distinction pour le moment.</p>
+    return <p className="text-sm text-muted type-body">Aucune distinction pour le moment.</p>
   }
 
   return (
@@ -27,7 +27,7 @@ export default function BadgeMedal({ badges }: Props) {
           <div className="w-14 h-14 rounded-full bg-panel border border-border shadow-clay-sm flex items-center justify-center">
             <span className="text-lg">🏅</span>
           </div>
-          <span className="text-[10px] font-medium text-muted leading-tight font-sans">
+          <span className="type-eyebrow text-[10px] text-muted leading-tight">
             {badge.label}
           </span>
         </div>

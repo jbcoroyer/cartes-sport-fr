@@ -18,7 +18,7 @@ export default function BackButton({ href, label, className = '' }: Props) {
         <span className="flex items-center justify-center w-8 h-8 rounded-full bg-panel border border-border">
           <ChevronLeft size={16} />
         </span>
-        {label && <span className="font-sans">{label}</span>}
+        {label && <span className="type-body">{label}</span>}
       </Link>
     )
   }
@@ -32,7 +32,7 @@ export default function BackButton({ href, label, className = '' }: Props) {
       <span className="flex items-center justify-center w-8 h-8 rounded-full bg-panel border border-border">
         <ChevronLeft size={16} />
       </span>
-      {label && <span className="font-sans">{label}</span>}
+      {label && <span className="type-body">{label}</span>}
     </button>
   )
 }

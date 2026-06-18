@@ -24,9 +24,9 @@ export default function PageHeader({
       <div className="page-container py-8 md:py-10">
         <div className="flex items-start justify-between gap-6">
           <div className="min-w-0">
-            <h1 className="text-display-sm md:text-display font-semibold tracking-tight">{title}</h1>
+            <h1 className="type-hero text-display-sm md:text-display">{title}</h1>
             {subtitle && (
-              <p className="text-sm md:text-base text-muted mt-2 max-w-xl">{subtitle}</p>
+              <p className="type-body text-sm md:text-base text-muted mt-2 max-w-xl">{subtitle}</p>
             )}
           </div>
           {right && <div className="shrink-0 pt-1">{right}</div>}

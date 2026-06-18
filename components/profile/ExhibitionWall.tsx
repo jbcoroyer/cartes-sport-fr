@@ -11,12 +11,13 @@ interface ShowcaseCard {
   gridPosition: number
   cardNumber: string
   playerName: string
+  photoUrl?: string | null
 }
 
 interface Props {
   userId: string
   cards: ShowcaseCard[]
-  ownedCards: { id: string; cardNumber: string; playerName: string }[]
+  ownedCards: { id: string; cardNumber: string; playerName: string; photoUrl?: string | null }[]
 }
 
 export default function ExhibitionWall({ userId, cards, ownedCards }: Props) {
@@ -43,15 +44,15 @@ export default function ExhibitionWall({ userId, cards, ownedCards }: Props) {
 
   return (
     <section>
-      <h2 className="font-serif text-xl mb-6">Mur d&apos;exposition</h2>
+      <h2 className="type-title text-xl mb-6">Mur d&apos;exposition</h2>
       <div className="grid grid-cols-3 gap-4 max-w-md mx-auto p-6 bg-panel/40 rounded-clay-lg">
         {slots.map((slot, i) => (
           <div key={i} className="flex justify-center">
             {slot ? (
               <Link href={`/carte/${slot.cardId}`}>
-                <CardSlot size="sm" interactive>
+                <CardSlot size="sm" interactive photoUrl={slot.photoUrl}>
                   <span className="font-data text-muted text-[10px]">{slot.cardNumber}</span>
-                  <p className="font-medium text-[11px] leading-tight">{slot.playerName}</p>
+                  <p className="type-subtitle text-[11px] leading-tight">{slot.playerName}</p>
                 </CardSlot>
               </Link>
             ) : (

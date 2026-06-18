@@ -1,12 +1,11 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import BackButton from '@/components/ui/BackButton'
+import ClubHeader from '@/components/album/ClubHeader'
 import BinderView from '@/components/vestiaire/BinderView'
 import VestiaireViewToggle from '@/components/vestiaire/VestiaireViewToggle'
-import BinderSlot from '@/components/vestiaire/BinderSlot'
 import { getDisplayCards } from '@/lib/collection'
 import { resolveTeamCrestUrl } from '@/lib/football-data/crest-overrides'
 import type { CollectionStatus } from '@/lib/types/database'
@@ -35,7 +34,10 @@ export default async function VestiairePage({ params }: Props) {
 
   const { data: product } = await supabase
     .from('products')
-    .select('id, name, binder_slots_per_page')
+    .select(`
+      id, name, season, binder_slots_per_page,
+      series_types ( publishers ( name ) )
+    `)
     .eq('id', setId)
     .single()
 
@@ -48,84 +50,91 @@ export default async function VestiairePage({ params }: Props) {
     .eq('team_id', clubId)
     .order('card_number')
 
-  let collectionMap = new Map<string, CollectionStatus>()
+  let collectionMap = new Map<string, { status: CollectionStatus; photoUrl: string | null }>()
   if (user && rawCards?.length) {
     const { data: collections } = await supabase
       .from('user_collections')
-      .select('card_id, status')
+      .select('card_id, status, photo_url')
       .eq('user_id', user.id)
       .in('card_id', rawCards.map((c) => c.id))
 
     collectionMap = new Map(
-      (collections ?? []).map((c) => [c.card_id, c.status as CollectionStatus]),
+      (collections ?? []).map((c) => [
+        c.card_id,
+        { status: c.status as CollectionStatus, photoUrl: c.photo_url },
+      ]),
     )
   }
 
   const displayCards = getDisplayCards(rawCards ?? [])
-  const binderCards = displayCards.map((card) => ({
-    id: card.id,
-    cardNumber: card.card_number,
-    playerName: card.player_name,
-    position: card.position ?? null,
-    collectionStatus: collectionMap.get(card.id) ?? null,
-  }))
+  const binderCards = displayCards.map((card) => {
+    const entry = collectionMap.get(card.id)
+    return {
+      id: card.id,
+      cardNumber: card.card_number,
+      playerName: card.player_name,
+      position: card.position ?? null,
+      variantType: card.variant_type,
+      cardType: card.card_type,
+      photoUrl: entry?.photoUrl ?? null,
+      collectionStatus: entry?.status ?? null,
+    }
+  })
 
   const crestUrl = resolveTeamCrestUrl(team.name, team.crest_cached_url ?? team.logo_url)
   const accent = team.color_primary ?? '#4A6278'
+  const ownedCards = binderCards.filter((c) => c.collectionStatus === 'owned').length
+  const totalCards = binderCards.length
 
-  const listNodes = binderCards.map((card) => (
-    <Link
-      key={card.id}
-      href={`/carte/${card.id}?from=/album/${setId}/club/${clubId}`}
-      className="flex items-center gap-4 p-3 rounded-clay border border-border bg-surface hover:shadow-clay-sm transition-shadow"
-    >
-      <BinderSlot
-        cardId={card.id}
-        cardNumber={card.cardNumber}
-        playerName={card.playerName}
-        position={card.position}
-        isOwned={card.collectionStatus === 'owned'}
-        collectionStatus={card.collectionStatus}
-        userId={user?.id}
-        isLoggedIn={!!user}
-        compact
-      />
-      <div className="font-sans">
-        <p className="font-medium">{card.playerName}</p>
-        <p className="text-sm text-muted font-data">#{card.cardNumber}</p>
-      </div>
-    </Link>
-  ))
+  const listNodes = binderCards.map((card) => {
+    const isOwned = card.collectionStatus === 'owned'
+    return (
+      <Link
+        key={card.id}
+        href={`/carte/${card.id}?from=/album/${setId}/club/${clubId}`}
+        className="collection-list-row"
+      >
+        <span
+          className={`font-data text-sm w-10 shrink-0 text-right ${
+            isOwned ? 'text-muted' : 'text-ghost'
+          }`}
+        >
+          {card.cardNumber}
+        </span>
+        <div className="flex-1 min-w-0">
+          <p className={`type-subtitle truncate ${isOwned ? 'text-ink' : 'text-ghost'}`}>
+            {card.playerName}
+          </p>
+          {card.position && (
+            <p className={`type-caption mt-0.5 ${isOwned ? 'text-muted' : 'text-ghost/80'}`}>
+              {card.position}
+            </p>
+          )}
+        </div>
+        <span
+          className={`type-eyebrow text-[10px] shrink-0 ${
+            isOwned ? 'text-accent-forest' : 'text-muted'
+          }`}
+        >
+          {isOwned ? 'Possédée' : 'Manquante'}
+        </span>
+      </Link>
+    )
+  })
 
   return (
     <main className="min-h-screen bg-museum">
       <div className="page-container py-8 md:py-12">
         <BackButton href={`/album/${setId}`} label={product.name} />
 
-        <header
-          className="mb-10 rounded-clay-lg overflow-hidden clay-card"
-          style={{
-            background: `linear-gradient(180deg, ${accent}18 0%, white 40%)`,
-          }}
-        >
-          <div className="p-8 md:p-10 flex flex-col items-center text-center">
-            {crestUrl ? (
-              <Image
-                src={crestUrl}
-                alt=""
-                width={96}
-                height={96}
-                className="object-contain mb-4 drop-shadow-clay"
-              />
-            ) : (
-              <div className="w-24 h-24 rounded-full bg-panel flex items-center justify-center text-3xl font-serif text-muted mb-4">
-                {team.name[0]}
-              </div>
-            )}
-            <h1 className="font-serif text-2xl md:text-3xl font-medium">{team.name}</h1>
-            <p className="text-sm text-muted mt-2 font-sans">Vestiaire</p>
-          </div>
-        </header>
+        <ClubHeader
+          teamName={team.name}
+          productName={product.name}
+          crestUrl={crestUrl}
+          accentColor={accent}
+          ownedCards={ownedCards}
+          totalCards={totalCards}
+        />
 
         <VestiaireViewToggle
           binderView={

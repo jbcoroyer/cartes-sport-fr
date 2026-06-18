@@ -42,15 +42,15 @@ export default function AlbumCoverTile({
                 Récemment mis à jour
               </ClayBadge>
             )}
-            <h2 className="font-serif text-lg md:text-xl font-medium leading-snug line-clamp-2">
+            <h2 className="type-title text-lg md:text-xl leading-snug line-clamp-2">
               {name}
             </h2>
-            <p className="text-sm text-muted mt-1 font-sans">{season}</p>
+            <p className="type-body text-sm text-muted mt-1">{season}</p>
             {publisherName && (
-              <p className="text-xs text-muted mt-0.5 font-sans">{publisherName}</p>
+              <p className="type-caption text-xs text-muted mt-0.5">{publisherName}</p>
             )}
           </div>
-          <div className="flex gap-4 mt-4 text-xs text-muted font-sans">
+          <div className="flex gap-4 mt-4 text-xs text-muted type-body font-data">
             <span>Base {progress.baseOwned}/{progress.baseTotal}</span>
             <span>Master {progress.masterOwned}/{progress.masterTotal}</span>
           </div>
@@ -61,7 +61,7 @@ export default function AlbumCoverTile({
             masterPct={progress.pctMaster}
             size={80}
           />
-          <div className="text-[10px] text-muted text-center font-sans leading-tight">
+          <div className="text-[10px] text-muted text-center type-caption font-data leading-tight">
             <div className="text-accent-forest">{Math.round(progress.pctBase)}% base</div>
             <div className="text-accent-wine">{Math.round(progress.pctMaster)}% master</div>
           </div>

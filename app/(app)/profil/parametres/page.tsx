@@ -24,7 +24,7 @@ export default async function SettingsPage() {
     <main className="min-h-screen bg-museum">
       <div className="page-container py-10 max-w-md mx-auto">
         <BackButton href="/profil" label="Profil" />
-        <h1 className="font-serif text-2xl mt-6 mb-8">Paramètres</h1>
+        <h1 className="type-title text-2xl mt-6 mb-8">Paramètres</h1>
         <div className="clay-card p-6">
           <ProfileSettingsForm profile={profile} teams={teams ?? []} />
         </div>

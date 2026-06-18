@@ -394,6 +394,7 @@ export type Database = {
           acquired_at: string | null
           acquisition_source: string | null
           notes: string | null
+          photo_url: string | null
           created_at: string
           updated_at: string
         }
@@ -408,6 +409,7 @@ export type Database = {
           acquired_at?: string | null
           acquisition_source?: string | null
           notes?: string | null
+          photo_url?: string | null
           created_at?: string
           updated_at?: string
         }
@@ -422,6 +424,7 @@ export type Database = {
           acquired_at?: string | null
           acquisition_source?: string | null
           notes?: string | null
+          photo_url?: string | null
           created_at?: string
           updated_at?: string
         }

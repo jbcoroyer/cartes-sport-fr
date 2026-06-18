@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { createClient } from '@/lib/supabase/server'
+import { getAuthUser } from '@/lib/supabase/auth'
+import { getCatalogProduct, getCatalogProductName } from '@/lib/catalog'
 import BackButton from '@/components/ui/BackButton'
 import AlbumHeader from '@/components/album/AlbumHeader'
 import ClubPlaque from '@/components/album/ClubPlaque'
@@ -17,30 +18,21 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { setId } = await params
-  const supabase = await createClient()
-  const { data } = await supabase.from('products').select('name').eq('id', setId).single()
-  return { title: data?.name ?? 'Album' }
+  const name = await getCatalogProductName(setId)
+  return { title: name ?? 'Album' }
 }
 
 export default async function AlbumPage({ params }: Props) {
   const { setId } = await params
-  const supabase = await createClient()
-  const { data: { user } } = await supabase.auth.getUser()
+  const { supabase, user } = await getAuthUser()
 
-  const { data: product } = await supabase
-    .from('products')
-    .select(`
-      id, name, season, release_date, total_base, total_master, binder_slots_per_page,
-      series_types ( name, publishers ( name ) )
-    `)
-    .eq('id', setId)
-    .single()
-
+  const product = await getCatalogProduct(setId)
   if (!product) notFound()
 
-  const progressData = user
-    ? await getSetProgressForProduct(supabase, user.id, setId)
-    : null
+  const [progressData, clubs] = await Promise.all([
+    user ? getSetProgressForProduct(supabase, user.id, setId) : Promise.resolve(null),
+    getClubProgressForSet(supabase, user?.id ?? null, setId),
+  ])
 
   const progress = progressData ?? emptyProgress(
     product.id,
@@ -49,8 +41,6 @@ export default async function AlbumPage({ params }: Props) {
     product.total_base ?? 0,
     product.total_master ?? 0,
   )
-
-  const clubs = await getClubProgressForSet(supabase, user?.id ?? null, setId)
 
   const publisher = (product.series_types as { publishers?: { name: string } | null } | null)
     ?.publishers?.name
@@ -62,6 +52,7 @@ export default async function AlbumPage({ params }: Props) {
 
         <AlbumHeader
           name={product.name}
+          season={product.season}
           publisherName={publisher}
           releaseDate={product.release_date}
           progress={progress}

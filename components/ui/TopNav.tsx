@@ -38,7 +38,7 @@ export default function TopNav({ user }: Props) {
       <div className="h-14 md:h-16 page-container flex items-center justify-between gap-6">
         <Link
           href="/"
-          className="shrink-0 font-serif text-sm md:text-base font-medium tracking-tight text-ink"
+          className="shrink-0 type-subtitle text-sm md:text-base tracking-[-0.02em] text-ink"
         >
           Cartes Sport FR
         </Link>
@@ -50,8 +50,10 @@ export default function TopNav({ user }: Props) {
               <Link
                 key={tab.id}
                 href={tab.href}
-                className={`px-3 py-2 text-xs sm:text-sm font-medium transition-colors rounded-clay ${
-                  active ? 'text-ink bg-surface shadow-soft' : 'text-muted hover:text-ink'
+                className={`px-3 py-2 text-xs sm:text-sm transition-colors rounded-clay ${
+                  active
+                    ? 'type-subtitle text-ink bg-surface shadow-soft'
+                    : 'type-body text-muted hover:text-ink'
                 }`}
               >
                 {tab.label}
@@ -68,7 +70,7 @@ export default function TopNav({ user }: Props) {
           {user?.avatarUrl ? (
             <Image src={user.avatarUrl} alt="" fill className="object-cover" sizes="36px" />
           ) : (
-            <span className="w-full h-full flex items-center justify-center text-xs font-medium text-muted">
+            <span className="w-full h-full flex items-center justify-center text-xs type-body text-muted">
               {user ? user.displayName[0]?.toUpperCase() : <User size={15} strokeWidth={1.5} />}
             </span>
           )}

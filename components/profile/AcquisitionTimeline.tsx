@@ -13,7 +13,7 @@ interface Props {
 export default function AcquisitionTimeline({ events }: Props) {
   if (events.length === 0) {
     return (
-      <p className="text-sm text-muted font-sans">Aucune acquisition enregistrée pour le moment.</p>
+      <p className="text-sm text-muted type-body">Aucune acquisition enregistrée pour le moment.</p>
     )
   }
 
@@ -32,15 +32,15 @@ export default function AcquisitionTimeline({ events }: Props) {
         return (
           <li key={event.id} className="ml-6 relative">
             <span className="absolute -left-[1.65rem] top-1.5 w-2.5 h-2.5 rounded-full bg-accent-forest border-2 border-museum" />
-            <time className="text-xs text-muted font-sans">{date}</time>
-            <p className="font-serif text-sm mt-0.5">
+            <time className="text-xs text-muted type-caption">{date}</time>
+            <p className="type-subtitle text-sm mt-0.5">
               Acquis : <span className="text-ink">{label}</span>
             </p>
             {event.source && (
-              <p className="text-xs text-muted mt-0.5 font-sans">Source : {event.source}</p>
+              <p className="text-xs text-muted mt-0.5 type-caption">Source : {event.source}</p>
             )}
             {event.notes && (
-              <p className="text-xs text-muted mt-0.5 font-sans italic">Note : {event.notes}</p>
+              <p className="text-xs text-muted mt-0.5 type-caption italic">Note : {event.notes}</p>
             )}
           </li>
         )

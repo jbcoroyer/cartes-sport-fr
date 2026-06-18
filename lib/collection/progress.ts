@@ -135,57 +135,45 @@ export async function getClubProgressForSet(
     }))
   }
 
-  const { data: teams } = await supabase
+  const orderMap = new Map((productTeams ?? []).map((o) => [o.team_id, o]))
+
+  const teamsQuery = supabase
     .from('teams')
     .select('id, name, short_name, crest_cached_url, logo_url, color_primary, color_secondary')
     .in('id', teamIds)
 
-  const teamMap = new Map((teams ?? []).map((t) => [t.id, t]))
-  const orderMap = new Map((productTeams ?? []).map((o) => [o.team_id, o]))
-
-  if (userId) {
-    const { data: progress } = await supabase
-      .from('user_club_progress')
-      .select('*')
-      .eq('user_id', userId)
-      .eq('product_id', productId)
-
-    const progressMap = new Map((progress ?? []).map((p) => [p.team_id!, p]))
-
-    return teamIds
-      .map((teamId) => {
-        const team = teamMap.get(teamId)
-        const prog = progressMap.get(teamId)
-        const order = orderMap.get(teamId)
-        if (!team) return null
-        return {
-          teamId: team.id,
-          teamName: team.name,
-          shortName: team.short_name,
-          crestUrl: resolveTeamCrestUrl(team.name, team.crest_cached_url ?? team.logo_url),
-          colorPrimary: team.color_primary,
-          colorSecondary: team.color_secondary,
-          ownedCards: prog?.owned_cards ?? 0,
-          totalCards: prog?.total_cards ?? 0,
-          pctOwned: prog?.pct_owned ?? 0,
-          sortOrder: order?.sort_order ?? 999,
-          groupPhase: order?.group_phase ?? null,
-        }
-      })
-      .filter(Boolean) as ClubProgressItem[]
-  }
-
-  const { data: totals } = await supabase
+  const totalsQuery = supabase
     .from('product_club_totals')
     .select('team_id, total_cards')
     .eq('product_id', productId)
 
+  const progressQuery = userId
+    ? supabase
+        .from('user_club_progress')
+        .select('*')
+        .eq('user_id', userId)
+        .eq('product_id', productId)
+    : Promise.resolve({ data: [] as { team_id: string | null; owned_cards: number | null; total_cards: number | null; pct_owned: number | null }[] })
+
+  const [{ data: teams }, { data: totals }, { data: progress }] = await Promise.all([
+    teamsQuery,
+    totalsQuery,
+    progressQuery,
+  ])
+
+  const teamMap = new Map((teams ?? []).map((t) => [t.id, t]))
+  const progressMap = new Map((progress ?? []).map((p) => [p.team_id!, p]))
+  const totalsMap = new Map((totals ?? []).map((t) => [t.team_id!, t.total_cards ?? 0]))
+
   return teamIds
     .map((teamId) => {
       const team = teamMap.get(teamId)
+      const prog = progressMap.get(teamId)
       const order = orderMap.get(teamId)
-      const total = totals?.find((t) => t.team_id === teamId)?.total_cards ?? 0
       if (!team) return null
+      const totalCards = userId
+        ? (prog?.total_cards ?? totalsMap.get(teamId) ?? 0)
+        : (totalsMap.get(teamId) ?? 0)
       return {
         teamId: team.id,
         teamName: team.name,
@@ -193,9 +181,9 @@ export async function getClubProgressForSet(
         crestUrl: resolveTeamCrestUrl(team.name, team.crest_cached_url ?? team.logo_url),
         colorPrimary: team.color_primary,
         colorSecondary: team.color_secondary,
-        ownedCards: 0,
-        totalCards: total,
-        pctOwned: 0,
+        ownedCards: prog?.owned_cards ?? 0,
+        totalCards,
+        pctOwned: prog?.pct_owned ?? 0,
         sortOrder: order?.sort_order ?? 999,
         groupPhase: order?.group_phase ?? null,
       }

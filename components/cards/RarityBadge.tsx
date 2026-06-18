@@ -59,7 +59,7 @@ export default function RarityBadge({ name, colorHex, compact = false }: Props) 
 
   return (
     <span
-      className="inline-block text-[10px] font-semibold tracking-wide uppercase px-2.5 py-0.5 rounded-full"
+      className="inline-block type-eyebrow text-[10px] px-2.5 py-0.5 rounded-full"
       style={{ backgroundColor: style.bg, color: style.text }}
     >
       {name}

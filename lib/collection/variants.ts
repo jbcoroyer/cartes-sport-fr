@@ -55,3 +55,37 @@ export function getVariantLabel(card: CardLike): string {
   if (card.print_run) return `${card.variant_type} /${card.print_run}`
   return card.variant_type
 }
+
+export function formatVariantSuffix(suffix: string): string {
+  return suffix
+    .replace(/GoldRefractor/gi, 'Gold Refractor')
+    .replace(/OrangeRefractor/gi, 'Orange Refractor')
+    .replace(/RedRefractor/gi, 'Red Refractor')
+    .replace(/Superfractor/gi, 'Superfractor')
+    .replace(/([a-z])([A-Z])/g, '$1 $2')
+    .trim()
+}
+
+export function getBinderSlotLabels(
+  cardNumber: string,
+  variantType?: string | null,
+  cardType?: string | null,
+): { slotNumber: string; variant: string | null } {
+  const dash = cardNumber.indexOf('-')
+  const slotNumber = dash === -1 ? cardNumber : cardNumber.slice(0, dash)
+  const suffix = dash !== -1 ? cardNumber.slice(dash + 1) : null
+
+  if (cardType === 'base' && !suffix) {
+    return { slotNumber, variant: null }
+  }
+
+  if (suffix && suffix !== slotNumber) {
+    return { slotNumber, variant: formatVariantSuffix(suffix) }
+  }
+
+  if (variantType && variantType !== 'base' && variantType !== 'numbered') {
+    return { slotNumber, variant: variantType }
+  }
+
+  return { slotNumber, variant: null }
+}

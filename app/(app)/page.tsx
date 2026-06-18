@@ -1,13 +1,12 @@
 import type { Metadata } from 'next'
-import { createClient } from '@/lib/supabase/server'
+import { getAuthUser } from '@/lib/supabase/auth'
+import { getCatalogProducts } from '@/lib/catalog'
 import Reveal from '@/components/motion/Reveal'
-import AlbumCoverTile from '@/components/library/AlbumCoverTile'
+import CardItem from '@/components/library/CardItem'
 import {
   emptyProgress,
   getUserSetProgress,
-  getRecentlyUpdatedProductIds,
 } from '@/lib/collection'
-import { getPublisherAccent } from '@/lib/publisherColors'
 
 export const metadata: Metadata = {
   title: 'Bibliothèque',
@@ -15,33 +14,23 @@ export const metadata: Metadata = {
 }
 
 export default async function LibraryPage() {
-  const supabase = await createClient()
-  const { data: { user } } = await supabase.auth.getUser()
+  const { supabase, user } = await getAuthUser()
 
-  const { data: products } = await supabase
-    .from('products')
-    .select(`
-      id, name, season, total_base, total_master, is_active,
-      series_types (
-        name,
-        publishers ( name )
-      )
-    `)
-    .order('season', { ascending: false })
-    .order('name', { ascending: true })
+  const [products, progresses] = await Promise.all([
+    getCatalogProducts(),
+    user ? getUserSetProgress(supabase, user.id) : Promise.resolve([]),
+  ])
 
-  const progresses = user ? await getUserSetProgress(supabase, user.id) : []
   const progressMap = new Map(progresses.map((p) => [p.productId, p]))
-  const recentIds = getRecentlyUpdatedProductIds(progresses)
 
   return (
     <main className="min-h-screen bg-museum">
       <section className="page-container pt-12 md:pt-20 pb-8">
         <Reveal>
-          <h1 className="font-serif text-display-sm md:text-display font-medium max-w-3xl">
+          <h1 className="type-hero text-display-sm md:text-display max-w-3xl">
             Bibliothèque
           </h1>
-          <p className="text-base text-muted mt-4 max-w-xl leading-relaxed font-sans">
+          <p className="type-body text-base text-muted mt-4 max-w-xl leading-relaxed">
             Vos albums de collection — remplissez, admirez, progressez.
           </p>
         </Reveal>
@@ -53,7 +42,7 @@ export default async function LibraryPage() {
         </Reveal>
 
         <div className="library-grid">
-          {(products ?? []).map((product, i) => {
+          {products.map((product) => {
             const publisher = (product.series_types as { publishers?: { name: string } | null } | null)
               ?.publishers?.name
             const progress = progressMap.get(product.id) ?? emptyProgress(
@@ -65,23 +54,20 @@ export default async function LibraryPage() {
             )
 
             return (
-              <Reveal key={product.id} delay={0.08 + i * 0.04}>
-                <AlbumCoverTile
-                  productId={product.id}
-                  name={product.name}
-                  season={product.season}
-                  publisherName={publisher}
-                  accentColor={getPublisherAccent(publisher)}
-                  progress={progress}
-                  recentlyUpdated={recentIds.has(product.id)}
-                />
-              </Reveal>
+              <CardItem
+                key={product.id}
+                productId={product.id}
+                name={product.name}
+                season={product.season}
+                publisherName={publisher}
+                progress={progress}
+              />
             )
           })}
         </div>
 
-        {(products?.length ?? 0) === 0 && (
-          <p className="text-center text-muted text-sm py-16 font-sans">
+        {products.length === 0 && (
+          <p className="text-center text-muted text-sm py-16 type-body">
             Aucun album disponible pour le moment.
           </p>
         )}

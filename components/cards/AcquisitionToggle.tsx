@@ -1,9 +1,7 @@
 'use client'
 
 import { useState, useTransition } from 'react'
-import { useRouter } from 'next/navigation'
 import { Check } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
 import { createClient } from '@/lib/supabase/client'
 import type { CollectionStatus } from '@/lib/types/database'
 
@@ -24,15 +22,14 @@ export default function AcquisitionToggle({
   compact = false,
   onAcquired,
 }: Props) {
-  const router = useRouter()
   const [status, setStatus] = useState<CollectionStatus>(initialStatus)
-  const [showCheck, setShowCheck] = useState(false)
+  const [flash, setFlash] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [isPending, startTransition] = useTransition()
 
   if (!isLoggedIn) {
     return (
-      <p className="text-sm text-muted text-center font-sans">
+      <p className="text-sm text-muted text-center type-body">
         Connecte-toi pour ajouter cette carte à ta collection.
       </p>
     )
@@ -58,7 +55,6 @@ export default function AcquisitionToggle({
           return
         }
         setStatus(null)
-        router.refresh()
         return
       }
 
@@ -82,11 +78,10 @@ export default function AcquisitionToggle({
 
       setStatus('owned')
       if (becomingOwned) {
-        setShowCheck(true)
-        setTimeout(() => setShowCheck(false), 1200)
+        setFlash(true)
+        setTimeout(() => setFlash(false), 1200)
         onAcquired?.()
       }
-      router.refresh()
     })
   }
 
@@ -95,32 +90,27 @@ export default function AcquisitionToggle({
       <button
         onClick={toggleOwned}
         disabled={isPending}
-        className={`relative flex items-center justify-center gap-2 font-sans font-medium transition-all duration-300 ${
+        className={`relative flex items-center justify-center type-body transition-all duration-300 ${
           compact
-            ? 'w-8 h-8 rounded-full'
+            ? 'w-8 h-8 rounded-full border'
             : 'w-full px-6 py-3 rounded-clay-md'
         } ${
           status === 'owned'
-            ? 'bg-accent-forest/10 text-accent-forest border border-accent-forest/30'
-            : 'bg-ink text-surface hover:bg-ink/90'
-        } ${isPending ? 'opacity-50' : 'active:scale-[0.98]'}`}
+            ? compact
+              ? 'bg-accent-forest/12 text-accent-forest border-accent-forest/35'
+              : 'bg-accent-forest/10 text-accent-forest border border-accent-forest/30'
+            : compact
+              ? 'bg-surface/95 text-muted border-border'
+              : 'bg-ink text-surface hover:bg-ink/90'
+        } ${isPending ? 'opacity-50' : 'active:scale-[0.98]'} ${
+          flash ? 'ring-2 ring-accent-forest ring-offset-1' : ''
+        }`}
         aria-pressed={status === 'owned'}
         aria-label={status === 'owned' ? 'Retirer de la collection' : 'Ajouter à la collection'}
       >
         <Check size={compact ? 16 : 18} strokeWidth={2.5} />
         {!compact && <span>{status === 'owned' ? 'Dans ma collection' : 'Ajouter à ma collection'}</span>}
       </button>
-
-      <AnimatePresence>
-        {showCheck && (
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 1.2, opacity: 0 }}
-            className="absolute inset-0 rounded-clay-md border-2 border-accent-forest pointer-events-none"
-          />
-        )}
-      </AnimatePresence>
 
       {error && <p className="text-xs text-accent-wine mt-2 text-center">{error}</p>}
     </div>

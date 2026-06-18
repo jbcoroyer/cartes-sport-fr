@@ -19,7 +19,7 @@ interface Props {
 export default function ClayBadge({ children, variant = 'neutral', className = '' }: Props) {
   return (
     <span
-      className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-medium uppercase tracking-wide border font-sans ${VARIANTS[variant]} ${className}`}
+      className={`inline-flex items-center px-2.5 py-0.5 rounded-full type-eyebrow text-[10px] border ${VARIANTS[variant]} ${className}`}
     >
       {children}
     </span>

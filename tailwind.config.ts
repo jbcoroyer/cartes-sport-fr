@@ -18,6 +18,13 @@ const config: Config = {
         ghost: '#D4CFC8',
         slot: '#EAE6E1',
 
+        silk: {
+          DEFAULT: 'rgba(20, 16, 12, 0.88)',
+          muted: 'rgba(20, 16, 12, 0.72)',
+          light: 'rgba(255, 250, 242, 0.92)',
+          'light-muted': 'rgba(255, 250, 242, 0.78)',
+        },
+
         accent: {
           wine: '#6B2D3E',
           forest: '#2D5A4A',
@@ -31,14 +38,13 @@ const config: Config = {
       },
 
       fontFamily: {
-        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
-        serif: ['var(--font-serif)', 'Georgia', 'serif'],
+        sans: ['var(--font-schibsted)', 'system-ui', 'sans-serif'],
       },
 
       fontSize: {
         '2xs': ['0.6875rem', { lineHeight: '1rem' }],
-        display: ['3.5rem', { lineHeight: '1.05', letterSpacing: '-0.03em' }],
-        'display-sm': ['2.5rem', { lineHeight: '1.1', letterSpacing: '-0.025em' }],
+        display: ['3.5rem', { lineHeight: '0.98', letterSpacing: '-0.03em', fontWeight: '900' }],
+        'display-sm': ['2.5rem', { lineHeight: '0.98', letterSpacing: '-0.03em', fontWeight: '900' }],
       },
 
       spacing: {

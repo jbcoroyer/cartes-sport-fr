@@ -1,9 +1,10 @@
 import { createServerClient, type CookieOptions } from '@supabase/ssr'
 import { cookies } from 'next/headers'
+import { cache } from 'react'
 import type { SupabaseClient } from '@supabase/supabase-js'
 import type { Database } from '@/lib/types/database'
 
-export async function createClient(): Promise<SupabaseClient<Database>> {
+export const createClient = cache(async (): Promise<SupabaseClient<Database>> => {
   const cookieStore = await cookies()
 
   return createServerClient(
@@ -26,4 +27,4 @@ export async function createClient(): Promise<SupabaseClient<Database>> {
       },
     }
   ) as SupabaseClient<Database>
-}
+})

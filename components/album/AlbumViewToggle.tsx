@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, type ReactNode } from 'react'
+import ViewToolbar from '@/components/collection/ViewToolbar'
 import AlbumFullViewLoader from '@/components/album/AlbumFullViewLoader'
 
 interface Props {
@@ -15,31 +16,17 @@ export default function AlbumViewToggle({ setId, userId, isLoggedIn, clubsView }
 
   return (
     <div>
-      <div className="flex justify-end mb-6">
-        <div className="segment-control w-auto">
-          <button
-            className={`segment-item px-4 ${mode === 'clubs' ? 'active' : ''}`}
-            onClick={() => setMode('clubs')}
-          >
-            Vestiaires
-          </button>
-          <button
-            className={`segment-item px-4 ${mode === 'full' ? 'active' : ''}`}
-            onClick={() => setMode('full')}
-          >
-            Album complet
-          </button>
-        </div>
-      </div>
+      <ViewToolbar
+        segments={[
+          { id: 'clubs', label: 'Vestiaires' },
+          { id: 'full', label: 'Album complet' },
+        ]}
+        activeId={mode}
+        onChange={(id) => setMode(id as 'clubs' | 'full')}
+      />
       <div key={mode}>
         {mode === 'clubs' ? clubsView : (
-          <AlbumFullViewLoader
-            key="full-view"
-            setId={setId}
-            userId={userId}
-            isLoggedIn={isLoggedIn}
-            active
-          />
+          <AlbumFullViewLoader key="full-view" setId={setId} active />
         )}
       </div>
     </div>

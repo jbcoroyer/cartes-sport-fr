@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, type ReactNode } from 'react'
+import ViewToolbar from '@/components/collection/ViewToolbar'
 
 interface Props {
   binderView: ReactNode
@@ -22,23 +23,15 @@ export default function VestiaireViewToggle({ binderView, listCards }: Props) {
 
   return (
     <div>
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-        <div className="segment-control w-auto">
-          <button
-            className={`segment-item px-4 ${mode === 'binder' ? 'active' : ''}`}
-            onClick={() => setMode('binder')}
-          >
-            Classeur
-          </button>
-          <button
-            className={`segment-item px-4 ${mode === 'list' ? 'active' : ''}`}
-            onClick={() => setMode('list')}
-          >
-            Liste
-          </button>
-        </div>
-        {mode === 'list' && (
-          <div className="relative w-full sm:max-w-xs">
+      <ViewToolbar
+        segments={[
+          { id: 'binder', label: 'Classeur' },
+          { id: 'list', label: 'Liste' },
+        ]}
+        activeId={mode}
+        onChange={(id) => setMode(id as 'binder' | 'list')}
+        trailing={
+          mode === 'list' ? (
             <input
               type="search"
               value={query}
@@ -46,13 +39,13 @@ export default function VestiaireViewToggle({ binderView, listCards }: Props) {
               placeholder="Nom ou numéro…"
               className="search-input"
             />
-          </div>
-        )}
-      </div>
+          ) : undefined
+        }
+      />
       {mode === 'binder' ? (
         binderView
       ) : (
-        <ul className="space-y-2">
+        <ul className="collection-list space-y-2">
           {filtered.map((c) => (
             <li key={c.id}>{c.node}</li>
           ))}

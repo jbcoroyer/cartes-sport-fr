@@ -1,8 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { motion } from 'framer-motion'
 import AcquisitionToggle from '@/components/cards/AcquisitionToggle'
+import { getBinderSlotLabels } from '@/lib/collection/variants'
 import type { CollectionStatus } from '@/lib/types/database'
 
 interface Props {
@@ -10,6 +10,9 @@ interface Props {
   cardNumber: string
   playerName: string
   position?: string | null
+  variantType?: string | null
+  cardType?: string | null
+  photoUrl?: string | null
   isOwned: boolean
   collectionStatus: CollectionStatus
   userId?: string
@@ -24,6 +27,9 @@ export default function BinderSlot({
   cardNumber,
   playerName,
   position,
+  variantType,
+  cardType,
+  photoUrl,
   isOwned,
   collectionStatus,
   userId,
@@ -32,53 +38,74 @@ export default function BinderSlot({
   compact = false,
   onAcquired,
 }: Props) {
+  const { slotNumber, variant } = getBinderSlotLabels(cardNumber, variantType, cardType)
   const ariaLabel = isOwned
     ? `Carte ${cardNumber}, ${playerName}, possédée`
     : `Emplacement vide — Carte manquante numéro ${cardNumber}, ${playerName}`
 
+  const tone = isOwned
+    ? {
+        number: 'text-muted',
+        variant: 'text-muted',
+        name: 'text-ink',
+        position: 'text-muted',
+      }
+    : {
+        number: 'text-ink/55',
+        variant: 'text-ink/50',
+        name: 'text-ink',
+        position: 'text-muted',
+      }
+
   const inner = (
-    <motion.div
-      layout
-      className={`relative aspect-[5/7] rounded-clay p-2 md:p-3 flex flex-col justify-between transition-colors duration-500 ${
-        isOwned ? 'binder-slot-owned' : 'binder-slot-missing'
-      } ${compact ? 'text-[10px]' : 'text-xs'}`}
-      initial={false}
-      animate={{ opacity: 1 }}
+    <div
+      className={`binder-slot ${isOwned ? 'binder-slot-owned' : 'binder-slot-missing'} ${
+        compact ? 'text-[10px]' : ''
+      } group-hover:shadow-clay-sm`}
       aria-label={ariaLabel}
     >
-      <span
-        className={`font-data text-right ${isOwned ? 'text-muted' : 'text-ghost text-2xl font-light'}`}
-      >
-        {cardNumber}
-      </span>
-      <div>
-        <p className={`font-medium leading-tight ${isOwned ? 'text-ink' : 'text-ghost'}`}>
-          {playerName}
-        </p>
-        {position && (
-          <p className={`mt-0.5 font-sans ${isOwned ? 'text-muted' : 'text-ghost/80'}`}>
-            {position}
-          </p>
-        )}
-      </div>
-      {isLoggedIn && userId && !compact && (
-        <div className="absolute top-2 left-2" onClick={(e) => e.preventDefault()}>
-          <AcquisitionToggle
-            cardId={cardId}
-            userId={userId}
-            initialStatus={collectionStatus}
-            isLoggedIn={isLoggedIn}
-            compact
-            onAcquired={onAcquired}
-          />
+      <div className="binder-slot-inner">
+        <div className="binder-slot-header">
+          {isLoggedIn && userId && !compact ? (
+            <div className="shrink-0" onClick={(e) => e.preventDefault()}>
+              <AcquisitionToggle
+                cardId={cardId}
+                userId={userId}
+                initialStatus={collectionStatus}
+                isLoggedIn={isLoggedIn}
+                compact
+                onAcquired={onAcquired}
+              />
+            </div>
+          ) : (
+            <span className="w-8 shrink-0" aria-hidden="true" />
+          )}
+          <span className={`binder-slot-number ${tone.number}`}>{slotNumber}</span>
         </div>
-      )}
-    </motion.div>
+
+        <div className="binder-slot-mid">
+          {isOwned && photoUrl ? (
+            <img src={photoUrl} alt="" className="binder-slot-photo" loading="lazy" decoding="async" />
+          ) : (
+            variant && (
+              <span className={`binder-slot-variant ${tone.variant}`}>{variant}</span>
+            )
+          )}
+        </div>
+
+        <div className="binder-slot-foot">
+          <p className={`binder-slot-name ${tone.name}`}>{playerName}</p>
+          {position && (
+            <p className={`binder-slot-pos ${tone.position}`}>{position}</p>
+          )}
+        </div>
+      </div>
+    </div>
   )
 
   if (href) {
     return (
-      <Link href={href} className="block group">
+      <Link href={href} className="block w-full group">
         {inner}
       </Link>
     )

@@ -20,10 +20,10 @@ export default function VariantStack({ variants, selectedId, onSelect }: Props) 
           role="tab"
           aria-selected={v.id === selectedId}
           onClick={() => onSelect(v.id)}
-          className={`px-3 py-1.5 rounded-clay text-xs font-medium transition-all ${
+          className={`px-3 py-1.5 rounded-clay text-xs transition-all ${
             v.id === selectedId
-              ? 'bg-ink text-surface shadow-soft'
-              : 'bg-panel text-muted hover:text-ink border border-border'
+              ? 'type-subtitle bg-ink text-surface shadow-soft'
+              : 'type-body bg-panel text-muted hover:text-ink border border-border'
           }`}
         >
           {getVariantLabel(v)}

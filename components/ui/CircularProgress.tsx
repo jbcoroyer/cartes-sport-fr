@@ -58,7 +58,7 @@ export default function CircularProgress({
         </defs>
       </svg>
       {showLabel && (
-        <span className={`absolute text-xs font-semibold text-ink ${labelClassName}`}>
+        <span className={`absolute text-xs font-data text-ink ${labelClassName}`}>
           {Math.round(clamped)}%
         </span>
       )}

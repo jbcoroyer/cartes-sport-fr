@@ -8,6 +8,7 @@ interface Props {
   className?: string
   size?: 'sm' | 'md' | 'lg'
   interactive?: boolean
+  photoUrl?: string | null
 }
 
 const SIZES = {
@@ -21,6 +22,7 @@ export default function CardSlot({
   className = '',
   size = 'md',
   interactive = true,
+  photoUrl,
 }: Props) {
   const ref = useRef<HTMLDivElement>(null)
 
@@ -70,8 +72,22 @@ export default function CardSlot({
           style={{ transform: 'translateZ(-12px)' }}
         />
         <div className="absolute inset-0 rounded-clay bg-surface border border-border overflow-hidden">
+          {photoUrl ? (
+            <>
+              <img
+                src={photoUrl}
+                alt=""
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/88 to-transparent pointer-events-none" />
+            </>
+          ) : (
+            <div className="absolute inset-0 card-slot-placeholder" aria-hidden="true" />
+          )}
           <motion.div
-            className="h-full flex flex-col justify-between p-3 md:p-4"
+            className={`relative h-full flex flex-col p-3 md:p-4 ${
+              photoUrl ? 'justify-end' : 'justify-between'
+            }`}
             style={interactive ? { x: contentX, y: contentY } : undefined}
           >
             {children}

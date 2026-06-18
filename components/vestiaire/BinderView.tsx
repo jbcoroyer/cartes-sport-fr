@@ -11,6 +11,9 @@ export interface BinderCard {
   cardNumber: string
   playerName: string
   position: string | null
+  variantType?: string | null
+  cardType?: string | null
+  photoUrl?: string | null
   collectionStatus: CollectionStatus
 }
 
@@ -48,7 +51,7 @@ export default function BinderView({
   }
 
   return (
-    <div className="space-y-6">
+    <div className="collection-binder space-y-6">
       <div className="flex items-center justify-between">
         <button
           onClick={() => setPage((p) => Math.max(0, p - 1))}
@@ -58,7 +61,7 @@ export default function BinderView({
         >
           <ChevronLeft size={18} />
         </button>
-        <span className="text-sm text-muted font-sans">
+        <span className="type-body text-sm text-muted font-data">
           Page {page + 1} / {totalPages}
         </span>
         <button
@@ -78,30 +81,31 @@ export default function BinderView({
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -20 }}
           transition={{ duration: 0.3 }}
-          className="binder-grid max-w-md mx-auto"
-          style={{ perspective: '800px' }}
+          className="binder-grid collection-binder-grid max-w-md mx-auto"
         >
-          {pageCards.map((card) => {
-            if (card.id.startsWith('empty-')) {
-              return <div key={card.id} className="aspect-[5/7] rounded-clay bg-panel/30" />
-            }
-            const isOwned = card.collectionStatus === 'owned'
-            return (
-              <BinderSlot
-                key={card.id}
-                cardId={card.id}
-                cardNumber={card.cardNumber}
-                playerName={card.playerName}
-                position={card.position}
-                isOwned={isOwned}
-                collectionStatus={card.collectionStatus}
-                userId={userId}
-                isLoggedIn={isLoggedIn}
-                href={`/carte/${card.id}?from=/album/${setId}/club/${clubId}`}
-                onAcquired={onAcquired}
-              />
-            )
-          })}
+          {pageCards.map((card) => (
+            <div key={card.id} className="binder-slot-cell">
+              {card.id.startsWith('empty-') ? (
+                <div className="binder-slot binder-slot-empty" aria-hidden="true" />
+              ) : (
+                <BinderSlot
+                  cardId={card.id}
+                  cardNumber={card.cardNumber}
+                  playerName={card.playerName}
+                  position={card.position}
+                  variantType={card.variantType}
+                  cardType={card.cardType}
+                  photoUrl={card.photoUrl}
+                  isOwned={card.collectionStatus === 'owned'}
+                  collectionStatus={card.collectionStatus}
+                  userId={userId}
+                  isLoggedIn={isLoggedIn}
+                  href={`/carte/${card.id}?from=/album/${setId}/club/${clubId}`}
+                  onAcquired={onAcquired}
+                />
+              )}
+            </div>
+          ))}
         </motion.div>
       </AnimatePresence>
     </div>

@@ -1,24 +1,21 @@
+import { getAuthUserWithProfile } from '@/lib/supabase/auth'
+import { profileDisplayName } from '@/lib/profile'
 import TopNav from '@/components/ui/TopNav'
-import { createClient } from '@/lib/supabase/server'
-import { ensureProfile, profileDisplayName } from '@/lib/profile'
 
 export default async function AppLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  const supabase = await createClient()
-  const { data: { user } } = await supabase.auth.getUser()
+  const session = await getAuthUserWithProfile()
 
-  let navUser = null
-  if (user) {
-    const profile = await ensureProfile(supabase, user)
-    navUser = {
-      displayName: profileDisplayName(profile, user),
-      avatarUrl: profile?.avatar_url ?? null,
-      href: '/profil',
-    }
-  }
+  const navUser = session?.profile
+    ? {
+        displayName: profileDisplayName(session.profile, session.user),
+        avatarUrl: session.profile.avatar_url ?? null,
+        href: '/profil',
+      }
+    : null
 
   return (
     <>

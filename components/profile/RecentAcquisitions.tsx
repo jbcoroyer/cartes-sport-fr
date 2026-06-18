@@ -28,9 +28,9 @@ export default function RecentAcquisitions({ stories }: Props) {
         >
           <CardSlot size="sm" interactive={false}>
             <span className="font-data text-[10px] text-muted">{s.cardNumber}</span>
-            <p className="text-[10px] font-medium leading-tight line-clamp-2">{s.playerName}</p>
+            <p className="text-[10px] type-subtitle leading-tight line-clamp-2">{s.playerName}</p>
           </CardSlot>
-          <time className="text-[10px] text-muted font-sans">
+          <time className="text-[10px] text-muted type-caption">
             {new Date(s.acquiredAt).toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' })}
           </time>
         </Link>

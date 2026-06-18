@@ -48,7 +48,7 @@ export default function ProfileSettingsForm({ profile, teams }: Props) {
   }
 
   return (
-    <div className="space-y-6 font-sans">
+    <div className="space-y-6 type-body">
       <div>
         <label className="block text-xs text-muted mb-1.5">Club de cœur</label>
         <select
