@@ -72,7 +72,6 @@ export const TEAM_EXTERNAL_ID_OVERRIDES: Record<string, number> = {
   'fc shakhtar donetsk': 610,
   'shakhtar donetsk': 610,
   'rangers f c': 357,
-  'rangers': 357,
   'athletic club': 77,
   'real betis': 90,
   'athletic bilbao': 77,

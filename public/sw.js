@@ -1,7 +1,7 @@
 // Service Worker — Cartes Sport FR
 // Cache statique pour l'expérience offline de base
 
-const CACHE_NAME = 'cartes-sport-v5'
+const CACHE_NAME = 'cartes-sport-v6'
 const STATIC_ASSETS = [
   '/',
   '/manifest.json',

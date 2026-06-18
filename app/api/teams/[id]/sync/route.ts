@@ -32,5 +32,6 @@ export async function POST(
     return NextResponse.json({ error: result.error }, { status: 422 })
   }
 
-  return NextResponse.json({ ok: true, crestUrl: result.crestUrl })
+  const { crestUrl } = result
+  return NextResponse.json({ ok: true, crestUrl })
 }

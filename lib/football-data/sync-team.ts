@@ -69,7 +69,7 @@ export async function syncTeamFromApiTeam(
 
 export async function syncTeamByExternalId(teamId: string, externalId: string) {
   const apiTeam = await getTeamById(externalId)
-  if (!apiTeam?.crest) return { ok: false, error: 'Team not found' }
+  if (!apiTeam?.crest) return { ok: false as const, error: 'Team not found' }
   return syncTeamFromApiTeam(teamId, { ...apiTeam, clubColors: undefined })
 }
 
@@ -78,7 +78,7 @@ export async function syncTeamByName(teamId: string, name: string) {
   const apiTeam = results.find((t) =>
     t.name.toLowerCase().includes(name.toLowerCase().slice(0, 6)),
   ) ?? results[0]
-  if (!apiTeam) return { ok: false, error: 'No match' }
+  if (!apiTeam) return { ok: false as const, error: 'No match' }
   return syncTeamFromApiTeam(teamId, { ...apiTeam, clubColors: undefined })
 }
 
@@ -178,10 +178,6 @@ export async function syncAllTeamsFromCompetitions() {
 
   return { synced, skipped, failed, total: dbTeams?.length ?? 0 }
 }
-
-import type { FootballDataTeam } from './client'
-import { TEAM_CREST_URL_OVERRIDES } from './crest-overrides'
-import { normalizeTeamName } from './normalize'
 
 export function getTeamCrestUrl(team: {
   name?: string
